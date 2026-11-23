@@ -158,3 +158,7 @@ The cap is 5 and endpoint/test-set aggregation is defined above. For these succe
 ## Review gate
 
 Stage 0 passed and the user approved the Stage 1 rules above. Report Stage 1 and stop for review before Stage 2.
+
+### Stage 1 execution record
+
+In [run 45276328667](https://github.com/amromeo/anchorRefine/actions/runs/45276328667), the null calibration and both small-cohort evaluation jobs completed. The independent audit stopped while reading the original RIbench inventory because the out-of-scope 500,000-sample records express N as `5e+05`. The large cohort did not run. Before retrying, the audit reader was corrected to interpret numeric N in either ordinary or scientific notation. The corrected reader selects 2,880 small and 1,440 large records from the frozen specification. Calibration pass status was known. No RIbench performance summaries had been inspected. The fit, test, seeds, inclusion criteria, audit thresholds and reporting rules are identical in both runs. Preserve the initial run and repeat all stages of the Stage 1 workflow.

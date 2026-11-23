@@ -70,7 +70,7 @@ def cohort_definition(cohort):
     with tarfile.open(archive, "r:gz") as source:
         text = io.TextIOWrapper(source.extractfile("RIbench/inst/extdata/SpecificationTestSets.csv"))
         selected = [r for r in csv.DictReader(text) if
-                    (int(r["N"]) <= 5000 if cohort == "small" else int(r["N"]) == 50000)]
+                    (float(r["N"]) <= 5000 if cohort == "small" else float(r["N"]) == 50000)]
     cases = {int(r["Index"]): r for r in selected}
     require(len(cases) == len(selected) == (2880 if cohort == "small" else 1440),
             "Unexpected RIbench cohort definition")
