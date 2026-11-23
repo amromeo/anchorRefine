@@ -52,17 +52,17 @@ RIbench 1.0.2 `R/evaluateResults.R::computePerfMeas` computes signed endpoint de
 
 Two-sided overall absolute deviation is the mean of the two absolute endpoint deviations. CRP uses only its upper endpoint. RIbench calls an overall absolute deviation above 5 implausible, and its `zzDevAbsCutoff_Ov` sets those rows to NA. It does not winsorize them. Our approved primary loss instead clips each endpoint's absolute deviation at 5 before averaging. Report the historical exclusion-based metric separately and retain the approved clipping-based metric for success decisions. Also retain the protocol's max-endpoint E diagnostics and invalid-result counts.
 
-## Required clarification before Stage 0 execution
+## Approved Stage 0 endpoint rules
 
 C2's `score.R` explicitly calls RIbench's `computeRIsAll(..., truncNormal=FALSE)`. Its `getRI()` therefore inverse-transforms ordinary normal quantiles and clips negative or invalid limits to zero. refineR 2.0.0's own `getRI()` calls `cdfTruncatedBoxCox()`, which adjusts quantiles for transformation support. A comparison using one extractor for the reference and the other for the candidate would confound a method difference with machine differences.
 
-Proposed clarification:
+The user approved the following rules on 2026-11-23, before any Stage 0 fitting.
 
 1. Keep exact same-machine equality against CRAN refineR 2.0.0, including its native `getRI()` limits, on all 2,880 sets.
 2. For the C2 cross-machine audit, apply C2's frozen RIbench extraction to both new and archived fits. Keep its endpoint tolerance at 0.1% of the archived interval width. Report the native-versus-historical extraction difference separately, not as a cross-machine discrepancy. Native refineR limits remain the primary limits for anchorRefine's later stages; historical comparisons use explicitly matched extraction.
 3. CRP has only a 95th-percentile upper limit. For its C2 audit, define interval width as upper limit minus the fixed lower reporting bound zero, and test only the upper limit. A nonpositive/nonfinite upper limit remains non-auditable. For scoring and capped loss, use only its requested upper endpoint; do not insert an invented second endpoint.
 
-These choices are proposed for review before execution because the initial protocol did not distinguish the two extraction formulas or specify a one-sided audit width. All 2,880 datasets remain required. No tolerance is relaxed.
+All 2,880 datasets enter both comparisons.
 
 ## Stage 1 preparation still required
 

@@ -1,6 +1,6 @@
 # anchorRefine: stages 0–1 protocol
 
-Status: approved by the user in conversation on 2026-11-23. Source review is recorded in [docs/SOURCE_REVIEW.md](docs/SOURCE_REVIEW.md); its endpoint clarification remains proposed before Stage 0 execution. No benchmark has run.
+Status: approved by the user in conversation on 2026-11-23. The user also approved the endpoint rules in [the source review](docs/SOURCE_REVIEW.md) before Stage 0 execution.
 
 ## Purpose and boundaries
 
@@ -55,7 +55,7 @@ Install CRAN refineR 2.0.0 from the frozen archive in a separate library. Build 
 
 Run both paths on all RIbench N <= 5,000 sets. Require exact same-machine agreement as defined above on every row. Matching failures establish matching behavior but are still counted as failures. A new failure or mismatch fails Stage 0.
 
-Independently compare the pass-through limits to C2 archived refineR limits with the 0.1%-of-archived-width endpoint tolerance. Keep same-machine results and cross-machine results in separate tables. Diagnose source/options/input/version differences before attributing disagreement to hardware.
+For the exact comparisons, use native refineR getRI() with its full-data point estimate. For the historical audit, use RIbench 1.0.2 getRI(truncNormal = FALSE), as in C2, on new and archived fits. Compare new limits to the archived, full-precision C2 limits. Report the native versus historical extraction difference on the same fit separately. For CRP compare only the 95th percentile, using its archived upper limit minus zero as width. For the other nine analytes use the 2.5th and 97.5th percentiles and the archived upper minus lower limit. Apply the 0.1%-of-archived-width tolerance to each requested endpoint. Keep same-machine results and cross-machine results in separate tables. Diagnose source/options/input/version differences before attributing disagreement to hardware.
 
 Deliver: frozen manifest; expected/completed/missing row counts by N; exact-match counts; failures and warnings; per-endpoint cross-machine absolute and width-normalized differences; every tolerance violation; and source/license provenance. Stage 0 passes only when all required exact checks and cross-machine audits pass. Stop and show the report before Stage 1.
 
