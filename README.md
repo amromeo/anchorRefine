@@ -1,7 +1,18 @@
 # anchorRefine
 
-A planned GPL-3 derivative of refineR 2.0.0 that uses screened healthy anchors while fitting the healthy distribution in routine data. This project is separate from anchoredRI.
+anchorRefine fits a healthy reference distribution to routine laboratory measurements. Stage 0 provides refineR's original fit and reference limits. The study protocol describes how later stages will use independently screened healthy patients.
 
-anchorRefine is derived from refineR 2.0.0. It is an independent project and is not endorsed by the refineR authors. Upstream authors: Matthias Beck, Tatjana Ammer, Christopher M Rank, and Andre Schuetzenmeister. The exact upstream archive and source are preserved under `vendor/`, including their original notices.
+anchorRefine is derived from refineR 2.0.0. It is an independent project and is not endorsed by the refineR authors. Matthias Beck, Tatjana Ammer, Christopher M Rank and Andre Schuetzenmeister wrote refineR. This package is licensed under GPL-3. The upstream source and notices are in [vendor/refineR](vendor/refineR).
 
-Current state: protocol approved; source and C2 artifacts preserved. Read [PROTOCOL.md](PROTOCOL.md) for stages 0–1, stage gates, and plans for stages 2–3. No derivative algorithm or benchmark runner has been implemented, and no new fits have run. Read [the source review](docs/SOURCE_REVIEW.md) for archive verification and the endpoint clarification needed before Stage 0.
+To install from this checkout, run the following from the repository root in R. The vendored package requires ash, future and future.apply.
+
+```r
+install.packages(c("ash", "future", "future.apply"))
+install.packages("vendor/refineR", repos = NULL, type = "source")
+install.packages(".", repos = NULL, type = "source")
+
+fit <- anchorRefine::findRI(refineR::testcase1, mode = "passthrough")
+anchorRefine::getRI(fit)
+```
+
+Read the [protocol](PROTOCOL.md), [C2 source review](docs/SOURCE_REVIEW.md) and [Stage 0 run specification](docs/stage0/DESIGN.md) for the study design and the two endpoint calculations.

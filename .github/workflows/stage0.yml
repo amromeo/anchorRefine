@@ -1,0 +1,71 @@
+name: Stage 0 reproduce refineR
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  fit:
+    name: Stage 0 shard ${{ matrix.shard }}
+    runs-on: ubuntu-24.04
+    container: rocker/r-ver@sha256:5e8963d73b87865e0ad779df4202555fb1b436ee95dc7d7442450308b8ea77f3
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    env:
+      LC_ALL: C.UTF-8
+      TZ: UTC
+      OMP_NUM_THREADS: 1
+      OPENBLAS_NUM_THREADS: 1
+      MKL_NUM_THREADS: 1
+      SHARD: ${{ matrix.shard }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify frozen libraries and inputs
+        shell: bash
+        run: |
+          (cd stage0/frozen && sha256sum --quiet --check bundle.sha256)
+          sha256sum --quiet --check sources/SHA256SUMS
+          sha256sum --quiet --check stage0/SHA256SUMS
+          mkdir -p "$RUNNER_TEMP/bundle" output
+          tar -C "$RUNNER_TEMP/bundle" -xzf stage0/frozen/bundle.tar.gz
+          (cd "$RUNNER_TEMP/bundle" && sha256sum --quiet --check "$GITHUB_WORKSPACE/stage0/frozen/installed-files.sha256")
+          {
+            echo "commit=$GITHUB_SHA run=$GITHUB_RUN_ID attempt=$GITHUB_RUN_ATTEMPT shard=$SHARD"
+            uname -a
+            lscpu
+            date -u
+          } > output/host.txt
+      - name: Fit and repeat in isolated R sessions on this host
+        shell: bash
+        run: |
+          for repeat in 1 2; do
+            Rscript --vanilla stage0/worker.R "$RUNNER_TEMP/bundle" cran "$repeat" "$SHARD" output > "output/cran-$repeat.log" 2>&1 &
+            ref_pid=$!
+            Rscript --vanilla stage0/worker.R "$RUNNER_TEMP/bundle" vendored "$repeat" "$SHARD" output > "output/vendored-$repeat.log" 2>&1 &
+            pass_pid=$!
+            status=0
+            wait "$ref_pid" || status=1
+            wait "$pass_pid" || status=1
+            tail -n 4 "output/cran-$repeat.log" "output/vendored-$repeat.log"
+            test "$status" = 0
+          done
+      - name: Audit saved results and recheck all hashes
+        shell: bash
+        run: |
+          Rscript --vanilla stage0/audit.R "$RUNNER_TEMP/bundle" "$SHARD" output
+          sha256sum --quiet --check sources/SHA256SUMS
+          sha256sum --quiet --check stage0/SHA256SUMS
+          (cd "$RUNNER_TEMP/bundle" && sha256sum --quiet --check "$GITHUB_WORKSPACE/stage0/frozen/installed-files.sha256")
+          (cd stage0/frozen && sha256sum --quiet --check bundle.sha256)
+          date -u >> output/host.txt
+          (cd output && sha256sum *.rds *.txt *.csv *.log) > "$RUNNER_TEMP/result-hashes"
+          cp "$RUNNER_TEMP/result-hashes" output/SHA256SUMS
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: stage0-shard-${{ matrix.shard }}
+          path: output/
+          compression-level: 1
+          retention-days: 90
