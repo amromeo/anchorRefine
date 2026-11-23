@@ -1,0 +1,13 @@
+"cohort","method","endpoint","field","matched_rows","exactly_equal","both_finite","archived_nonfinite","results_nonfinite","nonfinite_kind_diff","max_finite_abs_diff","differs_abs_lt_0.25","differs_abs_gt_1","differs_abs_gt_5"
+"small","refineR","lower","z",2592,2592,2592,0,0,0,"0",0,0,0
+"small","refineR","lower","estimate",2592,2592,2592,0,0,0,"0",,,
+"small","refineR","upper","z",2880,2880,2880,0,0,0,"0",0,0,0
+"small","refineR","upper","estimate",2880,2880,2880,0,0,0,"0",,,
+"small","anchorsOnly","lower","z",2592,2592,2592,0,0,0,"0",0,0,0
+"small","anchorsOnly","lower","estimate",2592,2592,2592,0,0,0,"0",,,
+"small","anchorsOnly","upper","z",2880,2880,2880,0,0,0,"0",0,0,0
+"small","anchorsOnly","upper","estimate",2880,2880,2880,0,0,0,"0",,,
+"small","anchoredRI_old","lower","z",2592,2592,2592,0,0,0,"0",0,0,0
+"small","anchoredRI_old","lower","estimate",2592,2592,2592,0,0,0,"0",,,
+"small","anchoredRI_old","upper","z",2880,2880,2880,0,0,0,"0",0,0,0
+"small","anchoredRI_old","upper","estimate",2880,2880,2880,0,0,0,"0",,,

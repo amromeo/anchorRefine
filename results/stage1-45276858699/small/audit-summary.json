@@ -1,0 +1,81 @@
+{
+  "cohort": "small",
+  "expected": 2880,
+  "audited": 2880,
+  "passed_exact": 2880,
+  "passed_cross_machine": 2880,
+  "passed_kept_limits": 2880,
+  "exact_file_matches": {
+    "checks.csv": true,
+    "estimates.csv": true,
+    "results.rds": true
+  },
+  "hosts": [
+    {
+      "boot": "f2a05cda-1d3d-4dfb-95dc-4576799c2423",
+      "node": "runnervmeozm8",
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+      "runner": "GitHub Actions 1000000867",
+      "os": "Linux",
+      "run": "45276858699",
+      "attempt": "1",
+      "job": "check",
+      "repo": "amromeo/anchorRefine",
+      "commit": "ec7ab5400b61ff732dec34aa6460d96bbc623ea0",
+      "session": "9a691c58-3e00-40af-a3b8-dc5d3290517e",
+      "settings": {
+        "LC_ALL": "C.UTF-8",
+        "TZ": "UTC",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1"
+      },
+      "r_pid": 63
+    },
+    {
+      "boot": "f2a05cda-1d3d-4dfb-95dc-4576799c2423",
+      "node": "runnervmeozm8",
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+      "runner": "GitHub Actions 1000000867",
+      "os": "Linux",
+      "run": "45276858699",
+      "attempt": "1",
+      "job": "check",
+      "repo": "amromeo/anchorRefine",
+      "commit": "ec7ab5400b61ff732dec34aa6460d96bbc623ea0",
+      "session": "05175ccd-a6c2-4dd7-acf7-c44147d597b1",
+      "settings": {
+        "LC_ALL": "C.UTF-8",
+        "TZ": "UTC",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1"
+      },
+      "r_pid": 80
+    },
+    {
+      "boot": "82ee3c74-ee2c-48ed-97d1-c77a5dbb6982",
+      "node": "runnervmeozm8",
+      "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+      "runner": "GitHub Actions 1000000868",
+      "os": "Linux",
+      "run": "45276858699",
+      "attempt": "1",
+      "job": "check",
+      "repo": "amromeo/anchorRefine",
+      "commit": "ec7ab5400b61ff732dec34aa6460d96bbc623ea0",
+      "session": "3ed5edf2-5119-43f1-80ad-9a9b4d39213a",
+      "settings": {
+        "LC_ALL": "C.UTF-8",
+        "TZ": "UTC",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1"
+      },
+      "r_pid": 63
+    }
+  ],
+  "primary_max_abs_p_delta": 0.0,
+  "secondary_max_abs_p_delta": 0.0,
+  "passed": true
+}
