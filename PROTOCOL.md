@@ -1,6 +1,6 @@
 # anchorRefine study protocol
 
-Stages 0 and 1 are complete and accepted. The Stage 2 plan below is proposed for review. Implementation and runs await approval.
+Stages 0 and 1 are complete and accepted. Stage 2 development is approved under the three amendments below. Report development and the selected K before opening confirmation.
 
 ## Purpose and boundaries
 
@@ -131,7 +131,7 @@ Stage 1 has no invented performance pass threshold. It passes technical validati
 
 ## Stages 2 and 3
 
-### Stage 2 proposal for approval
+### Stage 2 approved development protocol
 
 **Question.** Can 40 screened healthy measurements identify the healthy peak and improve refineR’s reference limits when more than 20% of the routine sample is pathological? Stage 2 guides the routine-data search. The routine histogram supplies the fitted model’s cost. There is one final fit per method and dataset. The 40 anchors remain separate from the routine sample.
 
@@ -177,16 +177,16 @@ After plan approval, build a **new synthetic dataset**, with no RIbench generato
 
 | Factor | Prespecified levels |
 |---|---|
-| Healthy family (lambda, Mu, Sigma) | (0, log(10), 0.35) and (1, 1, 1.2) |
+| Healthy family (lambda, Mu, Sigma) | (0, log(10), 0.35), (1, 12, 1), and (0.5, 4, 0.75), in that order. In the linear family the median is 13 to machine precision. The power-0.5 family puts the transformed lower boundary at −2, eight SDs below Mu. |
 | Routine sample size | 1,500 and 50,000 |
 | Pathological fraction | 0.25, 0.45 and 0.60 for the development target. Use separate control cells at 0.10 and 0.20. |
 | Disease score (mean, SD) | Left separated (−3, 0.7), right separated (+3, 0.7), left shoulder (−0.65, 0.9), right shoulder (+0.65, 0.9), bilateral separated (equal mixture of the two separated distributions), and overlapping at the healthy center (0, 1.6). |
-| Assay rounding increment | 0.1 and 1 in original measurement units, applied to routine and anchor values |
+| Assay rounding increment | 0.05 and 0.25 times the population SD of the unrounded healthy measurement in original units for that family. Compute this SD under H including its support correction. Round to h × round(x/h) using R ties-to-even for both routine and anchor measurements. Use this same h for the PIT bin edges. |
 | Replicates per factorial cell | Four for development, eight fresh replicates for confirmation |
 
-Cross all levels. Draw exactly N times the stated pathological fraction from the designated disease distribution, the remainder from H, then shuffle the routine vector. In the bilateral case assign half of disease draws to each side, with an odd extra draw on the right. Draw 40 healthy anchors independently per dataset. Draw a second independent panel of 40 **only for a simulation diagnostic**. Apply the check to the already fitted model using that fresh panel and report how often reusing the guidance panel changes the decision. Only the original 40 determine the fit and the primary release decision.
+Cross all levels. Draw exactly N times the stated pathological fraction from the designated disease distribution, the remainder from H, then shuffle the routine vector. In the bilateral case assign half of disease draws to each side, with an odd extra draw on the right. Draw 40 healthy anchors independently per dataset. Draw a second independent panel of 40 **only for a simulation diagnostic**. Apply the check to the already fitted model using that fresh panel and report how often reusing the guidance panel changes the decision. For each panel and both PIT seeds report the share of baseline or candidate errors caught at E > 1 and E > 5 and the share with E < 0.25 declined, using the corresponding pre-check fit and Stage 1 denominator rules. Pair decisions within dataset and fit. Only the original 40 determine the fit and the primary release decision.
 
-Enumerate cells in table order, in the listed order within each row, with replicate varying fastest. Number development datasets from j = 1 and confirmation datasets separately from j = 1. Use integer seeds 60000000 + 10j + k (development) and 70000000 + 10j + k (confirmation), with k = 0 for routine draws and shuffle, 1 for guidance anchors, 2 for the diagnostic anchors, 3 for the routine fitter, and 4 and 5 for the primary and alternate PIT randomizations. Use 6 and 7 for the diagnostic panel’s two PIT randomizations. Freeze the R RNG kinds used in Stage 1. This gives 576 target and 384 control datasets for development, then 1,152 target and 768 controls for confirmation. Freeze and hash the generator, truth and seed manifest before generating data. Keep component labels and truth accessible only to scoring. Hash ordered routine vectors and panels, and pair them across arms.
+Enumerate cells in table order, in the listed order within each row, with replicate varying fastest. Number development datasets from j = 1 and confirmation datasets separately from j = 1. Use integer seeds 62000000 + 10j + k (development) and 72000000 + 10j + k (confirmation), with k = 0 for routine draws and shuffle, 1 for guidance anchors, 2 for the diagnostic anchors, 3 for the routine fitter, and 4 and 5 for the primary and alternate PIT randomizations. Use 6 and 7 for the diagnostic panel’s two PIT randomizations. Freeze the R RNG kinds used in Stage 1. This gives 864 target and 576 control datasets for development (1,440 total), then 1,728 target and 1,152 controls for confirmation (2,880 total, kept unopened during development). Freeze and hash the generator, truth and seed manifest before generating data. Keep component labels and truth accessible only to scoring. Hash ordered routine vectors and panels, and pair them across arms.
 
 **Choice and independent check.** Run the two full K candidates and the baseline on development data only. Compute each dataset’s native endpoint error in healthy standard-normal units, Phi-inverse(H(truth)) minus Phi-inverse(H(estimate)). Map out-of-support limits to their CDF boundary and count them separately. Apply the same cap of 5, equal weighting and missing-result loss as in the benchmark. Rank K by the smaller worst of its two N-specific differences from baseline in mean **pre-check** capped loss on the >20% development cells. On an exact tie choose K = 28. This selects the fitter on the accuracy of the intervals it estimates. Also report controls, implausible counts, fallback, and results after the check for both candidates. Commit the chosen K, code, hashes and development report **before opening confirmation**. On confirmation run the one selected candidate, the three ablations and baseline once. Report all strata, including overlapping disease and controls, before RIbench. Report which targets the confirmation results meet and retain the prespecified candidate for the benchmark. A change to the rule requires a documented amendment, new source freeze and fresh confirmation data before evaluation. RIbench is reserved for evaluating the frozen candidate. Its results cannot select or revise the rule.
 
@@ -194,7 +194,7 @@ Enumerate cells in table order, in the listed order within each row, with replic
 
 After development and confirmation, freeze the candidate, sources, environment, code for all arms, input manifest, decision rules and reporting code before any RIbench run. Use the Stage 0/1 frozen routine vectors or their hash-verified regeneration and independently screened panels (40 per Index, anchor seed 17000000 + Index, PIT seeds 38000000 + Index and 39000000 + Index). Use the same routine fitter seed and settings across paired arms. Evaluate on GitHub Actions, small cohort first, then N = 50,000 after the small technical audit. Include every planned Index. Report the unchanged refineR baseline before its check and its Stage 1 release on the same indices.
 
-For each arm report the fitted intervals **before checking** and the released intervals **after checking** at both pathological-fraction strata and both sample-size groups. Show raw counts, denominators, kept-set accuracy, and all-dataset loss with 5 for each missing result. Also compare the post-check candidate with the post-check baseline to measure the change from Stage 1 at the same checking rule. Assess the pre-check fit and the post-check release separately against **ungated unmodified refineR**, using the fixed success criteria below. The formal result for the released Stage 2 method is the post-check comparison. A fit-level improvement alone does not establish success for released results. A declined interval counts as a nonreturn even when its underlying fit was accurate.
+For each arm report the fitted intervals **before checking** and the released intervals **after checking** at both pathological-fraction strata and both sample-size groups. Show raw counts, denominators, kept-set accuracy, and all-dataset loss with 5 for each missing result. **Judge Stage 2 on the pre-check candidate fit versus unchanged, ungated refineR** using the fixed gates below. Charge a fit failure, including failed fallback, loss 5. **Judge the checked release separately against refineR with the same Stage 1 check** on the same guidance anchors and primary PIT seed. Apply the same criteria, counting declines and other nonreturns as loss 5 on both sides. Show checked candidate versus ungated refineR in a descriptive table only. Report both judgments separately. The fresh panel is a simulation diagnostic and never determines actual release.
 
 For the implausibility gate use the archived RIbench definition, an **uncapped mean absolute endpoint z above 5** within a dataset (CRP has one endpoint). Show E > 5, nonfinite, out-of-support and unordered limits separately. Report these counts on raw fits as well as releases so a decline cannot conceal an implausible fit. Use paired percentile intervals clustered by (Analyte, Scenario) as in Stage 1. In the synthetic study cluster by factorial design cell, with replicates together. Report the same-host exact comparisons and a distinct-host tolerance audit on every planned set. Check parameters, raw and released endpoints, scores, peak choice, fallback, both PIT p-values and decisions. Use the existing endpoint tolerance of 0.1% of reference width and absolute p-value tolerance of 0.0001 on the separate host, require matching decisions and branch choices, and report all discrepancies. Stop for review after Stage 2.
 
@@ -210,7 +210,7 @@ The required Stage 3 proposal must specify the proper Box–Cox anchor density (
 
 ### Fixed success criteria for each of Stages 2 and 3
 
-Use native refineR limits for both sides of every Stage 2 and Stage 3 success gate. Keep historical C2 limits as a labeled secondary analysis. Evaluate each candidate against unchanged refineR, separately at N <= 5,000 and N = 50,000. Stage 3 also reports its paired difference from Stage 2. Success requires all of the following in both sample-size groups:
+Use native refineR limits for both sides of every Stage 2 and Stage 3 success gate. Keep historical C2 limits as a labeled secondary analysis. Evaluate the Stage 2 fitter and checked release against their respective baselines as specified above. Evaluate Stage 3 against unchanged refineR. Apply each gate separately at N <= 5,000 and N = 50,000. Stage 3 also reports its paired difference from Stage 2. Success requires all of the following in both sample-size groups:
 
 - At > 20% pathological: strictly lower primary capped mean |z| than refineR.
 - At <= 20% pathological: candidate minus refineR capped mean |z| <= 0.02.
@@ -220,7 +220,7 @@ The cap is 5 and endpoint/test-set aggregation is defined above. For these succe
 
 ## Review gate
 
-Stage 1 was accepted on 2026-11-23. This Stage 2 proposal is the sole new deliverable at this review. The next authorized step after approval would be to implement and freeze the development generator and search rules. Stage 3 still requires a written common-scale objective and separate approval. The original Stage 0 and Stage 1 manifests apply at their respective run commits.
+The user approved the Stage 2 plan with three amendments on 2026-11-23, before generating any development or confirmation data. The amendments pair like-for-like success comparisons, move the simulated healthy families away from their support boundaries and scale rounding to healthy SD, and measure bad-result capture and good-result loss for both anchor panels. Implement and freeze the generator and search rules, run development, then stop and show the chosen K and development report before opening confirmation. Stage 3 still requires a written common-scale objective and separate approval. The original Stage 0 and Stage 1 manifests apply at their respective run commits.
 
 ### Stage 1 execution record
 
