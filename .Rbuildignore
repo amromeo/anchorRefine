@@ -1,0 +1,12 @@
+^\.git$
+^\.github$
+^\.gitignore$
+^PROTOCOL\.md$
+^README\.md$
+^LICENSE$
+^archive$
+^docs$
+^sources$
+^vendor$
+^stage0$
+^results$

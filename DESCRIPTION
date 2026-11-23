@@ -1,0 +1,16 @@
+Package: anchorRefine
+Type: Package
+Title: Reference Intervals Using refineR and Healthy Anchors
+Version: 0.0.1
+Authors@R: c(
+    person("anchorRefine project", role = "cre", email = "amromeo@users.noreply.github.com"),
+    person("Matthias", "Beck", role = "aut", comment = "Upstream refineR"),
+    person("Tatjana", "Ammer", role = "aut", comment = "Upstream refineR"),
+    person("Christopher M", "Rank", role = "aut", comment = "Upstream refineR"),
+    person("Andre", "Schuetzenmeister", role = "aut", comment = "Upstream refineR"))
+Description: Provides a pass-through mode for the vendored refineR 2.0.0
+    algorithm. Derived from refineR. This independent project is not endorsed
+    by the refineR authors.
+License: GPL-3
+Encoding: UTF-8
+Imports: refineR (== 2.0.0)

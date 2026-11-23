@@ -1,0 +1,47 @@
+name: Stage 0 input and library freeze
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    container: rocker/r-ver@sha256:5e8963d73b87865e0ad779df4202555fb1b436ee95dc7d7442450308b8ea77f3
+    timeout-minutes: 45
+    env:
+      LC_ALL: C.UTF-8
+      TZ: UTC
+      OMP_NUM_THREADS: 1
+      OPENBLAS_NUM_THREADS: 1
+      MKL_NUM_THREADS: 1
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Check preserved sources and compile the two installations
+        shell: bash
+        run: |
+          sha256sum --quiet --check sources/SHA256SUMS
+          bash stage0/build-libraries.sh "$RUNNER_TEMP/bundle"
+      - name: Verify all inputs, then freeze the installed libraries and case files
+        shell: bash
+        run: |
+          root="$RUNNER_TEMP/bundle"
+          Rscript --vanilla stage0/prepare.R "$root" 20
+          mkdir -p freeze
+          cp "$root/inputs/verified-inputs.csv" "$root/inputs/build-session.txt" freeze/
+          (cd "$root" && find cran vendored deps inputs -type f -print0 | LC_ALL=C sort -z | xargs -0 sha256sum) > freeze/installed-files.sha256
+          cp freeze/installed-files.sha256 "$root/"
+          tar -C "$root" -czf bundle.tar.gz cran vendored deps inputs installed-files.sha256
+          sha256sum bundle.tar.gz > freeze/bundle.sha256
+          sha256sum --quiet --check sources/SHA256SUMS
+          echo "$GITHUB_SHA" > freeze/build-commit.txt
+          uname -a > freeze/build-host.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: stage0-build
+          path: bundle.tar.gz
+          compression-level: 0
+          retention-days: 90
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: stage0-freeze
+          path: freeze/
+          retention-days: 90
