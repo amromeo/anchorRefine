@@ -1,0 +1,7 @@
+library(RIbench)
+a<-commandArgs(TRUE);workingDir<-a[1];dir.create(workingDir,recursive=TRUE,showWarnings=FALSE)
+testsets<-loadTestsetDefinition();testsets<-testsets[testsets$N<=5000,];stopifnot(nrow(testsets)==2880)
+t<-system.time(generateBiomarkerTestSets(workingDir,subset=testsets,verbose=FALSE))
+write.csv(testsets,file.path(workingDir,'testsets.csv'),row.names=FALSE)
+write.csv(data.frame(generation_elapsed=t[['elapsed']]),file.path(workingDir,'generation-runtime.csv'),row.names=FALSE)
+cat('Saved 2880 small-N datasets in',t[['elapsed']],'seconds\n')

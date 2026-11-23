@@ -1,0 +1,16 @@
+[
+  {
+    "file": "ribench-data-small.zip",
+    "sha256": "a4efc6e89c204d1f48b55adf4438fbf39cd7ef535faf4adfa4be2f86e36e1c27",
+    "artifact_id": 14784000559,
+    "bytes": 11040700,
+    "expires_at": "2026-12-23T01:50:09Z"
+  },
+  {
+    "file": "ribench-scored-independent.zip",
+    "sha256": "390d5801032b7cc5e64fbc5efbef3ed4c2a2b94e1a6f83e9fe4bdc38ed263d07",
+    "artifact_id": 14783937282,
+    "bytes": 11117261,
+    "expires_at": "2026-12-23T02:02:25Z"
+  }
+]

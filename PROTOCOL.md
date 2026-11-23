@@ -1,6 +1,6 @@
 # anchorRefine: stages 0–1 protocol
 
-Status: proposed for review. No implementation or benchmark run is authorized by this document alone. Prepared 2026-11-23.
+Status: approved by the user in conversation on 2026-11-23. Source review is recorded in [docs/SOURCE_REVIEW.md](docs/SOURCE_REVIEW.md); its endpoint clarification remains proposed before Stage 0 execution. No benchmark has run.
 
 ## Purpose and boundaries
 
@@ -21,11 +21,11 @@ Source inspected, without executing it:
 - SHA-256: `c9ffc7a42f81d6a40e2448504673e57defeaf03d7d1f72f3acd64a6f3e8fc02a`.
 - The archive URL under `src/contrib/Archive/refineR/` returned 404 at inspection. Preserve the downloaded bytes rather than relying on a mutable URL.
 
-No upstream code is vendored in this initial documentation commit. The archive was downloaded only to a temporary inspection directory.
+The initial documentation commit contained no upstream code. After protocol approval, the exact archive and extracted source were vendored under `vendor/`; original notices are retained.
 
 ## Required inputs and freeze before runs
 
-The anchoredRI repository and C2 artifacts are not currently accessible at `amromeo/anchoredRI`. Their location is a blocking prerequisite for benchmark execution, not a reason to substitute another experiment.
+The source project is `amromeo/amromeo.github.io`, directory `anchoredRI/`. C2 run 45096614442 and its source history have been located and preserved. See [docs/SOURCE_REVIEW.md](docs/SOURCE_REVIEW.md) for immutable revisions, source hashes, parameter availability and remaining execution prerequisites.
 
 Before Stage 0, commit an input manifest specifying:
 
