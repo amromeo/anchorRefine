@@ -44,8 +44,8 @@ stage1_log_add <- function(a, b) {
     result
 }
 
-stage1_rounding_bins <- function(anchors, fit, decimals) {
-    half <- 0.5 * 10^(-decimals)
+stage1_rounding_bins <- function(anchors, fit, decimals, increment = 10^(-decimals)) {
+    half <- 0.5 * increment
     lower <- anchors - half
     upper <- anchors + half
     list(lower = stage1_log_cdf(lower, fit), upper = stage1_log_cdf(upper, fit),
@@ -147,7 +147,7 @@ stage1_uniforms <- function(seed, n) {
 }
 
 # The check is conditional on the routine-data model. It never changes the fit.
-stage1_check <- function(anchors, fit, decimals, seed) {
+stage1_check <- function(anchors, fit, decimals, seed, increment = NULL) {
     result <- function(status, reason, statistic = NA_real_, p = NA_real_) {
         list(status = status, reason = reason, statistic = statistic, p = p)
     }
@@ -161,12 +161,22 @@ stage1_check <- function(anchors, fit, decimals, seed) {
     if (!is.numeric(anchors) || length(anchors) != 40L || any(!is.finite(anchors)) ||
         any(anchors < 0))
         return(result("check_failed", "invalid_anchor_panel"))
-    if (!scalar(decimals) || decimals != trunc(decimals) || !is.finite(10^(-decimals)) ||
-        0.5 * 10^(-decimals) == 0 || any(round(anchors, decimals) != anchors))
-        return(result("check_failed", "invalid_rounding_grid"))
+    if (is.null(increment)) {
+        if (!scalar(decimals) || decimals != trunc(decimals) || !is.finite(10^(-decimals)) ||
+            0.5 * 10^(-decimals) == 0 || any(round(anchors, decimals) != anchors))
+            return(result("check_failed", "invalid_rounding_grid"))
+        increment <- 10^(-decimals)
+    } else {
+        if (!scalar(increment) || increment <= 0 || 0.5 * increment == 0)
+            return(result("check_failed", "invalid_rounding_grid"))
+        units <- anchors / increment
+        if (any(!is.finite(units)) ||
+            any(abs(units - round(units)) > 8 * .Machine$double.eps * pmax(1, abs(units))))
+            return(result("check_failed", "invalid_rounding_grid"))
+    }
     if (!scalar(seed) || seed != trunc(seed) || seed < 0 || seed > .Machine$integer.max)
         return(result("check_failed", "invalid_pit_seed"))
-    bins <- stage1_rounding_bins(anchors, fit, decimals)
+    bins <- stage1_rounding_bins(anchors, fit, decimals, increment)
     if (any(bins$impossible))
         return(result("decline", "structural_incompatibility", Inf, 0))
     flat <- bins$lower$cdf == bins$upper$cdf & bins$lower$survival == bins$upper$survival
@@ -180,4 +190,9 @@ stage1_check <- function(anchors, fit, decimals, seed) {
     if (!is.finite(p)) return(result("check_failed", "null_integration_failed", statistic))
     if (p < 0.01) return(result("decline", "p_below_threshold", statistic, p))
     result("keep", "within_threshold", statistic, p)
+}
+
+# The development assays use a fixed increment expressed in measurement units.
+stage2_check <- function(fit, anchors, h, seed) {
+    stage1_check(anchors, fit, decimals = NULL, seed = seed, increment = h)
 }

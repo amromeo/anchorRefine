@@ -1,7 +1,7 @@
 Package: anchorRefine
 Type: Package
 Title: Reference Intervals Using refineR and Healthy Anchors
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person("anchorRefine project", role = "cre", email = "amromeo@users.noreply.github.com"),
     person("Matthias", "Beck", role = "aut", comment = "Upstream refineR"),
@@ -9,9 +9,10 @@ Authors@R: c(
     person("Christopher M", "Rank", role = "aut", comment = "Upstream refineR"),
     person("Andre", "Schuetzenmeister", role = "aut", comment = "Upstream refineR"))
 Description: Provides a pass-through mode for the vendored refineR 2.0.0
-    algorithm and checks its fitted model against rounded observations from
+    algorithm, guides its Box-Cox search with healthy anchors, and checks its
+    fitted model against rounded observations from
     screened healthy patients. Derived from refineR. This independent project is not endorsed
     by the refineR authors.
 License: GPL-3
 Encoding: UTF-8
-Imports: refineR (== 2.0.0)
+Imports: future.apply, refineR (== 2.0.0)
