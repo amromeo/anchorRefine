@@ -1,6 +1,6 @@
-# anchorRefine: stages 0–1 protocol
+# anchorRefine study protocol
 
-Status: approved by the user in conversation on 2026-11-23. Stage 0 and its report were approved. The user approved Stage 1 with the extraction, rounding, comparator and execution decisions below before any Stage 1 run.
+Stages 0 and 1 are complete and accepted. The Stage 2 plan below is proposed for review. Implementation and runs await approval.
 
 ## Purpose and boundaries
 
@@ -129,11 +129,74 @@ Provide 95% uncertainty intervals for rates and paired loss differences, cluster
 
 Stage 1 has no invented performance pass threshold. It passes technical validation only if inputs, calibration, exact preservation of kept fits, reproducibility and audits pass. Present the full usefulness results, including false declines, for user review. Stop before Stage 2 regardless of whether results look favorable.
 
-## Stages 2–3: plans only
+## Stages 2 and 3
 
-### Stage 2
+### Stage 2 proposal for approval
 
-Use anchors to select a healthy peak in `findMainPeak`, then inform starting values and search regions. Preserve the central-data healthy-only fitting approach. Focus evaluation on > 20% pathological sets. Before coding, commit the exact peak rule, parameter bounds, fallback behavior, and ablations (peak guidance, initialization, search bounds). Use development simulations separate from RIbench evaluation sets; never tune choices using benchmark truth or benchmark outcomes. Freeze one primary candidate before evaluation.
+**Question.** Can 40 screened healthy measurements identify the healthy peak and improve refineR’s reference limits when more than 20% of the routine sample is pathological? Stage 2 guides the routine-data search. The routine histogram supplies the fitted model’s cost. There is one final fit per method and dataset. The 40 anchors remain separate from the routine sample.
+
+**Primary extraction for Stages 2 and 3.** Use native refineR 2.0.0 `getRI` with its Box–Cox support correction for **every success gate**, for both candidate and baseline. Report the C2 historical formula, RIbench 1.0.2 `getRI(truncNormal = FALSE)`, as a labeled secondary analysis on the same fits. At N ≤ 5,000 in Stage 1, 42 refineR fits had E > 5 under the historical extraction and 18 under the native extraction. The extractor alone changed which errors counted as severe. The support-corrected limits are the output we intend to evaluate going forward. Stage 1 retains its historical-primary analysis. [Stage 1 results](results/stage1-45276858699/analysis/REPORT.md)
+
+#### 1. Choose a routine-data peak
+
+1. Use the Stage 0 plain Box–Cox fit with shift 0 and no bootstrap. Make the initial choice at the **first raw-scale** `findMainPeak` call in `estimateAB`, on upstream’s 512-bin average shifted histogram (ASH), before trimming or constructing the cost histogram. Use the routine peaks and valleys detected by upstream. For adjacent peaks use the intervening detected valley with lowest density (leftmost on an exact tie). Use the ASH window edges for the two outer boundaries. An absent intervening valley, missing peak, zero-width basin or nonfinite density makes guidance unavailable. A basin is its interval between boundaries. An interior boundary belongs to the basin on its right. The final right edge is included.
+2. Let h be the recorded anchor rounding increment. Each of the 40 anchors casts at most one vote. Count it for a basin only if its full possible measurement interval [a − h/2, a + h/2), intersected with the positive measurement support, lies in that basin. A cell crossing a valley or extending outside the ASH window casts no vote. An empty intersection casts no vote. Keep 40 in the denominator. Use finite nonnegative anchors on the declared grid in their original draw order. Compute raw anchor quantiles with R type 7.
+3. A clear winner must have at least **K of 40 votes**, lead the runner-up by at least **8**, and have its coarse peak location inside the anchors’ inclusive 10th-to-90th percentile interval. Use zero runner-up votes for a single peak. A tie or failure of any condition invokes the fallback below. An isolated mixture peak can pass this rule even when disease overlaps it. The development set explicitly tests that case. The only candidate choices are K = 24 and K = 28. Section 4 fixes how to choose one before RIbench.
+4. For peak guidance, record the winning raw basin and use its peak index for that first coarse choice. At every subsequent coarse or fine peak choice in `estimateAB` and in both per-lambda passes of `defineSearchRegions`, restrict the detected routine peaks to those inside that raw basin. On a transformed grid compare in Box–Cox coordinates by mapping the basin endpoints to the working scale, taking the positive-domain limit at zero. Among eligible peaks choose the one closest to the median of the anchors that voted for the winning basin, transformed to the current scale. Break exact ties by larger routine density, then lower grid index. The median is computed on raw anchors before transformation. A nonfinite target or no eligible peak triggers fallback. This tracks a basin across transformations while allowing its modal location to move.
+5. After each index choice use upstream’s three-bin interpolation, 35%-height local window, smoothing, and subsequent histogram/width calculations. A peak change can therefore change both the histogram endpoints (`abHist`) and the routine window for parameter estimation (`abSearchReg`). Score each search on its own resulting routine histogram. The rule never chooses between peak windows by comparing costs on different histograms. [Vendored search and density code](vendor/refineR/R/algoInvHist.R)
+
+#### 2. Set initial values and search regions
+
+For each lambda on both upstream passes, apply its Box–Cox transformation T to the type-7 quartiles of **all 40** anchors. Use m = T(Q50) and s = [T(Q75) − T(Q25)] / 1.3489795003921634. These are location and scale proposals for the grid. The histogram fit estimates Mu and Sigma. Require positive Q25, three finite transformed quartiles, and s > 0. Compute each proposal deterministically without PIT jitter.
+
+| Component | Operation when active |
+|---|---|
+| Starting values | For active bounds [L,U] and anchor proposal c (m for Mu, s for Sigma), put one node at c. For j = 1 through k, put nodes at c − (c−L)(j/k)² and c + (U−c)(j/k)². Use k = 4 for Mu and k = 6 for Sigma, yielding nine and thirteen sorted nodes, including the exact endpoints. This puts more of the first grid near the anchor proposal even when c lies at the midpoint. If c is on or outside the active bounds, retain the upstream equally spaced nodes on that axis. Collapsed or nonfinite nodes make that guided grid unusable. |
+| Search regions | Use [m − 1.5s, m + 1.5s] for Mu and [s/2, 2s] for Sigma in place of the per-lambda routine-derived intervals. These are hard bounds for this component. On later iterations project each adaptive grid coordinate to its nearest bound if outside, sort, and remove duplicates. Require a finite, positive-width initial interval on each axis and positive Sigma. If a projected refinement produces no new coordinate on either axis, finish that lambda with its incumbent. |
+| Routine optimization | Use upstream’s 13-point first lambda grid, its 12-point refinement about the winning lambda and up to seven Mu/Sigma grid iterations per lambda. Retain upstream’s objective, healthy-fraction search, strict cost-improvement rule and iteration order. With search regions off, upstream’s adaptive grid can extend past its initial endpoints. |
+
+#### 3. Fallback, ablations and anchor check
+
+Compute the initial clarity decision once using the same prepared routine data for every arm. Preserve upstream’s routine jitter draws and RNG state. If the anchors, declared precision or first peak election are unusable, run the original pass-through from the original input and RNG state. Also use this whole-fit fallback if an **active** component cannot produce its required basin, finite proposal or usable grid, or the guided fit errors or fails to return ResultFound with finite Mu, Sigma, Lambda and Shift and positive Sigma. Do not select a second candidate using cost, PIT p-value or truth. Record the failing step, reason and resulting pass-through status. Count fallback in its assigned arm. If pass-through also fails, count a fit failure. A valid single peak can support start or region guidance even when the peak choice itself agrees with upstream.
+
+| Arm | Peak | Starting nodes | Search regions |
+|---|---|---|---|
+| Baseline, unmodified refineR | Upstream | Upstream | Upstream |
+| Peak choice only | Anchor-selected | Upstream | Upstream |
+| Starting values only | Upstream | Anchor proposals | Upstream |
+| Search regions only | Upstream | Equally spaced | Anchor bounds |
+| Full Stage 2 candidate | Anchor-selected | Anchor proposals | Anchor bounds |
+
+The three ablations use the selected K and the same confidence decision and paired inputs as the full candidate. Only the enabled operation changes the fit. Changes to a histogram or an upstream width estimate that follow from changing the peak belong to the peak-only effect. Verify that switching all components off, or taking fallback, reproduces pass-through exactly on the same machine.
+
+**Before and after the check.** Retain both sets of limits from every valid fit in every arm, including fallback. Then apply the frozen Stage 1 rounded-anchor check to that fit using the same 40 anchors, rounding precision and strict p < 0.01 decision. Use both PIT seeds as in Stage 1 and the primary seed for release. A decline withholds both endpoint extractions. Record fit failure and check failure separately. Report coverage, error, declines, good results lost, bad results caught and seed reversals, with the Stage 1 definitions. The check uses all 40 anchors that were also available to guide the search. For an adaptive fit its p-value is a compatibility score. The 1% false-decline calibration from Stage 1 applies to a correct model fixed independently of the check panel. Estimate actual decline behavior in the simulations.
+
+#### 4. Independent development and confirmation data
+
+After plan approval, build a **new synthetic dataset**, with no RIbench generator, analyte settings, case data, templates, fits or outcome tables. Use a known healthy CDF H. For a healthy latent score Z ~ N(0,1), generate the measurement X = H-inverse(Phi(Z)). Use the same map for disease scores. Define H by a normal on the Box–Cox scale with the indicated Mu and Sigma, conditioned on the valid transform support and inverse-transformed with shift zero. Use native H quantiles at 0.025 and 0.975 as truth before measurement rounding.
+
+| Factor | Prespecified levels |
+|---|---|
+| Healthy family (lambda, Mu, Sigma) | (0, log(10), 0.35) and (1, 1, 1.2) |
+| Routine sample size | 1,500 and 50,000 |
+| Pathological fraction | 0.25, 0.45 and 0.60 for the development target. Use separate control cells at 0.10 and 0.20. |
+| Disease score (mean, SD) | Left separated (−3, 0.7), right separated (+3, 0.7), left shoulder (−0.65, 0.9), right shoulder (+0.65, 0.9), bilateral separated (equal mixture of the two separated distributions), and overlapping at the healthy center (0, 1.6). |
+| Assay rounding increment | 0.1 and 1 in original measurement units, applied to routine and anchor values |
+| Replicates per factorial cell | Four for development, eight fresh replicates for confirmation |
+
+Cross all levels. Draw exactly N times the stated pathological fraction from the designated disease distribution, the remainder from H, then shuffle the routine vector. In the bilateral case assign half of disease draws to each side, with an odd extra draw on the right. Draw 40 healthy anchors independently per dataset. Draw a second independent panel of 40 **only for a simulation diagnostic**. Apply the check to the already fitted model using that fresh panel and report how often reusing the guidance panel changes the decision. Only the original 40 determine the fit and the primary release decision.
+
+Enumerate cells in table order, in the listed order within each row, with replicate varying fastest. Number development datasets from j = 1 and confirmation datasets separately from j = 1. Use integer seeds 60000000 + 10j + k (development) and 70000000 + 10j + k (confirmation), with k = 0 for routine draws and shuffle, 1 for guidance anchors, 2 for the diagnostic anchors, 3 for the routine fitter, and 4 and 5 for the primary and alternate PIT randomizations. Use 6 and 7 for the diagnostic panel’s two PIT randomizations. Freeze the R RNG kinds used in Stage 1. This gives 576 target and 384 control datasets for development, then 1,152 target and 768 controls for confirmation. Freeze and hash the generator, truth and seed manifest before generating data. Keep component labels and truth accessible only to scoring. Hash ordered routine vectors and panels, and pair them across arms.
+
+**Choice and independent check.** Run the two full K candidates and the baseline on development data only. Compute each dataset’s native endpoint error in healthy standard-normal units, Phi-inverse(H(truth)) minus Phi-inverse(H(estimate)). Map out-of-support limits to their CDF boundary and count them separately. Apply the same cap of 5, equal weighting and missing-result loss as in the benchmark. Rank K by the smaller worst of its two N-specific differences from baseline in mean **pre-check** capped loss on the >20% development cells. On an exact tie choose K = 28. This selects the fitter on the accuracy of the intervals it estimates. Also report controls, implausible counts, fallback, and results after the check for both candidates. Commit the chosen K, code, hashes and development report **before opening confirmation**. On confirmation run the one selected candidate, the three ablations and baseline once. Report all strata, including overlapping disease and controls, before RIbench. Report which targets the confirmation results meet and retain the prespecified candidate for the benchmark. A change to the rule requires a documented amendment, new source freeze and fresh confirmation data before evaluation. RIbench is reserved for evaluating the frozen candidate. Its results cannot select or revise the rule.
+
+#### 5. RIbench analysis and reproducibility
+
+After development and confirmation, freeze the candidate, sources, environment, code for all arms, input manifest, decision rules and reporting code before any RIbench run. Use the Stage 0/1 frozen routine vectors or their hash-verified regeneration and independently screened panels (40 per Index, anchor seed 17000000 + Index, PIT seeds 38000000 + Index and 39000000 + Index). Use the same routine fitter seed and settings across paired arms. Evaluate on GitHub Actions, small cohort first, then N = 50,000 after the small technical audit. Include every planned Index. Report the unchanged refineR baseline before its check and its Stage 1 release on the same indices.
+
+For each arm report the fitted intervals **before checking** and the released intervals **after checking** at both pathological-fraction strata and both sample-size groups. Show raw counts, denominators, kept-set accuracy, and all-dataset loss with 5 for each missing result. Also compare the post-check candidate with the post-check baseline to measure the change from Stage 1 at the same checking rule. Assess the pre-check fit and the post-check release separately against **ungated unmodified refineR**, using the fixed success criteria below. The formal result for the released Stage 2 method is the post-check comparison. A fit-level improvement alone does not establish success for released results. A declined interval counts as a nonreturn even when its underlying fit was accurate.
+
+For the implausibility gate use the archived RIbench definition, an **uncapped mean absolute endpoint z above 5** within a dataset (CRP has one endpoint). Show E > 5, nonfinite, out-of-support and unordered limits separately. Report these counts on raw fits as well as releases so a decline cannot conceal an implausible fit. Use paired percentile intervals clustered by (Analyte, Scenario) as in Stage 1. In the synthetic study cluster by factorial design cell, with replicates together. Report the same-host exact comparisons and a distinct-host tolerance audit on every planned set. Check parameters, raw and released endpoints, scores, peak choice, fallback, both PIT p-values and decisions. Use the existing endpoint tolerance of 0.1% of reference width and absolute p-value tolerance of 0.0001 on the separate host, require matching decisions and branch choices, and report all discrepancies. Stop for review after Stage 2.
 
 ### Stage 3
 
@@ -147,17 +210,17 @@ The required Stage 3 proposal must specify the proper Box–Cox anchor density (
 
 ### Fixed success criteria for each of Stages 2 and 3
 
-Evaluate each candidate against unchanged refineR, separately at N <= 5,000 and N = 50,000. Stage 3 also reports its paired difference from Stage 2. Success requires all of the following in both sample-size groups:
+Use native refineR limits for both sides of every Stage 2 and Stage 3 success gate. Keep historical C2 limits as a labeled secondary analysis. Evaluate each candidate against unchanged refineR, separately at N <= 5,000 and N = 50,000. Stage 3 also reports its paired difference from Stage 2. Success requires all of the following in both sample-size groups:
 
 - At > 20% pathological: strictly lower primary capped mean |z| than refineR.
 - At <= 20% pathological: candidate minus refineR capped mean |z| <= 0.02.
-- No greater count of implausible results than refineR, in either pathological-fraction stratum, using the recovered and frozen C2 definition. At minimum separately flag nonfinite/unordered limits and E > 5; clinical plausibility rules must be frozen before runs.
+- No greater count of implausible results than refineR in either pathological-fraction stratum, using the recovered C2 definition above. Report the separate endpoint and invalid-interval flags. Any additional clinical plausibility rule needs a source and a pre-run freeze.
 
 The cap is 5 and endpoint/test-set aggregation is defined above. For these success decisions, failures and non-returned intervals receive loss 5, all planned sets stay in the denominator, and a candidate may not reduce its implausibility count by dropping results: report failures/nonreturns separately and require their count not to increase. Report paired uncertainty intervals; the stated numerical gates use point estimates, not an undeclared significance test. A claim that all gates were met requires complete paired coverage and reproducibility audits. Failure of any gate means the stage has not met the prespecified target. Stop and show results before further work.
 
 ## Review gate
 
-Stage 0 passed and the user approved the Stage 1 rules above. Report Stage 1 and stop for review before Stage 2.
+Stage 1 was accepted on 2026-11-23. This Stage 2 proposal is the sole new deliverable at this review. The next authorized step after approval would be to implement and freeze the development generator and search rules. Stage 3 still requires a written common-scale objective and separate approval. The original Stage 0 and Stage 1 manifests apply at their respective run commits.
 
 ### Stage 1 execution record
 
