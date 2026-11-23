@@ -1,6 +1,6 @@
 # anchorRefine: stages 0–1 protocol
 
-Status: approved by the user in conversation on 2026-11-23. The user also approved the endpoint rules in [the source review](docs/SOURCE_REVIEW.md) before Stage 0 execution.
+Status: approved by the user in conversation on 2026-11-23. Stage 0 and its report were approved. The user approved Stage 1 with the extraction, rounding, comparator and execution decisions below before any Stage 1 run.
 
 ## Purpose and boundaries
 
@@ -67,11 +67,18 @@ The routine-data fit and returned RI remain unchanged. Anchors only determine wh
 
 Use archived refineR fits if all four parameters (Mu, Sigma, Lambda, Shift), exact options, input identity, full precision, and provenance are available and verified. Validate reconstructed limits against archived limits. If parameters are absent or incomplete, refit the affected sets with the Stage 0 validated path and frozen settings. Never infer four parameters from two reference limits. Record `archived` or `refit` per row. Evaluate both N <= 5,000 and N = 50,000; keep the sample-size groups separate.
 
-### Proposed likelihood-ratio test
+### Approved Stage 1 decisions
 
-This protocol proposes a location-and-spread likelihood-ratio test in the fitted model's probability scale. It tests compatibility with the complete fitted model through its CDF, which depends on mu, sigma, lambda and shift. It is not a four-parameter refit to 40 anchors and is not an omnibus shape test. Approval of this protocol includes approval of this specific alternative hypothesis.
+1. Report both native refineR getRI (Box–Cox support corrected) and historical RIbench 1.0.2 getRI(truncNormal = FALSE) for every fit, including fits the check declines. Use the **historical extraction as primary for all comparisons** with anchoredRI and anchors-only. Report native refineR as a labeled secondary analysis. The same fitted parameters and anchor decisions apply to both extractions.
+2. The C2 anchors are rounded to RIbench decimals. Use randomized PIT within each rounding interval. In anchor draw order use independent uniforms with R seed 38000000 + Index. Repeat the check with 39000000 + Index on the identical anchors. Report both decisions per dataset, the keep-to-decline and decline-to-keep counts, and the share of paired decisions that change. Show failures and denominators.
+3. Compare against archived C2 anchoredRI, labeled **old fitter**, and archived anchors-only. Present Task E improved-fitter results as a separate row for each cohort whose export is complete and whose dataset and anchor identities match. Proceed using C2 wherever the Task E export is incomplete. Use the raw Task E estimate for estimator comparisons and identify any reported safeguard results separately.
+4. Run on GitHub Actions. Gate the N ≤ 5,000 analysis on null calibration, then the N = 50,000 analysis on the completed small-cohort technical checks. Present the Stage 1 results for review before any Stage 2 work.
 
-Let F0 be the healthy CDF from the frozen refineR fit. For each anchor a_i, set u_i = F0(a_i), y_i = Phi^{-1}(u_i). Under the fixed-model null the 40 y_i are independent N(0,1). The alternative is y_i ~ N(m,s²), with free location and positive variance. Equivalently its density on the original scale is f0(a) phi((y-m)/s)/(s phi(y)); the change-of-variable terms cancel in the likelihood ratio.
+### Likelihood-ratio test
+
+Use a location-and-spread likelihood-ratio test in the fitted model's probability scale. It tests compatibility with the complete fitted model through its CDF, which depends on mu, sigma, lambda and shift. It is not a four-parameter refit to 40 anchors and is not an omnibus shape test.
+
+Let F0 be the healthy CDF from the frozen refineR fit. For a recorded anchor a_i at step h = 10^(-decimals), evaluate L = F0(a_i - h/2) and H = F0(a_i + h/2). Draw v_i from Uniform(0,1), set u_i = L + v_i (H - L), and use y_i = Phi^{-1}(u_i). Use stable lower/upper log probabilities in the tails. Under a continuous latent model rounding ties have zero probability. For supported nonnegative shifts, conditioning on the screened support x >= 0 is already satisfied. Under the fixed-model null the 40 y_i are independent N(0,1). The alternative is y_i ~ N(m,s²), with free location and positive variance. Equivalently its density on the original scale is f0(a) phi((y-m)/s)/(s phi(y)); the change-of-variable terms cancel in the likelihood ratio.
 
 With n = 40, m_hat = mean(y), and v_hat = mean((y-m_hat)²), use:
 
@@ -87,7 +94,22 @@ Use refineR's actual subtraction convention x - Shift. For positive lambda, tran
 
 Inspection of `R/utils.R::cdfTruncatedBoxCox` found a separate negative-lambda branch and clipping of negative/invalid reported limits to zero. Before execution, document the supported fitted parameter range and reconcile the healthy CDF, truncation, and any censoring with this exact upstream implementation. A negative-lambda or censored distribution must not be silently treated as an ordinary continuous normal transform. If such fits occur in the frozen configuration, stop for a committed protocol amendment before applying the LRT to them. The validation must cover the actual supported range without changing pass-through behavior.
 
-An anchor outside true model support gives a structural incompatibility: record p = 0 and decline, with its own reason code. Arithmetic underflow is not evidence of support violation. Degenerate transformed anchors, unavailable parameters, invalid sigma, CDF/integration failure, and unresolved rounded/censored anchor behavior are `check_failed`, not significant tests. They receive no accepted RI and are reported separately from statistical declines. Missing/invalid anchors are not replaced using routine observations. If the recovered anchor generator returns rounded measurements, specify and commit a calibrated discrete-data test before running; the continuous PIT null cannot be assumed.
+A rounding bin whose entire interval is outside true model support gives a structural incompatibility: record p = 0 and decline, with its own reason code. Arithmetic underflow is not evidence of support violation. Degenerate transformed anchors, unavailable parameters, invalid sigma, CDF/integration failure, and unresolved rounded/censored anchor behavior are `check_failed`, not significant tests. They receive no accepted RI and are reported separately from statistical declines. Missing/invalid anchors are not replaced using routine observations. A rounded value at the support boundary remains valid when its bin has positive model mass. The randomized PIT rule above supplies the calibrated test for the coarsened observations.
+
+### Calibration and reproducibility gates
+
+Before evaluating RIbench decisions, run 100,000 independent panels of 40 for each design below. Draw under the fitted null including truncation, apply the measurement rounding, then run the randomized PIT under both seeds. The simulated panels include valid bins that overlap the support boundary. Evaluate at 0.01 and 0.05, using the exact finite-sample null critical values for the statistic specified above. Independently verify the numerical survival calculation and its decision near the cutoffs.
+
+| Design | Mu | Sigma | Lambda | Shift | Decimals |
+|---|---:|---:|---:|---:|---:|
+| Fine log | 1 | 0.4 | 0 | 0 | 3 |
+| Coarse log | 0 | 0.8 | 0 | 0 | 0 |
+| Truncated linear | -1 | 0.8 | 1 | 0 | 0 |
+| Shifted, grid of 10 | -2 | 0.55 | 0.5 | 2 | -1 |
+
+Number the synthetic Index from 1 to 400,000 in table order. Seed latent draws with 36000000 + Index. For all sixteen design-by-seed-by-alpha checks require the count to fall within the inclusive binomial quantiles 0.00005 and 0.99995 for B = 100,000 and the given alpha. Any failed calibration check stops benchmark execution. The screened reference model in this stage supports nonnegative shift and lambda with positive sigma. Flag unsupported fits and surface them for review.
+
+For each cohort, run the identical cases twice in isolated R processes on one Actions runner and again on a separate runner. Verify distinct machines, frozen input hashes and exact same-host results. For the cross-machine audit require identical check status and decision under each PIT seed, absolute p differences ≤ 0.0001, and differences at each requested endpoint ≤ 0.001 times the first host's width, using the upper limit as width for CRP. Report statistic differences. Check the identity of each retained endpoint against the original refineR limit. Archive fits or their immutable source, both probabilities and decisions, estimates and reproducibility records. Technical failures block progression. Performance is descriptive at this stage.
 
 ### Comparators and reporting
 
@@ -103,7 +125,7 @@ For kept results, report signed endpoint bias, mean/median |z|, capped mean |z|,
 
 Show comparator accuracy on the same kept Index set as well as on each method's full available set. The kept refineR limits must have exactly the same accuracy as ungated refineR restricted to those indices. Any apparent improvement is selection, not improved estimation. Include coverage-versus-error tables and assign loss 5 to a missing/failed/declined result in a separate all-set sensitivity summary so abstention cannot disappear from the denominator. Do not present this failure-penalized measure as accuracy of kept estimates.
 
-Provide 95% uncertainty intervals for rates and paired loss differences, clustering by RIbench parent scenario when multiple replicates share one scenario. Freeze the grouping and interval procedure before execution after reading the benchmark schema. Use 2,000 paired cluster bootstrap resamples with seed 37000000; show raw counts and descriptive intervals without claiming population-level generalization beyond RIbench.
+Provide 95% uncertainty intervals for rates and paired loss differences, clustering by RIbench parent scenario when multiple replicates share one scenario. Use (Analyte, Scenario) as the parent cluster. Within each reported stratum draw the observed clusters uniformly with replacement, using identical cluster counts for each method, extraction and seed. Use percentile intervals at 2.5% and 97.5%, reporting undefined replicates and suppressing CIs for fewer than two clusters. Use 2,000 paired cluster bootstrap resamples with NumPy PCG64 seed 37000000; show raw counts and descriptive intervals without claiming population-level generalization beyond RIbench.
 
 Stage 1 has no invented performance pass threshold. It passes technical validation only if inputs, calibration, exact preservation of kept fits, reproducibility and audits pass. Present the full usefulness results, including false declines, for user review. Stop before Stage 2 regardless of whether results look favorable.
 
@@ -133,6 +155,6 @@ Evaluate each candidate against unchanged refineR, separately at N <= 5,000 and 
 
 The cap is 5 and endpoint/test-set aggregation is defined above. For these success decisions, failures and non-returned intervals receive loss 5, all planned sets stay in the denominator, and a candidate may not reduce its implausibility count by dropping results: report failures/nonreturns separately and require their count not to increase. Report paired uncertainty intervals; the stated numerical gates use point estimates, not an undeclared significance test. A claim that all gates were met requires complete paired coverage and reproducibility audits. Failure of any gate means the stage has not met the prespecified target. Stop and show results before further work.
 
-## Review requested now
+## Review gate
 
-Review this protocol before any implementation. The proposed PIT location/spread LRT and cap of 5 are explicit design choices for review. The C2 archive, anchor generator, z definition, comparator definitions, and supported CDF behavior must be resolved in committed pre-run documentation. No code, benchmark results, or claimed validation accompany this initial protocol.
+Stage 0 passed and the user approved the Stage 1 rules above. Report Stage 1 and stop for review before Stage 2.
