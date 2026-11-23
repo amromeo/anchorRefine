@@ -1,0 +1,311 @@
+N_group,pathology,factor,level,arm,reason,count,planned
+all,all,all,all,K24,insufficient_votes,273,1440
+all,all,all,all,K24,pass1_regions stage2_peak: no_peak_in_basin,39,1440
+all,all,all,all,K24,peak_outside_anchor_quantiles,2,1440
+all,all,all,all,K24,tied_vote,17,1440
+all,all,all,all,K28,insufficient_votes,340,1440
+all,all,all,all,K28,pass1_regions stage2_peak: no_peak_in_basin,21,1440
+all,all,all,all,K28,peak_outside_anchor_quantiles,2,1440
+all,all,all,all,K28,tied_vote,17,1440
+all,>20%,all,all,K24,insufficient_votes,164,864
+all,>20%,all,all,K24,pass1_regions stage2_peak: no_peak_in_basin,33,864
+all,>20%,all,all,K24,peak_outside_anchor_quantiles,2,864
+all,>20%,all,all,K24,tied_vote,9,864
+all,>20%,all,all,K28,insufficient_votes,204,864
+all,>20%,all,all,K28,pass1_regions stage2_peak: no_peak_in_basin,20,864
+all,>20%,all,all,K28,peak_outside_anchor_quantiles,2,864
+all,>20%,all,all,K28,tied_vote,9,864
+all,<=20%,all,all,K24,insufficient_votes,109,576
+all,<=20%,all,all,K24,pass1_regions stage2_peak: no_peak_in_basin,6,576
+all,<=20%,all,all,K24,tied_vote,8,576
+all,<=20%,all,all,K28,insufficient_votes,136,576
+all,<=20%,all,all,K28,pass1_regions stage2_peak: no_peak_in_basin,1,576
+all,<=20%,all,all,K28,tied_vote,8,576
+1500,all,all,all,K24,insufficient_votes,264,720
+1500,all,all,all,K24,pass1_regions stage2_peak: no_peak_in_basin,24,720
+1500,all,all,all,K24,peak_outside_anchor_quantiles,1,720
+1500,all,all,all,K24,tied_vote,17,720
+1500,all,all,all,K28,insufficient_votes,327,720
+1500,all,all,all,K28,pass1_regions stage2_peak: no_peak_in_basin,9,720
+1500,all,all,all,K28,peak_outside_anchor_quantiles,1,720
+1500,all,all,all,K28,tied_vote,17,720
+1500,>20%,all,all,K24,insufficient_votes,158,432
+1500,>20%,all,all,K24,pass1_regions stage2_peak: no_peak_in_basin,19,432
+1500,>20%,all,all,K24,peak_outside_anchor_quantiles,1,432
+1500,>20%,all,all,K24,tied_vote,9,432
+1500,>20%,all,all,K28,insufficient_votes,194,432
+1500,>20%,all,all,K28,pass1_regions stage2_peak: no_peak_in_basin,9,432
+1500,>20%,all,all,K28,peak_outside_anchor_quantiles,1,432
+1500,>20%,all,all,K28,tied_vote,9,432
+1500,<=20%,all,all,K24,insufficient_votes,106,288
+1500,<=20%,all,all,K24,pass1_regions stage2_peak: no_peak_in_basin,5,288
+1500,<=20%,all,all,K24,tied_vote,8,288
+1500,<=20%,all,all,K28,insufficient_votes,133,288
+1500,<=20%,all,all,K28,tied_vote,8,288
+50000,all,all,all,K24,insufficient_votes,9,720
+50000,all,all,all,K24,pass1_regions stage2_peak: no_peak_in_basin,15,720
+50000,all,all,all,K24,peak_outside_anchor_quantiles,1,720
+50000,all,all,all,K28,insufficient_votes,13,720
+50000,all,all,all,K28,pass1_regions stage2_peak: no_peak_in_basin,12,720
+50000,all,all,all,K28,peak_outside_anchor_quantiles,1,720
+50000,>20%,all,all,K24,insufficient_votes,6,432
+50000,>20%,all,all,K24,pass1_regions stage2_peak: no_peak_in_basin,14,432
+50000,>20%,all,all,K24,peak_outside_anchor_quantiles,1,432
+50000,>20%,all,all,K28,insufficient_votes,10,432
+50000,>20%,all,all,K28,pass1_regions stage2_peak: no_peak_in_basin,11,432
+50000,>20%,all,all,K28,peak_outside_anchor_quantiles,1,432
+50000,<=20%,all,all,K24,insufficient_votes,3,288
+50000,<=20%,all,all,K24,pass1_regions stage2_peak: no_peak_in_basin,1,288
+50000,<=20%,all,all,K28,insufficient_votes,3,288
+50000,<=20%,all,all,K28,pass1_regions stage2_peak: no_peak_in_basin,1,288
+all,all,fraction,0.1,K24,insufficient_votes,61,288
+all,all,fraction,0.1,K24,pass1_regions stage2_peak: no_peak_in_basin,2,288
+all,all,fraction,0.1,K24,tied_vote,6,288
+all,all,fraction,0.1,K28,insufficient_votes,73,288
+all,all,fraction,0.1,K28,tied_vote,6,288
+all,<=20%,fraction,0.1,K24,insufficient_votes,61,288
+all,<=20%,fraction,0.1,K24,pass1_regions stage2_peak: no_peak_in_basin,2,288
+all,<=20%,fraction,0.1,K24,tied_vote,6,288
+all,<=20%,fraction,0.1,K28,insufficient_votes,73,288
+all,<=20%,fraction,0.1,K28,tied_vote,6,288
+all,all,fraction,0.2,K24,insufficient_votes,48,288
+all,all,fraction,0.2,K24,pass1_regions stage2_peak: no_peak_in_basin,4,288
+all,all,fraction,0.2,K24,tied_vote,2,288
+all,all,fraction,0.2,K28,insufficient_votes,63,288
+all,all,fraction,0.2,K28,pass1_regions stage2_peak: no_peak_in_basin,1,288
+all,all,fraction,0.2,K28,tied_vote,2,288
+all,<=20%,fraction,0.2,K24,insufficient_votes,48,288
+all,<=20%,fraction,0.2,K24,pass1_regions stage2_peak: no_peak_in_basin,4,288
+all,<=20%,fraction,0.2,K24,tied_vote,2,288
+all,<=20%,fraction,0.2,K28,insufficient_votes,63,288
+all,<=20%,fraction,0.2,K28,pass1_regions stage2_peak: no_peak_in_basin,1,288
+all,<=20%,fraction,0.2,K28,tied_vote,2,288
+all,all,fraction,0.25,K24,insufficient_votes,56,288
+all,all,fraction,0.25,K24,pass1_regions stage2_peak: no_peak_in_basin,2,288
+all,all,fraction,0.25,K24,tied_vote,5,288
+all,all,fraction,0.25,K28,insufficient_votes,68,288
+all,all,fraction,0.25,K28,tied_vote,5,288
+all,>20%,fraction,0.25,K24,insufficient_votes,56,288
+all,>20%,fraction,0.25,K24,pass1_regions stage2_peak: no_peak_in_basin,2,288
+all,>20%,fraction,0.25,K24,tied_vote,5,288
+all,>20%,fraction,0.25,K28,insufficient_votes,68,288
+all,>20%,fraction,0.25,K28,tied_vote,5,288
+all,all,fraction,0.45,K24,insufficient_votes,55,288
+all,all,fraction,0.45,K24,pass1_regions stage2_peak: no_peak_in_basin,7,288
+all,all,fraction,0.45,K24,tied_vote,2,288
+all,all,fraction,0.45,K28,insufficient_votes,64,288
+all,all,fraction,0.45,K28,pass1_regions stage2_peak: no_peak_in_basin,3,288
+all,all,fraction,0.45,K28,tied_vote,2,288
+all,>20%,fraction,0.45,K24,insufficient_votes,55,288
+all,>20%,fraction,0.45,K24,pass1_regions stage2_peak: no_peak_in_basin,7,288
+all,>20%,fraction,0.45,K24,tied_vote,2,288
+all,>20%,fraction,0.45,K28,insufficient_votes,64,288
+all,>20%,fraction,0.45,K28,pass1_regions stage2_peak: no_peak_in_basin,3,288
+all,>20%,fraction,0.45,K28,tied_vote,2,288
+all,all,fraction,0.6,K24,insufficient_votes,53,288
+all,all,fraction,0.6,K24,pass1_regions stage2_peak: no_peak_in_basin,24,288
+all,all,fraction,0.6,K24,peak_outside_anchor_quantiles,2,288
+all,all,fraction,0.6,K24,tied_vote,2,288
+all,all,fraction,0.6,K28,insufficient_votes,72,288
+all,all,fraction,0.6,K28,pass1_regions stage2_peak: no_peak_in_basin,17,288
+all,all,fraction,0.6,K28,peak_outside_anchor_quantiles,2,288
+all,all,fraction,0.6,K28,tied_vote,2,288
+all,>20%,fraction,0.6,K24,insufficient_votes,53,288
+all,>20%,fraction,0.6,K24,pass1_regions stage2_peak: no_peak_in_basin,24,288
+all,>20%,fraction,0.6,K24,peak_outside_anchor_quantiles,2,288
+all,>20%,fraction,0.6,K24,tied_vote,2,288
+all,>20%,fraction,0.6,K28,insufficient_votes,72,288
+all,>20%,fraction,0.6,K28,pass1_regions stage2_peak: no_peak_in_basin,17,288
+all,>20%,fraction,0.6,K28,peak_outside_anchor_quantiles,2,288
+all,>20%,fraction,0.6,K28,tied_vote,2,288
+all,all,disease,bilateral_separated,K24,insufficient_votes,11,240
+all,all,disease,bilateral_separated,K24,pass1_regions stage2_peak: no_peak_in_basin,19,240
+all,all,disease,bilateral_separated,K28,insufficient_votes,21,240
+all,all,disease,bilateral_separated,K28,pass1_regions stage2_peak: no_peak_in_basin,17,240
+all,>20%,disease,bilateral_separated,K24,insufficient_votes,7,144
+all,>20%,disease,bilateral_separated,K24,pass1_regions stage2_peak: no_peak_in_basin,18,144
+all,>20%,disease,bilateral_separated,K28,insufficient_votes,12,144
+all,>20%,disease,bilateral_separated,K28,pass1_regions stage2_peak: no_peak_in_basin,17,144
+all,<=20%,disease,bilateral_separated,K24,insufficient_votes,4,96
+all,<=20%,disease,bilateral_separated,K24,pass1_regions stage2_peak: no_peak_in_basin,1,96
+all,<=20%,disease,bilateral_separated,K28,insufficient_votes,9,96
+all,all,disease,left_separated,K24,insufficient_votes,66,240
+all,all,disease,left_separated,K24,pass1_regions stage2_peak: no_peak_in_basin,2,240
+all,all,disease,left_separated,K24,tied_vote,3,240
+all,all,disease,left_separated,K28,insufficient_votes,82,240
+all,all,disease,left_separated,K28,tied_vote,3,240
+all,>20%,disease,left_separated,K24,insufficient_votes,44,144
+all,>20%,disease,left_separated,K24,pass1_regions stage2_peak: no_peak_in_basin,1,144
+all,>20%,disease,left_separated,K24,tied_vote,2,144
+all,>20%,disease,left_separated,K28,insufficient_votes,51,144
+all,>20%,disease,left_separated,K28,tied_vote,2,144
+all,<=20%,disease,left_separated,K24,insufficient_votes,22,96
+all,<=20%,disease,left_separated,K24,pass1_regions stage2_peak: no_peak_in_basin,1,96
+all,<=20%,disease,left_separated,K24,tied_vote,1,96
+all,<=20%,disease,left_separated,K28,insufficient_votes,31,96
+all,<=20%,disease,left_separated,K28,tied_vote,1,96
+all,all,disease,left_shoulder,K24,insufficient_votes,59,240
+all,all,disease,left_shoulder,K24,pass1_regions stage2_peak: no_peak_in_basin,5,240
+all,all,disease,left_shoulder,K24,peak_outside_anchor_quantiles,2,240
+all,all,disease,left_shoulder,K24,tied_vote,3,240
+all,all,disease,left_shoulder,K28,insufficient_votes,71,240
+all,all,disease,left_shoulder,K28,pass1_regions stage2_peak: no_peak_in_basin,3,240
+all,all,disease,left_shoulder,K28,peak_outside_anchor_quantiles,2,240
+all,all,disease,left_shoulder,K28,tied_vote,3,240
+all,>20%,disease,left_shoulder,K24,insufficient_votes,39,144
+all,>20%,disease,left_shoulder,K24,pass1_regions stage2_peak: no_peak_in_basin,4,144
+all,>20%,disease,left_shoulder,K24,peak_outside_anchor_quantiles,2,144
+all,>20%,disease,left_shoulder,K24,tied_vote,1,144
+all,>20%,disease,left_shoulder,K28,insufficient_votes,47,144
+all,>20%,disease,left_shoulder,K28,pass1_regions stage2_peak: no_peak_in_basin,2,144
+all,>20%,disease,left_shoulder,K28,peak_outside_anchor_quantiles,2,144
+all,>20%,disease,left_shoulder,K28,tied_vote,1,144
+all,<=20%,disease,left_shoulder,K24,insufficient_votes,20,96
+all,<=20%,disease,left_shoulder,K24,pass1_regions stage2_peak: no_peak_in_basin,1,96
+all,<=20%,disease,left_shoulder,K24,tied_vote,2,96
+all,<=20%,disease,left_shoulder,K28,insufficient_votes,24,96
+all,<=20%,disease,left_shoulder,K28,pass1_regions stage2_peak: no_peak_in_basin,1,96
+all,<=20%,disease,left_shoulder,K28,tied_vote,2,96
+all,all,disease,overlapping,K24,insufficient_votes,43,240
+all,all,disease,overlapping,K24,pass1_regions stage2_peak: no_peak_in_basin,3,240
+all,all,disease,overlapping,K24,tied_vote,5,240
+all,all,disease,overlapping,K28,insufficient_votes,57,240
+all,all,disease,overlapping,K28,tied_vote,5,240
+all,>20%,disease,overlapping,K24,insufficient_votes,19,144
+all,>20%,disease,overlapping,K24,pass1_regions stage2_peak: no_peak_in_basin,2,144
+all,>20%,disease,overlapping,K24,tied_vote,3,144
+all,>20%,disease,overlapping,K28,insufficient_votes,30,144
+all,>20%,disease,overlapping,K28,tied_vote,3,144
+all,<=20%,disease,overlapping,K24,insufficient_votes,24,96
+all,<=20%,disease,overlapping,K24,pass1_regions stage2_peak: no_peak_in_basin,1,96
+all,<=20%,disease,overlapping,K24,tied_vote,2,96
+all,<=20%,disease,overlapping,K28,insufficient_votes,27,96
+all,<=20%,disease,overlapping,K28,tied_vote,2,96
+all,all,disease,right_separated,K24,insufficient_votes,28,240
+all,all,disease,right_separated,K24,pass1_regions stage2_peak: no_peak_in_basin,2,240
+all,all,disease,right_separated,K24,tied_vote,2,240
+all,all,disease,right_separated,K28,insufficient_votes,32,240
+all,all,disease,right_separated,K28,tied_vote,2,240
+all,>20%,disease,right_separated,K24,insufficient_votes,19,144
+all,>20%,disease,right_separated,K24,pass1_regions stage2_peak: no_peak_in_basin,2,144
+all,>20%,disease,right_separated,K24,tied_vote,1,144
+all,>20%,disease,right_separated,K28,insufficient_votes,21,144
+all,>20%,disease,right_separated,K28,tied_vote,1,144
+all,<=20%,disease,right_separated,K24,insufficient_votes,9,96
+all,<=20%,disease,right_separated,K24,tied_vote,1,96
+all,<=20%,disease,right_separated,K28,insufficient_votes,11,96
+all,<=20%,disease,right_separated,K28,tied_vote,1,96
+all,all,disease,right_shoulder,K24,insufficient_votes,66,240
+all,all,disease,right_shoulder,K24,pass1_regions stage2_peak: no_peak_in_basin,8,240
+all,all,disease,right_shoulder,K24,tied_vote,4,240
+all,all,disease,right_shoulder,K28,insufficient_votes,77,240
+all,all,disease,right_shoulder,K28,pass1_regions stage2_peak: no_peak_in_basin,1,240
+all,all,disease,right_shoulder,K28,tied_vote,4,240
+all,>20%,disease,right_shoulder,K24,insufficient_votes,36,144
+all,>20%,disease,right_shoulder,K24,pass1_regions stage2_peak: no_peak_in_basin,6,144
+all,>20%,disease,right_shoulder,K24,tied_vote,2,144
+all,>20%,disease,right_shoulder,K28,insufficient_votes,43,144
+all,>20%,disease,right_shoulder,K28,pass1_regions stage2_peak: no_peak_in_basin,1,144
+all,>20%,disease,right_shoulder,K28,tied_vote,2,144
+all,<=20%,disease,right_shoulder,K24,insufficient_votes,30,96
+all,<=20%,disease,right_shoulder,K24,pass1_regions stage2_peak: no_peak_in_basin,2,96
+all,<=20%,disease,right_shoulder,K24,tied_vote,2,96
+all,<=20%,disease,right_shoulder,K28,insufficient_votes,34,96
+all,<=20%,disease,right_shoulder,K28,tied_vote,2,96
+all,all,family,linear,K24,insufficient_votes,113,480
+all,all,family,linear,K24,pass1_regions stage2_peak: no_peak_in_basin,8,480
+all,all,family,linear,K24,tied_vote,4,480
+all,all,family,linear,K28,insufficient_votes,144,480
+all,all,family,linear,K28,tied_vote,4,480
+all,>20%,family,linear,K24,insufficient_votes,68,288
+all,>20%,family,linear,K24,pass1_regions stage2_peak: no_peak_in_basin,7,288
+all,>20%,family,linear,K24,tied_vote,2,288
+all,>20%,family,linear,K28,insufficient_votes,87,288
+all,>20%,family,linear,K28,tied_vote,2,288
+all,<=20%,family,linear,K24,insufficient_votes,45,192
+all,<=20%,family,linear,K24,pass1_regions stage2_peak: no_peak_in_basin,1,192
+all,<=20%,family,linear,K24,tied_vote,2,192
+all,<=20%,family,linear,K28,insufficient_votes,57,192
+all,<=20%,family,linear,K28,tied_vote,2,192
+all,all,family,lognormal,K24,insufficient_votes,65,480
+all,all,family,lognormal,K24,pass1_regions stage2_peak: no_peak_in_basin,22,480
+all,all,family,lognormal,K24,peak_outside_anchor_quantiles,1,480
+all,all,family,lognormal,K24,tied_vote,3,480
+all,all,family,lognormal,K28,insufficient_votes,80,480
+all,all,family,lognormal,K28,pass1_regions stage2_peak: no_peak_in_basin,17,480
+all,all,family,lognormal,K28,peak_outside_anchor_quantiles,1,480
+all,all,family,lognormal,K28,tied_vote,3,480
+all,>20%,family,lognormal,K24,insufficient_votes,41,288
+all,>20%,family,lognormal,K24,pass1_regions stage2_peak: no_peak_in_basin,20,288
+all,>20%,family,lognormal,K24,peak_outside_anchor_quantiles,1,288
+all,>20%,family,lognormal,K24,tied_vote,1,288
+all,>20%,family,lognormal,K28,insufficient_votes,52,288
+all,>20%,family,lognormal,K28,pass1_regions stage2_peak: no_peak_in_basin,17,288
+all,>20%,family,lognormal,K28,peak_outside_anchor_quantiles,1,288
+all,>20%,family,lognormal,K28,tied_vote,1,288
+all,<=20%,family,lognormal,K24,insufficient_votes,24,192
+all,<=20%,family,lognormal,K24,pass1_regions stage2_peak: no_peak_in_basin,2,192
+all,<=20%,family,lognormal,K24,tied_vote,2,192
+all,<=20%,family,lognormal,K28,insufficient_votes,28,192
+all,<=20%,family,lognormal,K28,tied_vote,2,192
+all,all,family,power_0.5,K24,insufficient_votes,95,480
+all,all,family,power_0.5,K24,pass1_regions stage2_peak: no_peak_in_basin,9,480
+all,all,family,power_0.5,K24,peak_outside_anchor_quantiles,1,480
+all,all,family,power_0.5,K24,tied_vote,10,480
+all,all,family,power_0.5,K28,insufficient_votes,116,480
+all,all,family,power_0.5,K28,pass1_regions stage2_peak: no_peak_in_basin,4,480
+all,all,family,power_0.5,K28,peak_outside_anchor_quantiles,1,480
+all,all,family,power_0.5,K28,tied_vote,10,480
+all,>20%,family,power_0.5,K24,insufficient_votes,55,288
+all,>20%,family,power_0.5,K24,pass1_regions stage2_peak: no_peak_in_basin,6,288
+all,>20%,family,power_0.5,K24,peak_outside_anchor_quantiles,1,288
+all,>20%,family,power_0.5,K24,tied_vote,6,288
+all,>20%,family,power_0.5,K28,insufficient_votes,65,288
+all,>20%,family,power_0.5,K28,pass1_regions stage2_peak: no_peak_in_basin,3,288
+all,>20%,family,power_0.5,K28,peak_outside_anchor_quantiles,1,288
+all,>20%,family,power_0.5,K28,tied_vote,6,288
+all,<=20%,family,power_0.5,K24,insufficient_votes,40,192
+all,<=20%,family,power_0.5,K24,pass1_regions stage2_peak: no_peak_in_basin,3,192
+all,<=20%,family,power_0.5,K24,tied_vote,4,192
+all,<=20%,family,power_0.5,K28,insufficient_votes,51,192
+all,<=20%,family,power_0.5,K28,pass1_regions stage2_peak: no_peak_in_basin,1,192
+all,<=20%,family,power_0.5,K28,tied_vote,4,192
+all,all,rounding_fraction,0.05,K24,insufficient_votes,156,720
+all,all,rounding_fraction,0.05,K24,pass1_regions stage2_peak: no_peak_in_basin,23,720
+all,all,rounding_fraction,0.05,K24,peak_outside_anchor_quantiles,2,720
+all,all,rounding_fraction,0.05,K24,tied_vote,14,720
+all,all,rounding_fraction,0.05,K28,insufficient_votes,196,720
+all,all,rounding_fraction,0.05,K28,pass1_regions stage2_peak: no_peak_in_basin,12,720
+all,all,rounding_fraction,0.05,K28,peak_outside_anchor_quantiles,2,720
+all,all,rounding_fraction,0.05,K28,tied_vote,14,720
+all,>20%,rounding_fraction,0.05,K24,insufficient_votes,93,432
+all,>20%,rounding_fraction,0.05,K24,pass1_regions stage2_peak: no_peak_in_basin,18,432
+all,>20%,rounding_fraction,0.05,K24,peak_outside_anchor_quantiles,2,432
+all,>20%,rounding_fraction,0.05,K24,tied_vote,8,432
+all,>20%,rounding_fraction,0.05,K28,insufficient_votes,117,432
+all,>20%,rounding_fraction,0.05,K28,pass1_regions stage2_peak: no_peak_in_basin,11,432
+all,>20%,rounding_fraction,0.05,K28,peak_outside_anchor_quantiles,2,432
+all,>20%,rounding_fraction,0.05,K28,tied_vote,8,432
+all,<=20%,rounding_fraction,0.05,K24,insufficient_votes,63,288
+all,<=20%,rounding_fraction,0.05,K24,pass1_regions stage2_peak: no_peak_in_basin,5,288
+all,<=20%,rounding_fraction,0.05,K24,tied_vote,6,288
+all,<=20%,rounding_fraction,0.05,K28,insufficient_votes,79,288
+all,<=20%,rounding_fraction,0.05,K28,pass1_regions stage2_peak: no_peak_in_basin,1,288
+all,<=20%,rounding_fraction,0.05,K28,tied_vote,6,288
+all,all,rounding_fraction,0.25,K24,insufficient_votes,117,720
+all,all,rounding_fraction,0.25,K24,pass1_regions stage2_peak: no_peak_in_basin,16,720
+all,all,rounding_fraction,0.25,K24,tied_vote,3,720
+all,all,rounding_fraction,0.25,K28,insufficient_votes,144,720
+all,all,rounding_fraction,0.25,K28,pass1_regions stage2_peak: no_peak_in_basin,9,720
+all,all,rounding_fraction,0.25,K28,tied_vote,3,720
+all,>20%,rounding_fraction,0.25,K24,insufficient_votes,71,432
+all,>20%,rounding_fraction,0.25,K24,pass1_regions stage2_peak: no_peak_in_basin,15,432
+all,>20%,rounding_fraction,0.25,K24,tied_vote,1,432
+all,>20%,rounding_fraction,0.25,K28,insufficient_votes,87,432
+all,>20%,rounding_fraction,0.25,K28,pass1_regions stage2_peak: no_peak_in_basin,9,432
+all,>20%,rounding_fraction,0.25,K28,tied_vote,1,432
+all,<=20%,rounding_fraction,0.25,K24,insufficient_votes,46,288
+all,<=20%,rounding_fraction,0.25,K24,pass1_regions stage2_peak: no_peak_in_basin,1,288
+all,<=20%,rounding_fraction,0.25,K24,tied_vote,2,288
+all,<=20%,rounding_fraction,0.25,K28,insufficient_votes,57,288
+all,<=20%,rounding_fraction,0.25,K28,tied_vote,2,288

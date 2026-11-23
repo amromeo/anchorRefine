@@ -1,0 +1,31 @@
+{
+  "datasets": 1440,
+  "fits": 4320,
+  "checks": 17280,
+  "exact_repeat_shards": 48,
+  "distinct_host_shards": 48,
+  "max_p_difference": 0.0,
+  "max_endpoint_fraction": 0.0,
+  "max_parameter_differences": {
+    "Mu": 0.0,
+    "Sigma": 0.0,
+    "Lambda": 0.0,
+    "Shift": 0.0,
+    "P": 0.0,
+    "Cost": 0.0,
+    "rf": 0.0
+  },
+  "max_score_differences": {
+    "native_z_lower": 0.0,
+    "native_z_upper": 0.0,
+    "historical_z_lower": 0.0,
+    "historical_z_upper": 0.0
+  },
+  "max_election_and_statistic_differences": {
+    "peak_location": 0.0,
+    "peak_left": 0.0,
+    "peak_right": 0.0,
+    "peak_target": 0.0,
+    "statistic": 0.0
+  }
+}

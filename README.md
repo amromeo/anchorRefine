@@ -6,6 +6,8 @@ Stage 0 passed on all 2,880 RIbench datasets with N ≤ 5,000. The pass-through 
 
 Stage 1 evaluated 4,320 archived refineR fits. With historical C2 limits, the anchor check caught 34 of 42 severe errors at N ≤ 5,000 and both severe errors at N = 50,000. It declined 1.6% and 1.8% of the fits with every requested endpoint within 0.25 z units of truth. [Stage 1 results and data](results/stage1-45276858699/REPORT.md)
 
+Stage 2 development selected K = 24. The guided fit improved on refineR above 20% pathology at both sample sizes and missed the lower-pathology margin at N = 50,000. Confirmation awaits review. [Development report](results/stage2-development-45283676579/REVIEW.md)
+
 anchorRefine is derived from refineR 2.0.0. It is an independent project and is not endorsed by the refineR authors. Matthias Beck, Tatjana Ammer, Christopher M Rank and Andre Schuetzenmeister wrote refineR. This package is licensed under GPL-3. The upstream source and notices are in [vendor/refineR](vendor/refineR).
 
 To install from this checkout, run the following from the repository root in R. The vendored package requires ash, future and future.apply.
