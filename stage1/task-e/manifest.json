@@ -1,0 +1,34 @@
+{
+  "repository": "amromeo/amromeo.github.io",
+  "branch": "study/boxcox",
+  "commit": "8fbf237fef819f77a1ce8cabfb424b7a47f4c066",
+  "files": {
+    "anchoredRI-comparator.csv": {
+      "git_blob": "f5a393e4fcf785b25951baa9a157614670b25de5",
+      "bytes": 2543512,
+      "sha256": "40a5cbf34e65b04b1e64919401c12e799dbadc677d09a4d82aa8f96c0a9ac653",
+      "url": "https://github.com/amromeo/amromeo.github.io/blob/8fbf237fef819f77a1ce8cabfb424b7a47f4c066/anchoredRI/tools/boxcox/anchorRefine-comparator/anchoredRI-comparator.csv"
+    },
+    "README.upstream.md": {
+      "git_blob": "8a78a8a923726553a1d78db6d58bda274be05e23",
+      "bytes": 3512,
+      "sha256": "1db88c77b8966abd88d389c930b424f8cadc2329b317bfea4161822f967d3191",
+      "url": "https://github.com/amromeo/amromeo.github.io/blob/8fbf237fef819f77a1ce8cabfb424b7a47f4c066/anchoredRI/tools/boxcox/anchorRefine-comparator/README.md"
+    }
+  },
+  "fit_source_commit": "ec3dd35197759424d32a6a341320173e5db08c89",
+  "ci_run": "https://github.com/amromeo/amromeo.github.io/actions/runs/45257620744",
+  "coverage": {
+    "small": {
+      "available": 2880,
+      "planned": 2880,
+      "stage0_routine_and_anchor_hashes_matched": 2880
+    },
+    "large": {
+      "available": 144,
+      "planned": 1440,
+      "included_in_stage1_comparison": false
+    },
+    "non_ribench_grid": 900
+  }
+}

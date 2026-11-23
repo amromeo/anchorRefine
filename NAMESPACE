@@ -1,3 +1,4 @@
 export(findRI)
 export(getRI)
 importFrom(refineR, getRI)
+export(check_anchors)

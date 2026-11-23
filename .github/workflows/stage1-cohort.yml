@@ -1,0 +1,85 @@
+name: Stage 1 cohort
+on:
+  workflow_call:
+    inputs:
+      cohort:
+        type: string
+        required: true
+permissions:
+  contents: read
+  actions: read
+env:
+  COHORT: ${{ inputs.cohort }}
+  IMAGE: rocker/r-ver@sha256:5e8963d73b87865e0ad779df4202555fb1b436ee95dc7d7442450308b8ea77f3
+  LC_ALL: C.UTF-8
+  TZ: UTC
+  OPENBLAS_NUM_THREADS: 1
+  MKL_NUM_THREADS: 1
+  OMP_NUM_THREADS: 1
+jobs:
+  check:
+    name: ${{ inputs.cohort }} ${{ matrix.role }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        role: [primary, other]
+    env:
+      ROLE: ${{ matrix.role }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        if: inputs.cohort == 'large'
+        with:
+          name: large-inputs
+          path: stage1-inputs/
+      - name: Run the cohort using frozen inputs and independent R sessions
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/bundle" output
+          tar -C "$RUNNER_TEMP/bundle" -xzf stage0/frozen/bundle.tar.gz
+          if [[ "$COHORT" = large ]]; then (cd stage1-inputs && sha256sum --check SHA256SUMS); fi
+          bash stage1/verify.sh "$RUNNER_TEMP/bundle"
+          docker run -d --name audit-r -v "$PWD:/work:ro" -v "$PWD/output:/out" -v "$RUNNER_TEMP/bundle:/bundle:ro" -w /work -e TZ -e LC_ALL -e OMP_NUM_THREADS -e MKL_NUM_THREADS -e OPENBLAS_NUM_THREADS "$IMAGE" sleep infinity
+          docker exec audit-r bash -ce 'mkdir -p /tmp/current && R_LIBS_USER=/bundle/vendored:/bundle/deps R CMD INSTALL --library=/tmp/current .'
+          sessions=("$ROLE")
+          if [[ "$ROLE" = primary ]]; then sessions+=(repeat); fi
+          for session in "${sessions[@]}"; do
+            python3 stage1/audit.py record-host "output/$session"
+            docker exec -e STAGE1_LIB=/tmp/current -e R_LIBS=/tmp/current audit-r Rscript --vanilla stage1/cohort.R /bundle "$COHORT" "/out/$session"
+          done
+          docker rm -f audit-r
+          bash stage1/verify.sh "$RUNNER_TEMP/bundle"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: ${{ inputs.cohort }}-${{ matrix.role }}
+          path: output/
+          retention-days: 90
+  report:
+    name: ${{ inputs.cohort }} audit and report
+    runs-on: ubuntu-24.04
+    needs: check
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: ${{ inputs.cohort }}-*
+          path: saved/
+          merge-multiple: true
+      - name: Verify exact repeats, audit the second machine and report operating characteristics
+        run: |
+          bash stage1/verify.sh
+          python3 stage1/audit.py "$COHORT" saved/primary saved/repeat saved/other output/audit
+          /usr/bin/python3.12 -m venv "$RUNNER_TEMP/py"
+          "$RUNNER_TEMP/py/bin/pip" install --only-binary=:all: --require-hashes -r stage1/report-requirements.txt
+          "$RUNNER_TEMP/py/bin/python" stage1/report.py "--$COHORT" saved/primary --out output/analysis
+          bash stage1/verify.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: ${{ inputs.cohort }}-report
+          path: output/
+          retention-days: 90

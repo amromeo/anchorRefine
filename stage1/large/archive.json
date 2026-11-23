@@ -1,0 +1,11 @@
+{
+  "repository": "amromeo/amromeo.github.io",
+  "branch": "anchoredri-ribench-independent-50000",
+  "output_branch_revision": "b98c345a3faacaa38666af77035a6b88c5df8639",
+  "fit_source_commit": "f3cc3d36edb0393bf7c66f1cafc43cc12fe8e425",
+  "run_id": 45101564181,
+  "artifact_id": 14786706939,
+  "artifact": "ribench-scored-independent-50000",
+  "size_bytes": 6252748,
+  "sha256": "15a5122d5e792aa947daea1bcb5fd8bf57e46f2b6f683c71c23f826fb71a2210"
+}

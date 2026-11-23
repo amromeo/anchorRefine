@@ -1,0 +1,54 @@
+name: Stage 1 rounded-anchor check
+on: workflow_dispatch
+permissions:
+  contents: read
+  actions: read
+env:
+  IMAGE: rocker/r-ver@sha256:5e8963d73b87865e0ad779df4202555fb1b436ee95dc7d7442450308b8ea77f3
+jobs:
+  calibration:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Simulate rounded anchor panels and test null rejection rates
+        run: |
+          bash stage1/verify.sh
+          mkdir -p output
+          docker run --rm -v "$PWD:/work:ro" -v "$PWD/output:/out" -w /work "$IMAGE" Rscript --vanilla stage1/calibrate.R /out
+          bash stage1/verify.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: calibration
+          path: output/
+          retention-days: 90
+  small:
+    needs: calibration
+    uses: ./.github/workflows/stage1-cohort.yml
+    with:
+      cohort: small
+  large_inputs:
+    needs: small
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify the identities of the original 50000-sample routine datasets
+        run: |
+          mkdir -p "$RUNNER_TEMP/bundle" output
+          tar -C "$RUNNER_TEMP/bundle" -xzf stage0/frozen/bundle.tar.gz
+          bash stage1/verify.sh "$RUNNER_TEMP/bundle"
+          docker run --rm -v "$PWD:/work:ro" -v "$PWD/output:/out" -v "$RUNNER_TEMP/bundle:/bundle:ro" -w /work "$IMAGE" Rscript --vanilla stage1/large/verify-routines.R /bundle /out/large-routines.csv
+          bash stage1/verify.sh "$RUNNER_TEMP/bundle"
+          (cd output && sha256sum large-routines.csv > SHA256SUMS)
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: large-inputs
+          path: output/
+          retention-days: 90
+  large:
+    needs: large_inputs
+    uses: ./.github/workflows/stage1-cohort.yml
+    with:
+      cohort: large
