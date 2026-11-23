@@ -7,7 +7,10 @@ use_libraries(bundle, "cran")
 source("sources/c2/anchoredRI/tools/ribench/reader-compat.R")
 lock <- read.delim("stage0/dependencies.tsv")
 for (i in seq_len(nrow(lock))) {
-    stopifnot(as.character(packageVersion(lock$package[i])) == lock$version[i])
+    installed <- packageDescription(lock$package[i], fields = "Version")
+    if (!identical(installed, lock$version[i])) {
+        stop(sprintf("Expected %s %s, found %s", lock$package[i], lock$version[i], installed))
+    }
 }
 stopifnot(packageVersion("RIbench") == "1.0.2")
 unpacked <- tempfile("c2")
