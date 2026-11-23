@@ -2,6 +2,8 @@
 
 anchorRefine fits a healthy reference distribution to routine laboratory measurements. Stage 0 provides refineR's original fit and reference limits. The study protocol describes how later stages will use independently screened healthy patients.
 
+Stage 0 passed on all 2,880 RIbench datasets with N ≤ 5,000. The pass-through matched CRAN exactly on the same machine in both repetitions. All 5,472 historical endpoints met the C2 tolerance. [Stage 0 report](results/stage0-45241996440/REPORT.md) · [Readback and interpretation](results/stage0-45241996440/READBACK.md)
+
 anchorRefine is derived from refineR 2.0.0. It is an independent project and is not endorsed by the refineR authors. Matthias Beck, Tatjana Ammer, Christopher M Rank and Andre Schuetzenmeister wrote refineR. This package is licensed under GPL-3. The upstream source and notices are in [vendor/refineR](vendor/refineR).
 
 To install from this checkout, run the following from the repository root in R. The vendored package requires ash, future and future.apply.

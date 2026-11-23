@@ -68,8 +68,10 @@ All 2,880 datasets enter both comparisons.
 
 The C2 anchors are rounded. The initial protocol explicitly requires a discrete-data calibration amendment before testing rounded observations. The continuous PIT statistic and null calibration cannot simply be applied to these values. Prepare and commit the rounded-data likelihood and calibration rules after Stage 0 review, before any Stage 1 tests. Existing archived parameters can be reused once input identity and readback checks pass; parameter availability alone is not sufficient validation.
 
-## Execution status
+## Execution status at the initial source review
 
 The reviewed protocol is approved in the conversation. Upstream refineR source is now vendored unchanged, with its original notices and the original source archive. RIbench 1.0.2's source archive is also preserved. File SHA-256 values are in `sources/SHA256SUMS`. These are source/input preservation hashes, not a complete execution freeze: an R runtime, dependency versions, runner source, vector-hash verification and the endpoint clarification are still needed before Stage 0.
 
 This workspace currently lacks R, and system package installation cannot write to the system directories even with an escalated execution request. No automatic approval rejection occurred; the OS denied the package-manager writes. A writable isolated R installation or an anchorRefine-only GitHub Actions environment can provide the runtime. No workflow was added or launched, and no writes were made to amromeo.github.io.
+
+Stage 0 subsequently passed. The completed [report](../results/stage0-45241996440/REPORT.md) and [readback](../results/stage0-45241996440/READBACK.md) document the runner environment, verified inputs and results.

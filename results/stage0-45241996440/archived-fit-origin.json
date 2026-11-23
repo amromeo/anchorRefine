@@ -1,0 +1,12 @@
+{
+  "repository": "amromeo/amromeo.github.io",
+  "run_id": 45091086783,
+  "head_sha": "d0e1eb77a31583c7245e580198009d494542978d",
+  "artifact": "ribench-scored-small",
+  "artifact_id": 14781783518,
+  "archive_sha256": "d0183531e0ab54f91d0efaa72fe88ec4ca25f3af6e6286a094af03efcf737f99",
+  "models_verified_against_c2_sha256": 2880,
+  "identical_shard_session_records": 60,
+  "session_file_sha256": "c42d5b45fc1552783f864f2db852982faf1655c23ea89274c46210bcaa4d9c18",
+  "note": "Supplemental archive provenance checked after the Stage 0 freeze. No benchmark input or endpoint was replaced."
+}
