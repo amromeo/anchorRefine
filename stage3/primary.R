@@ -274,7 +274,7 @@ stage3_primary_many <- function(x, anchors, h, seed, parent, weights = stage3_gr
     stage2_job(seed, function() {
         first <- stage3_first_pass(x, parent)
         if (parent_fallback && (!identical(first$regions, observed$regions) ||
-            !identical(first$data, observed$data) || !identical(stage2_initial_lambda(), observed$lambda) ||
+            !identical(first$data, observed$data) || !identical(stage3_initial_lambda(), observed$lambda) ||
             !identical(stage2_rng(), observed$rng)))
             stop("Unguided first-pass regions, grid, shifted data or RNG differ from refineR")
         if (!identical(first$hist, native_hist))
