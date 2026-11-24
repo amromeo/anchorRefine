@@ -177,6 +177,15 @@ The user fixed this decision on 2026-11-24 after reviewing the three K = 24 abla
 
 Use option B only if the full search has strictly lower mean loss than peak choice alone at both N = 1,500 and N = 50,000. Under option B, a clear different peak uses the full K = 24 search and a clear identical peak uses unchanged refineR. Otherwise select the existing K = 24 peak-choice-only arm on every dataset. Both choices preserve the existing fallback and Stage 1 check. Apply the rule to the unrounded means. Commit the choice, reason and source hashes before rerunning the selected implementation once on development. Verify the expected per-dataset results against the existing fits. Successful reproduction permits opening the eight fresh confirmation replicates per factorial cell. Run the candidate, three ablations and unchanged refineR, report the existing confirmation gates and stop before RIbench.
 
+**Selected candidate: peak choice only, K = 24, everywhere.** The full fit improved on peak choice alone at N = 50,000 and had higher mean error at N = 1,500. The latter group included one lower-pathology control and one upstream fit failure scored as 5. All 63 different-peak cases at N = 50,000 were above 20% pathology. These means come from the existing fits, with an independent calculation from their archived endpoints.
+
+| Routine N | Different-peak datasets | Unchanged refineR | Peak choice only | Full K = 24 |
+|---:|---:|---:|---:|---:|
+| 1,500 | 37 | 2.447085 | 0.743216 | 0.754083 |
+| 50,000 | 63 | 2.540767 | 0.180491 | 0.169170 |
+
+Use the existing K = 24 peak-choice arm, including its clarity test, guided peak tracking and upstream fallback. It preserves refineR's starting values and search-region rules for the chosen peak. Apply the original Stage 1 check after the fit under both panels and randomizations as specified below. In confirmation, the selected candidate and peak-only ablation are the same estimator. Compute the selected fit once per dataset and give both labels the identical result. Score both against the usual comparators. [Decision data](stage2/selected-decision.csv) · [Selected implementation](R/stage2-selected.R)
+
 #### 4. Independent development and confirmation data
 
 After plan approval, build a **new synthetic dataset**, with no RIbench generator, analyte settings, case data, templates, fits or outcome tables. Use a known healthy CDF H. For a healthy latent score Z ~ N(0,1), generate the measurement X = H-inverse(Phi(Z)). Use the same map for disease scores. Define H by a normal on the Box–Cox scale with the indicated Mu and Sigma, conditioned on the valid transform support and inverse-transformed with shift zero. Use native H quantiles at 0.025 and 0.975 as truth before measurement rounding.

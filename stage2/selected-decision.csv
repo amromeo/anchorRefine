@@ -1,0 +1,3 @@
+N,different_peak_datasets,above_20_percent,at_or_below_20_percent,unchanged_refineR_mean_loss,peak_only_mean_loss,full_K24_mean_loss
+1500,37,36,1,2.4470849798912284,0.7432158824291926,0.7540825638608403
+50000,63,63,0,2.5407666694266067,0.18049104513449937,0.16917002565474507
