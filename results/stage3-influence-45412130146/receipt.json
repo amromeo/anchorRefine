@@ -1,0 +1,12 @@
+{
+  "audit_sha256": "4d11c23fe7ddca093be8b74eb5fcb43f99d3acdfa18a53a52e2a42104559b395",
+  "datasets": 96,
+  "fallback_sha256": "fec7838da14264a2bb1e669ba9f8fc45939c6d2f266440d3d2264418b92c8999",
+  "influence_sha256": "1a2aeb5d303c35cdeb4a9e230fe683e9f90015ddd1407b74e443add8309e869d",
+  "nonfallback_sha256": "d0bfa731032063f9f6f009aaeeb63144f01dae4eba3569aa1e042a326b87115d",
+  "original_audit_sha256": "b5388e63fa4309e1bcca9d26b47fcbd0b8d56cf7a05447b334122bc0f16dc53e",
+  "passed": true,
+  "phase": "influence",
+  "report_sha256": "938f5300172b1523268078828291cc5d15929442199d59299bbc29a538f8346c",
+  "table_sha256": "1a2aeb5d303c35cdeb4a9e230fe683e9f90015ddd1407b74e443add8309e869d"
+}
