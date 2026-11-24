@@ -6,6 +6,10 @@ stopifnot(length(args) == 5L)
 source("stage0/common.R")
 use_libraries(args[1L], "vendored")
 stopifnot(packageVersion("RIbench") == "1.0.2")
+# RIbench registers print.RWDRI during its first namespace load. Perform that
+# registration once at startup so identical scored paths capture identical logs.
+invisible(loadNamespace("refineR"))
+invisible(loadNamespace("RIbench"))
 future::plan(future::sequential)
 for (file in c("R/anchor-check.R", "R/stage2-peaks.R", "R/stage2-grid.R", "R/stage2-search.R",
                "R/stage2-selected.R", "stage2/generator.R", "stage2/ablation-peak.R",
