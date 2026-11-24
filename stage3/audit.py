@@ -30,7 +30,12 @@ CHECK_KEY = (*FIT_KEY, "panel", "seed_kind")
 LIMITS = tuple(f"{e}_{s}" for e in EXTRACTIONS for s in SIDES)
 ZS = tuple(f"{e}_z_{s}" for e in EXTRACTIONS for s in SIDES)
 FLAGS = tuple(f"{e}_{a}" for e in EXTRACTIONS for a in ("ordered","nonfinite","out_lower","out_upper"))
-CONFIG = {"influence": (96, 24, ("stage2", *W)), "development": (3744, 96, ("baseline","stage2",*W,*T,"anchorsOnly"))}
+CONFIRMATION_ARMS = ("baseline", "stage2", "w0", "w1", "t0", "t0.25", "anchorsOnly")
+CONFIG = {
+    "influence": (96, 24, ("stage2", *W)),
+    "development": (3744, 96, ("baseline", "stage2", *W, *T, "anchorsOnly")),
+    "confirmation": (7488, 96, CONFIRMATION_ARMS),
+}
 
 
 def design(phase):
@@ -40,11 +45,13 @@ def design(phase):
         base = 81000000
     else:
         cells = tuple(product((.1,.2,.25,.45,.60), DISEASES))
-        base = 82000000
+        base = {"development": 82000000, "confirmation": 92000000}[phase]
     cases = {}
     for cell, (family, n, (fraction, disease), rounding) in enumerate(product(
             ("lognormal","linear","power_0.5"), NS, cells, (.05,.25)), 1):
         rep_n = 1 if phase == "influence" else 8 if fraction > .2 and disease in FOCUS else 4
+        if phase == "confirmation":
+            rep_n *= 2
         for replicate in range(1,rep_n+1):
             j = len(cases)+1
             cases[j] = dict(cell_id=cell, family=family, N=n, fraction=fraction, disease=disease,
@@ -83,6 +90,11 @@ def validate_case(fits, checks, j, arms, planned):
             check_one_fit(r,ctx)
         else:
             require(r["fit_status"] in ("ResultFound","fit_failed"),ctx)
+            if planned["phase"]=="confirmation" and r["fit_status"]=="ResultFound":
+                hash_field(r,"fit_hash")
+                require(not missing(r["ao_transform"]) and
+                        all(math.isfinite(number(r[k])) for k in ("ao_location","ao_spread","ao_shift")),
+                        (ctx,"anchors-only fit parameters"))
         parent_valid=parent["fit_status"]=="ResultFound"
         fallback=flag(parent["fallback"])
         require(flag(r["parent_fallback"])==fallback,(ctx,"parent fallback"))
@@ -114,6 +126,9 @@ def validate_case(fits, checks, j, arms, planned):
         for panel,seed in product(PANELS,SEEDS):
             ck=(*ctx,panel,seed); c=checks[key,arm,panel,seed]
             if arm=="anchorsOnly":
+                if planned["phase"]=="confirmation":
+                    stem="pit" if panel=="guidance" else "diagnostic"
+                    require(c["seed"]==r[f"{stem}_{seed}_seed"],(ck,"PIT seed"))
                 require(missing(c["p"]) and c["status"]==("keep" if r["fit_status"]=="ResultFound" else "fit_failed"),ck)
                 for field in LIMITS:
                     ext=field.split("_")[0]
@@ -327,6 +342,8 @@ def audit(phase,raw,evidence):
     required_count=sensitivity_count=0
     identities=[]
     receipt=dict(phase=phase,passed=False,datasets=0,exact_repeat_shards=0,distinct_host_shards=0)
+    if phase=="confirmation":
+        receipt["source_manifest_sha256"]=digest(Path(__file__).with_name("confirmation-sources.sha256"))
     def persist():
         (evidence/"audit.json").write_text(json.dumps(receipt,indent=2,allow_nan=False)+"\n")
     try:
@@ -349,8 +366,12 @@ def audit(phase,raw,evidence):
             comp=Comparison(diff_writer)
             for shard in range(1,shards+1):
                 dirs,host=verify_host(raw,shard)
+                if phase=="confirmation":
+                    manifest_hash=digest(raw/f"build-{shard}"/"source-manifest.sha256")
+                    require(manifest_hash==receipt["source_manifest_sha256"],(shard,"different frozen source manifest"))
+                    host["source_manifest_sha256"]=manifest_hash
                 hosts.append(host)
-                indices=[j for j in planned if (j-1+(5*((j-1)//shards) if phase=="development" else 0))%shards==shard-1]
+                indices=[j for j in planned if (j-1+(5*((j-1)//shards) if phase!="influence" else 0))%shards==shard-1]
                 fits_key={(str(i),a) for i in indices for a in arms}
                 check_keys={(*k,p,s) for k in fits_key for p,s in product(PANELS,SEEDS)}
                 fit_tables=[table(d/"fits.csv",FIT_KEY) for d in (dirs[0],dirs[2])]
@@ -370,7 +391,7 @@ def audit(phase,raw,evidence):
                 for name in ("identities","sensitivity"):
                     columns,rows=diagnostic_values(comp,name+".csv",dirs)
                     if name=="identities":
-                        if phase=="development":
+                        if phase!="influence":
                             require(not rows,"Expected identities only in the influence phase")
                         else:
                             ids={int(r["j"]) for r in rows if r["metric"]=="profile_available"}

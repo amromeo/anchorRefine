@@ -1,4 +1,4 @@
-# Run one audited influence or development shard. Independent roles are separate
+# Run one audited Stage 3 simulation shard. Independent roles are separate
 # invocations with the same arguments and separate output directories.
 # Rscript --vanilla stage3/run.R BUNDLE PHASE SHARD TOTAL OUT
 args <- commandArgs(trailingOnly = TRUE)
@@ -24,7 +24,7 @@ design <- stage3_manifest(phase)
 stopifnot(1L <= shard, shard <= n_shards, n_shards <= nrow(design))
 slot <- design$j - 1L
 # Rotate each full block so first-replicate diagnostics are shared across hosts.
-if (phase == "development") slot <- slot + 5L * (slot %/% n_shards)
+if (phase != "influence") slot <- slot + 5L * (slot %/% n_shards)
 design <- design[slot %% n_shards == shard - 1L, , drop = FALSE]
 dir.create(out, recursive = TRUE, showWarnings = FALSE)
 writeLines(as.character(Sys.getpid()), file.path(out, "r-pid.txt"))
@@ -52,8 +52,8 @@ ao_scorer$stage2_check <- function(fit, anchors, h, seed) {
 ao_evaluate <- scorer$evaluate_model
 environment(ao_evaluate) <- ao_scorer
 
-weights <- c(0, 1, 10, 100, 1000, 10000)
-post_weights <- c(0, 0.25, 0.5, 0.75, 1)
+weights <- if (phase == "confirmation") c(0, 1) else c(0, 1, 10, 100, 1000, 10000)
+post_weights <- if (phase == "confirmation") c(0, 0.25) else c(0, 0.25, 0.5, 0.75, 1)
 primary_labels <- paste0("w", weights)
 post_labels <- paste0("t", post_weights)
 
@@ -135,7 +135,7 @@ run_case <- function(row) {
     stopifnot(identical(names(primary), primary_labels))
     result <- c(list(stage2 = parent), primary)
     post <- NULL
-    if (phase == "development") {
+    if (phase != "influence") {
         stage2_restore_rng(initial_rng)
         baseline <- run_search("baseline", stage2_baseline(x, seed))
         est <- run_search("post_anchor_estimate", stage3_post_estimate(parent, a, h))
@@ -158,7 +158,14 @@ run_case <- function(row) {
     diag_primary <- setNames(primary, as.character(weights))
     diag_post <- if (is.null(post)) NULL else setNames(post, as.character(post_weights))
     stage2_restore_rng(initial_rng)
-    diagnostics <- stage3_diagnostics(phase, row, x, a, h, seed, parent, diag_primary, post = diag_post)
+    if (phase == "confirmation") {
+        # The prespecified perturbation refits used the first development
+        # replicate. Confirmation keeps the fit, check and zero-identity audits.
+        diagnostics <- list(identities = stage3_identity(0L, "", "", 0, 0)[FALSE, ],
+                            sensitivity = stage3_sensitivity_template())
+    } else {
+        diagnostics <- stage3_diagnostics(phase, row, x, a, h, seed, parent, diag_primary, post = diag_post)
+    }
 
     # Scoring receives truth after fitting. Always evaluate zero-weight arms
     # afresh to compare their two extractions and all checks with the parent.
@@ -243,11 +250,22 @@ run_case <- function(row) {
             zero_score_exact = if (is_zero) zero_score[[arm]] else NA, stringsAsFactors = FALSE)
         fits[[arm]] <- cbind(row, inputs, meta, peak, scorer$election_fields(res), score$summary)
         checks[[arm]] <- data.frame(j = row$j, arm, score$checks, row.names = NULL)
-        if (!is.null(res$fit$Data)) {
+        uses_routine <- !is.null(res$fit$Data)
+        if (uses_routine) {
             stopifnot(identical(res$fit$Data, x))
-            res$fit$Data <- NULL
+            if (phase == "confirmation") {
+                # Keep Data's original position so the complete fitted object
+                # can be restored with the one copy of this case's routine data.
+                res$fit["Data"] <- list(NULL)
+                restored <- res$fit
+                restored$Data <- x
+                stopifnot(identical(sha(restored), hash))
+            } else {
+                res$fit$Data <- NULL
+            }
         }
         records[[arm]] <- list(search = res, full_fit_hash = hash, conditions = score$conditions)
+        if (phase == "confirmation") records[[arm]]$uses_routine <- uses_routine
     }
     fit_table <- data_frame_rows(fits)
     check_table <- data_frame_rows(checks)
@@ -255,6 +273,7 @@ run_case <- function(row) {
         search_conditions = conditions, zero_fit_exact = exact, zero_rng_exact = rng_ok,
         zero_score_exact = zero_score, initial_rng_hash = sha(initial_rng),
         parent_rng_hash = sha(final_rng), w0_rng_hash = sha(w0_rng), t0_rng_hash = sha(t0_rng))
+    if (phase == "confirmation") record$routine <- x
     fit_table$result_hash <- sha(list(record, fit_table, check_table))
     list(record = record, fits = fit_table, checks = check_table, diagnostics = diagnostics)
 }
@@ -267,7 +286,7 @@ for (i in seq_len(nrow(design))) {
 }
 fits <- data_frame_rows(lapply(cases, "[[", "fits"))
 checks <- data_frame_rows(lapply(cases, "[[", "checks"))
-stopifnot(nrow(fits) == nrow(design) * if (phase == "influence") 7L else 14L,
+stopifnot(nrow(fits) == nrow(design) * if (phase == "development") 14L else 7L,
           nrow(checks) == 4L * nrow(fits), !anyDuplicated(fits[c("j", "arm")]),
           !anyDuplicated(checks[c("j", "arm", "panel", "seed_kind")]))
 write_table(fits, file.path(out, "fits.csv"))

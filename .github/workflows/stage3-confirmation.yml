@@ -1,0 +1,150 @@
+name: Stage 3 confirmation
+run-name: Stage 3 confirmation
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+concurrency:
+  group: stage3-confirmation
+  cancel-in-progress: false
+env:
+  PHASE: confirmation
+  LC_ALL: C.UTF-8
+  TZ: UTC
+  OPENBLAS_NUM_THREADS: 1
+  OMP_NUM_THREADS: 1
+  MKL_NUM_THREADS: 1
+  PYTHONDONTWRITEBYTECODE: '1'
+
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      workers: ${{ steps.shards.outputs.workers }}
+      count: ${{ steps.shards.outputs.count }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify confirmation sources and accepted development weights
+        run: |
+          bash stage3/verify-confirmation.sh
+          python3 stage3/verify-confirmation-weights.py
+      - name: Assign all shards
+        id: shards
+        run: |
+          python3 - <<'PY'
+          import json, os
+          count = 96
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              print("workers=" + json.dumps(list(range(1, count + 1))), file=f)
+              print(f"count={count}", file=f)
+          PY
+
+  evaluate:
+    needs: gate
+    runs-on: ubuntu-24.04
+    container: rocker/r-ver@sha256:5e8963d73b87865e0ad779df4202555fb1b436ee95dc7d7442450308b8ea77f3
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ${{ fromJSON(needs.gate.outputs.workers) }}
+    env:
+      SHARD: ${{ matrix.shard }}
+      SHARDS: ${{ needs.gate.outputs.count }}
+      STAGE3_ENGINE: /tmp/s3-build/stage3engine.so
+      PKG_CXXFLAGS: -ffp-contract=off
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify frozen sources and libraries, then build the scoring engine
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/s3-libs /tmp/s3-build "output/build-$SHARD"
+          tar -C /tmp/s3-libs -xzf stage0/frozen/bundle.tar.gz
+          bash stage3/verify-confirmation.sh /tmp/s3-libs
+          cp stage3/engine.cpp /tmp/s3-build/engine.cpp
+          meta="$GITHUB_WORKSPACE/output/build-$SHARD"
+          (
+            cd /tmp/s3-build
+            R CMD SHLIB --preclean engine.cpp -o "$STAGE3_ENGINE"
+            R --version
+            R CMD config CXX
+            R CMD config CXXFLAGS
+            c++ --version
+            sha256sum engine.cpp stage3engine.so
+            uname -a
+          ) | tee "$meta/toolchain.txt"
+          cp stage3/confirmation-sources.sha256 "$meta/source-manifest.sha256"
+          Rscript --vanilla -e 'dyn.load(Sys.getenv("STAGE3_ENGINE")); writeLines(R.version.string)'
+      - name: Run paired fits in three isolated sessions
+        shell: bash
+        run: |
+          set -euo pipefail
+          neighbor=$((SHARD % SHARDS + 1))
+          pids=()
+          for role in primary repeat other; do
+            index=$SHARD
+            if [[ "$role" == other ]]; then index=$neighbor; fi
+            dest="output/$role-$index"
+            mkdir -p "$dest"
+            cat /proc/sys/kernel/random/boot_id > "$dest/boot.txt"
+            uname -a > "$dest/platform.txt"
+            Rscript --vanilla stage3/run.R /tmp/s3-libs "$PHASE" "$index" "$SHARDS" "$dest" > "$dest/run.log" 2>&1 &
+            pids+=($!)
+          done
+          result=0
+          for pid in "${pids[@]}"; do wait "$pid" || result=1; done
+          tail -n 12 output/*/run.log
+          test "$result" = 0
+          Rscript --vanilla stage3/verify-taskg.R /tmp/s3-libs "output/primary-$SHARD"
+          bash stage3/verify-confirmation.sh /tmp/s3-libs
+      - name: Preserve original session outputs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: stage3-confirmation-${{ matrix.shard }}
+          path: output/
+          if-no-files-found: error
+          retention-days: 90
+          overwrite: true
+
+  results:
+    needs: evaluate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: stage3-confirmation-[0-9]*
+          path: saved/
+          merge-multiple: true
+      - name: Verify sources and preserve the selected weights
+        run: |
+          bash stage3/verify-confirmation.sh
+          python3 stage3/verify-confirmation-weights.py
+          mkdir -p output
+          cp results/stage3-development/selected-weights.json output/
+          cp stage3/confirmation-sources.sha256 output/source-manifest.sha256
+      - name: Audit each session and write the phase report
+        shell: bash
+        run: |
+          set -euo pipefail
+          /usr/bin/python3.12 -m venv "$RUNNER_TEMP/stage3-py"
+          "$RUNNER_TEMP/stage3-py/bin/pip" install --only-binary=:all: --require-hashes -r stage1/report-requirements.txt
+          "$RUNNER_TEMP/stage3-py/bin/python" stage3/audit.py "$PHASE" saved output
+          "$RUNNER_TEMP/stage3-py/bin/python" stage3/report.py "$PHASE" output
+          "$RUNNER_TEMP/stage3-py/bin/python" stage3/taskg.py saved output
+          bash stage3/verify-confirmation.sh
+      - name: Preserve the audit and report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: stage3-confirmation-report
+          path: output/
+          if-no-files-found: error
+          retention-days: 90
+          overwrite: true

@@ -1,4 +1,4 @@
-"""Report audited Stage 3 fixtures or development. Reads only the requested phase."""
+"""Report the audited Stage 3 phase requested on the command line."""
 import csv
 import gzip
 import json
@@ -172,13 +172,21 @@ def selection(arms,meta):
     return rows,chosen
 
 
-def strata(meta,extras,chosen):
+def strata(meta,extras,chosen,parent_fallback=None):
     n=meta["N"]; hi=meta["fraction"]>.2; focus=hi & np.isin(meta["disease"],tuple(FOCUS))
     all_rows=np.ones(len(n),bool)
-    for size in (None,*NS):
-        ns=all_rows if size is None else n==size
+    sizes=(None,*NS) if parent_fallback is None else (None,"<=5000",*NS)
+    for size in sizes:
+        ns=all_rows if size is None else n<=5000 if size=="<=5000" else n==size
+        level="all" if size is None else str(size)
         for part,sub in (("all",all_rows),("control",~hi),("high",hi),("focus",focus),("separated_high",hi&~focus)):
-            yield "N/pathology","all" if size is None else str(size),part,ns&sub
+            mask=ns&sub
+            yield "N/pathology",level,part,mask
+            if parent_fallback is not None:
+                for group,parents in (("stage2_fallback",parent_fallback),("stage2_nonfallback",~parent_fallback)):
+                    subset=mask & parents
+                    if subset.any():
+                        yield group,level,part,subset
     for f in ("fraction","family","disease","rounding_fraction"):
         for v in sorted(set(meta[f])):
             for part,sub in (("all",all_rows),("control",~hi),("high",hi)):
@@ -206,15 +214,17 @@ def strata(meta,extras,chosen):
                 yield "both_updates_available",level,"all",mask
 
 
-def analyze(meta,arms,extras,chosen):
+def analyze(meta,arms,extras,chosen,confirmation=False):
     tables=defaultdict(list)
     selected=list(dict.fromkeys(("baseline","stage2",chosen["primary"],chosen["postfit"],"anchorsOnly")))
     estimates={(a,e):views(arm,arm.estimates[e]) for a,arm in arms.items() for e in EXTRACTIONS}
-    for dim,level,part,mask in strata(meta,extras,chosen):
+    parent_fallback=arms["stage2"].fallback if confirmation else None
+    for dim,level,part,mask in strata(meta,extras,chosen,parent_fallback):
         k=dict(group=dim,level=level,pathology=part)
         boot=Bootstrap(meta["cell_id"][mask])
         study=dim=="N/pathology"
-        include=list(arms) if study else selected
+        parent_subset=dim in ("stage2_fallback","stage2_nonfallback")
+        include=list(arms) if study and not confirmation else selected
         scores={}
         for a in include:
             arm=arms[a]; key=dict(**k,arm=a)
@@ -225,13 +235,14 @@ def analyze(meta,arms,extras,chosen):
                 for values,count in sorted(keys.items()):
                     tables["branches"].append(dict(**key,**dict(zip(("reason",*branch_fields),values)),
                                                    count=count,total=int(mask.sum())))
-                if a!="anchorsOnly" and study:
+                if a!="anchorsOnly" and (study or parent_subset):
                     flip_metrics(tables,key,boot,arm,mask)
             for e in EXTRACTIONS:
                 if e=="historical" and a not in selected:
                     continue
                 model=arm.estimates[e]; ek=dict(**key,extraction=e)
-                if a in selected and a!="anchorsOnly" and study and (part in ("control","high","focus") or level=="all"):
+                if a in selected and a!="anchorsOnly" and (parent_subset or
+                        (study and (confirmation or part in ("control","high","focus") or level=="all"))):
                     check_metrics(tables,ek,boot,arm,model,mask)
                 for m,(ret,loss) in estimates[a,e].items():
                     scores[a,e,m]=accuracy(tables,ek,boot,mask,arm,model,m,ret,loss)
@@ -265,8 +276,15 @@ def analyze(meta,arms,extras,chosen):
                                 and level!="all" and part in ("control","high")):
                             ok_loss=ci["value"]<=.02 if part=="control" else ci["value"]<0
                             ok_impl=aa["implausible"]<=bb["implausible"];ok_cov=aa["nonreturns"]<=bb["nonreturns"]
-                            tables["development-gates"].append(dict(**row,loss_met=ok_loss,implausible_met=ok_impl,
-                                nonreturn_met=ok_cov,all_met=bool(ok_loss and ok_impl and ok_cov)))
+                            gate=dict(**row,loss_met=ok_loss,implausible_met=ok_impl,
+                                      nonreturn_met=ok_cov,all_met=bool(ok_loss and ok_impl and ok_cov))
+                            if confirmation:
+                                if level in ("<=5000","50000"):
+                                    tables["confirmation-gates"].append(gate)
+                                if level!="<=5000":
+                                    tables["confirmation-gates-by-n"].append(gate)
+                            else:
+                                tables["development-gates"].append(gate)
     return tables
 
 
@@ -350,6 +368,170 @@ def development_text(tables,chosen,rank,inf,audit):
     return "\n\n".join(sections)+"\n"
 
 
+def confirmation_results(evidence,out,audit,receipt):
+    phase="confirmation"
+    chosen={"primary":"w1","postfit":"t0.25"}
+    scientific=("baseline","stage2",*chosen.values(),"anchorsOnly")
+    planned=list(design(phase).values())
+    meta={k:np.array([r[k] for r in planned]) for k in planned[0]}
+    arms,extras=load_arm_data(evidence,phase)
+    tables=analyze(meta,arms,extras,chosen,confirmation=True)
+    # The two parent subsets partition each complete stratum. Weight each
+    # subgroup's difference by its actual fraction of that stratum.
+    combined={}
+    keys=("level","pathology","arm","baseline","extraction","mode","baseline_mode")
+    for r in tables["paired-loss"]:
+        if r["group"]=="N/pathology":
+            combined[tuple(r[k] for k in keys)]=r
+    contribution=defaultdict(float)
+    counts=Counter()
+    for r in tables["paired-loss"]:
+        if r["group"] not in ("stage2_fallback","stage2_nonfallback"):
+            continue
+        key=tuple(r[k] for k in keys)
+        total=combined[key]["planned"]
+        part=r["value"]*r["planned"]/total
+        contribution[key]+=part
+        counts[key]+=r["planned"]
+        tables["parent-comparisons"].append(dict(**r,stratum_total=total,contribution_to_stratum_difference=part))
+    require(combined.keys()==counts.keys(),"Missing parent subset partition")
+    for key,row in combined.items():
+        require(counts[key]==row["planned"] and math.isclose(contribution[key],row["value"],abs_tol=2e-12),
+                (key,"Parent subset denominators or mean losses do not add up"))
+    for r in tables["accuracy"]:
+        if r["group"]=="N/pathology" and r["extraction"]=="native" and r["arm"]=="stage2" and r["mode"]=="pre":
+            tables["parent-counts"].append(dict(N=r["level"],pathology=r["pathology"],total=r["planned"],
+                stage2_fallback=r["fallback"],stage2_nonfallback=r["planned"]-r["fallback"]))
+    for name,levels in (("confirmation-gates",("<=5000","50000")),
+                        ("confirmation-gates-by-n",tuple(map(str,NS)))):
+        inventory=[(r["level"],r["pathology"],r["arm"],r["mode"]) for r in tables[name]]
+        expected=set(product(levels,("control","high"),chosen.values(),("pre","checked")))
+        require(len(inventory)==len(expected) and set(inventory)==expected,(name,"Incomplete gate comparisons"))
+    for name,rows in tables.items():
+        save(out/(name+".csv"),rows)
+
+    def pick(name,**fields):
+        matches=[r for r in tables[name] if all(r[k]==v for k,v in fields.items())]
+        require(len(matches)==1,(name,fields,"Expected one result"))
+        return matches[0]
+
+    def gate_table(rows):
+        return table(["N","Pathology","Arm","Mode","Assigned","Loss difference [95% interval]",
+                      "Implausible, arm / refineR","Nonreturns, arm / refineR","All criteria met"],
+                     [[r["level"],"≤20%" if r["pathology"]=="control" else ">20%",label(r["arm"]),r["mode"],
+                       r["planned"],f"{fmt(r['value'],4,True)} [{fmt(r['ci_low'],4,True)}, {fmt(r['ci_high'],4,True)}]",
+                       f"{r['arm_implausible']} / {r['baseline_implausible']}",
+                       f"{r['arm_nonreturns']} / {r['baseline_nonreturns']}","Yes" if r["all_met"] else "No"] for r in rows])
+
+    formal=tables["confirmation-gates"]
+    verdicts={}
+    for arm in chosen.values():
+        verdicts[arm]={mode:all(r["all_met"] for r in formal if r["arm"]==arm and r["mode"]==mode)
+                       for mode in ("pre","checked")}
+    pass_word=lambda v:"passed" if v else "missed at least one gate"
+    text=["# Stage 3 synthetic confirmation",
+        "The primary arm used w = 1 and the post-fit comparator used t = 0.25 throughout the 7,488 fresh simulations. "
+        f"The primary arm {pass_word(verdicts['w1']['pre'])} before checking and {pass_word(verdicts['w1']['checked'])} "
+        f"after checking. The post-fit comparator {pass_word(verdicts['t0.25']['pre'])} before checking and "
+        f"{pass_word(verdicts['t0.25']['checked'])} after checking. Both weights came from development. RIbench awaits review.",
+        "## Prespecified comparisons with unchanged refineR",
+        "A negative difference favors the Stage 3 arm. Each endpoint contributes its absolute native healthy-scale z error capped at 5. "
+        "A missing interval contributes 5 on its own side. Above 20% pathology the paired mean difference must be strictly negative. "
+        "At or below 20% it must be at most 0.02. Each comparison also requires at most as many implausible intervals "
+        "(uncapped mean absolute endpoint error above 5) and at most as many nonreturns. Before-check and checked comparisons use matching refineR releases. "
+        "The decision uses unrounded point estimates. The 95% intervals use 2,000 paired bootstrap resamples of factorial cells.",
+        gate_table(formal),"[Formal comparisons at full precision](confirmation-gates.csv)",
+        "## Each simulation sample size",gate_table(tables["confirmation-gates-by-n"]),
+        "[Each N at full precision](confirmation-gates-by-n.csv)",
+        "## Accuracy and coverage",
+        "The guidance panel and primary randomized-PIT seed determine the checked release. Anchors-only retains its C2 reporting rule."]
+    overall=dict(group="N/pathology",level="all",pathology="all",extraction="native")
+    acc=[]
+    for arm,mode in product(scientific,("pre","checked")):
+        r=pick("accuracy",**overall,arm=arm,mode=mode)
+        acc.append([label(arm),mode,r["planned"],r["returned"],fmt(r["all_set_loss"]),
+                    fmt(r["kept_capped_mean_abs_z"]),r["implausible"],r["fit_failures"]])
+    text.append(table(["Arm","Mode","Assigned","Returned","Mean loss","Mean among returned","Implausible","Fit failures"],acc))
+    text.extend(["## Results when Stage 2 fell back",
+        "Membership uses the original Stage 2 fallback flag on every dataset, including unsuccessful updates. "
+        "The table compares each Stage 3 arm to Stage 2 before and after the guidance-panel check. "
+        "A subset's contribution to the pooled pre-check difference is its mean difference multiplied by its share of all datasets at that N. "
+        "An empty subset contributes zero."])
+    subs=[]
+    for size in ("<=5000",*map(str,NS)):
+        counts_row=pick("parent-counts",N=size,pathology="all")
+        for group in ("stage2_fallback","stage2_nonfallback"):
+            count=counts_row[group]
+            for arm in chosen.values():
+                if count:
+                    key=dict(group=group,level=size,pathology="all",arm=arm,baseline="stage2",extraction="native")
+                    pre=pick("parent-comparisons",**key,mode="pre",baseline_mode="pre")
+                    checked=pick("parent-comparisons",**key,mode="checked",baseline_mode="checked")
+                    vals=[fmt(pre["arm_loss"]),fmt(pre["baseline_loss"]),fmt(pre["value"],4,True),
+                          fmt(pre["contribution_to_stratum_difference"],4,True),fmt(checked["value"],4,True),
+                          f"{count-checked['arm_nonreturns']} / {count-checked['baseline_nonreturns']}"]
+                else:
+                    vals=["—","—","—","0","—","0 / 0"]
+                subs.append([size,"Fallback" if group=="stage2_fallback" else "Non-fallback",count,label(arm),*vals])
+    text.extend([table(["N","Stage 2 parent","Assigned","Arm","Pre loss","Stage 2 pre loss","Pre difference","Contribution",
+                        "Checked difference","Checked returned, arm / Stage 2"],subs),
+        "All N and pathology combinations, including high-pathology shoulder/overlap and separated disease, are available with both extractions, paired intervals and coverage. "
+        "The parent counts include empty subsets. Fractions and panel capture use their own displayed denominators. "
+        "[Parent counts](parent-counts.csv) · [Parent comparisons](parent-comparisons.csv) · [Panel capture by parent](panel-rates.csv)",
+        "## Fits where both updates were available"])
+    both=[]
+    for r in tables["accuracy"]:
+        if r["group"]=="both_updates_available" and r["arm"] in chosen.values() and r["extraction"]=="native":
+            both.append([r["level"],label(r["arm"]),r["mode"],r["planned"],r["returned"],fmt(r["all_set_loss"])])
+    text.append(table(["Stage 2 parent subset","Arm","Mode","Assigned","Returned","Mean loss"],both)
+                if both else "No datasets had both updates available.")
+    text.extend(["## High-pathology comparisons at N = 50,000",
+        "Gap closed is Stage 2 loss minus arm loss. Remaining gap is arm loss minus anchors-only loss. "
+        "These are the observed gaps on the independent synthetic datasets. The previous RIbench gap was 0.0540."])
+    gaps=[]
+    for part in ("high","focus","separated_high"):
+        for mode in ("pre","checked"):
+            key=dict(group="N/pathology",level="50000",pathology=part,extraction="native",mode=mode)
+            losses={arm:pick("accuracy",**key,arm=arm) for arm in scientific}
+            for arm in chosen.values():
+                s,a,o=[losses[x]["all_set_loss"] for x in ("stage2",arm,"anchorsOnly")]
+                gaps.append([part,mode,losses[arm]["planned"],label(arm),fmt(s),fmt(a),fmt(o),fmt(s-a,4,True),fmt(a-o,4,True)])
+    text.extend([table(["Pathology subset","Mode","Assigned","Arm","Stage 2","Arm loss","Anchors-only","Gap closed","Remaining gap"],gaps),
+        "## Guidance and fresh-panel checks",
+        "E is the larger absolute endpoint z error. Declines are shown among evaluable checks. Capture and good-result loss use all classifiable valid fits in each category."])
+    panel=[]
+    for group in ("N/pathology","stage2_fallback","stage2_nonfallback"):
+        for arm,p in product(scientific[:-1],PANELS):
+            key=dict(group=group,level="all",pathology="all",extraction="native",arm=arm,panel=p,seed="primary",unit="dataset")
+            if not any(r["group"]==group for r in tables["parent-comparisons"]) and group!="N/pathology":
+                continue
+            rr=[pick("panel-rates",**key,metric=metric) for metric in ("declined_evaluable","bad_gt1","bad_gt5","good_lt0.25")]
+            panel.append(["All" if group=="N/pathology" else group.removeprefix("stage2_"),label(arm),p,
+                          *(f"{r['count']}/{r['denominator']}" for r in rr)])
+    text.extend([table(["Stage 2 parent","Arm","Panel","Declined","E > 1 caught","E > 5 caught","E < 0.25 declined"],panel),
+        "The case-level exports retain both PIT seeds, the guidance and fresh panels, both extractors and every fit failure. "
+        "The two zero-weight labels audit identity with Stage 2. The five scientific arms are unchanged refineR, Stage 2, w1, t0.25 and anchors-only. "
+        "[Task G fit objects and join keys](TASK-G.md) · [Per-dataset fits](evidence/fits.csv.gz) · [Per-dataset checks](evidence/checks.csv.gz)",
+        "## Reproducibility",
+        f"All {audit['exact_repeat_shards']} same-host repetitions and {audit['distinct_host_shards']} separate-host shard comparisons passed. "
+        f"The maximum cross-host endpoint difference was {audit['max_endpoint_fraction']:.6g} of interval width. "
+        f"The maximum absolute difference between PIT probabilities was {audit['max_p_difference']:.6g}. "
+        "[Technical audit](evidence/audit.json) · [Fit branches and failure reasons](branches.csv) · [Historical and native paired results](paired-loss.csv) · "
+        "[Endpoint errors](endpoints.csv) · [Healthy center and spread by elected basin](curve.csv) · [Coverage](coverage.csv) · "
+        "[PIT-seed and panel disagreement](decision-pairs.csv)",
+        "## Observations from development",
+        "Unit sensitivity was already present in the refineR-based Stage 2 fit. A change of measurement units moved at least one "
+        "back-converted endpoint by more than 0.1% of interval width on 36 of 720 Stage 2 datasets, 35 for the primary arm "
+        "and 36 for the post-fit arm. In development, t = 0.5 reduced small-N control error but increased control error by 0.0431 at N = 50,000. "
+        "Studying a blend weight that varies with N would require new development and confirmation samples. "
+        "[Stage 3 development](../stage3-development/REVIEW.md)"])
+    receipt.update(technical_audit_passed=True,scientific_gate_results=verdicts,fixed_w=1,fixed_t=.25,
+                   formal_gates_sha256=digest(out/"confirmation-gates.csv"),by_n_gates_sha256=digest(out/"confirmation-gates-by-n.csv"),
+                   parent_comparisons_sha256=digest(out/"parent-comparisons.csv"),
+                   fits_sha256=digest(evidence/"fits.csv.gz"),checks_sha256=digest(evidence/"checks.csv.gz"))
+    return "\n\n".join(text)+"\n"
+
+
 def report(phase,evidence,out):
     out.mkdir(parents=True,exist_ok=True)
     audit=json.loads((evidence/"audit.json").read_text())
@@ -369,6 +551,8 @@ def report(phase,evidence,out):
         receipt["original_audit_sha256"]=digest(original)
         text="# Stage 3 amended influence check\n\nAll 96 frozen fixtures were evaluated before full development.\n\n"+influence_text(inf)
         text+=f"\n\nAll {shards} same-host repeats and {shards} distinct-host comparisons passed. The comparison to the original run verified all 96 Stage 2 parents, all 96 weight-zero results and {prior['paths']['guided_positive']['fits']} positive-weight non-fallback fits against the practical tolerances. [Original-run comparison by path](evidence/original-influence-audit.json) · [Technical audit](evidence/audit.json) · [Fixture identities](evidence/identities.csv.gz)\n"
+    elif phase=="confirmation":
+        text=confirmation_results(evidence,out,audit,receipt)
     else:
         planned=list(design(phase).values())
         meta={k:np.array([r[k] for r in planned]) for k in planned[0]}

@@ -1,7 +1,6 @@
-# Stage 3 development and influence fixtures, protocol 4b82c69. Drawing a
-# sample requires an explicit call to stage3_generate with an authorized row.
+# The design lists assignments and seeds. Only stage3_generate draws a sample.
 stage3_design <- function(phase) {
-    stopifnot(phase %in% c("influence", "development"), length(phase) == 1L)
+    stopifnot(length(phase) == 1L, phase %in% c("influence", "development", "confirmation"))
     old <- read.csv("stage2/development-design.csv", stringsAsFactors = FALSE)
     families <- unique(old[c("family", "lambda", "mu", "sigma", "healthy_sd",
                               "truth_lower", "truth_upper")])
@@ -26,10 +25,11 @@ stage3_design <- function(phase) {
     reps <- if (phase == "influence") rep(1L, nrow(frame)) else
         ifelse(frame$fraction > 0.20 & frame$disease %in% c("left_shoulder", "right_shoulder",
                                                             "overlapping"), 8L, 4L)
+    if (phase == "confirmation") reps <- reps * 2L
     rep_id <- sequence(reps)
     frame <- frame[rep(seq_len(nrow(frame)), reps), ]
     j <- seq_len(nrow(frame))
-    seed <- if (phase == "influence") 81000000L else 82000000L
+    seed <- switch(phase, influence = 81000000L, development = 82000000L, confirmation = 92000000L)
     seeds <- seed + 10L * j
     f <- families[frame$family_id, , drop = FALSE]
     h <- f$healthy_sd * frame$rounding_fraction
@@ -41,7 +41,7 @@ stage3_design <- function(phase) {
         pit_primary_seed = seeds + 4L, pit_alternate_seed = seeds + 5L,
         diagnostic_primary_seed = seeds + 6L, diagnostic_alternate_seed = seeds + 7L,
         stringsAsFactors = FALSE, row.names = NULL)
-    stopifnot(nrow(ans) == if (phase == "development") 3744L else 96L,
+    stopifnot(nrow(ans) == switch(phase, influence = 96L, development = 3744L, confirmation = 7488L),
               !anyDuplicated(ans[c("cell_id", "replicate")]))
     ans
 }
@@ -59,7 +59,9 @@ stage3_generate <- local({
         (row$phase == "influence" && row$j %in% seq_len(96L) &&
          row$routine_seed == 81000000L + 10L * row$j) ||
         (row$phase == "development" && row$j %in% seq_len(3744L) &&
-         row$routine_seed == 82000000L + 10L * row$j),
+         row$routine_seed == 82000000L + 10L * row$j) ||
+        (row$phase == "confirmation" && row$j %in% seq_len(7488L) &&
+         row$routine_seed == 92000000L + 10L * row$j),
         row$anchor_seed == row$routine_seed + 1L, row$diagnostic_seed == row$routine_seed + 2L,
         row$fitter_seed == row$routine_seed + 3L, row$pit_primary_seed == row$routine_seed + 4L,
         row$pit_alternate_seed == row$routine_seed + 5L,
