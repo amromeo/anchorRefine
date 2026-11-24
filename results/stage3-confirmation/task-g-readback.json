@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "phase": "confirmation",
+  "run_id": "45463873162",
+  "source": "55b9d09ba7e17b13e341e67b0aa03855351bc25b",
+  "original_zip_and_rds_pairs": 96,
+  "datasets": 7488,
+  "fit_rows": 52416,
+  "check_rows": 209664,
+  "guide_examples": {
+    "fallback": {
+      "j": 1,
+      "arm": "w1",
+      "decision": "keep",
+      "fit_status": "ResultFound",
+      "fit_hash": "297d53479fb7f167bac8b6d6bff47cc83b3db3cda2b792eabad7d3f4cb780a4e"
+    },
+    "t0.25": {
+      "j": 1,
+      "arm": "t0.25",
+      "decision": "keep",
+      "fit_status": "ResultFound",
+      "fit_hash": "f7438e1d2bc2cb939adf742193c1fbce6d46c2f0c8251b2b4e97b7467f393a02"
+    },
+    "anchorsOnly": {
+      "j": 1,
+      "arm": "anchorsOnly",
+      "decision": "keep",
+      "fit_status": "ResultFound",
+      "fit_hash": "11a81b31e10616cc5497c0afbd1ee6fe7acef53c9b778a4823a769a1ea0e434a"
+    },
+    "decline": {
+      "j": 370,
+      "arm": "baseline",
+      "decision": "decline",
+      "fit_status": "ResultFound",
+      "fit_hash": "43db8951c774e6259f73cdfa35130f301b01087ea9836aaf3cb756665fe91874"
+    },
+    "nonfallback": {
+      "j": 643,
+      "arm": "w1",
+      "decision": "keep",
+      "fit_status": "ResultFound",
+      "fit_hash": "8195c215adcef959b351d9ba5c07c2c1b5f60f9f74f4d322cdbb991418c5f9a1"
+    },
+    "fit_failed": {
+      "j": 3698,
+      "arm": "baseline",
+      "decision": "fit_failed",
+      "fit_status": "fit_failed",
+      "fit_hash": "1cda7ff1a773ea5282075d43fac76ef85a195fa040923feea2d59c927a542d46"
+    }
+  },
+  "manifest_sha256": "53c6bab239a025c6d8c25039ba55f48cfff8070accf89a941d98c50679ecc784"
+}
