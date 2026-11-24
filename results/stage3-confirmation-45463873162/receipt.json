@@ -1,0 +1,25 @@
+{
+  "audit_sha256": "63c429062332e590bcaab1ae20b2e76fd7fa15ac3bf2c747136125d3c9ade0e1",
+  "by_n_gates_sha256": "197f128ae54c293fc77e742480adb1a44d1e112979d8c5a4fc66f2eae5b11491",
+  "checks_sha256": "3afb8e87aae0217b7d1df224643f599959011f8ffdfa1d94af57addb6e76a7d5",
+  "datasets": 7488,
+  "fits_sha256": "068f2bf62544d792cfd08ef3ff4f4f202263e0d8bafba1431c552dccbd02c15f",
+  "fixed_t": 0.25,
+  "fixed_w": 1,
+  "formal_gates_sha256": "e1076d538adae00fc765da76e6148738d5c1d7139c7ded023e3ab239f4ad8618",
+  "parent_comparisons_sha256": "c6a412c468a06ef5cb5fe5332362b7cf55c8a9aa21a22844c6fb711cc648f3d4",
+  "passed": true,
+  "phase": "confirmation",
+  "report_sha256": "3432488ee95595ccda659f339ab2ca1d4e9325dbfed9c788919bf52d03f3ec24",
+  "scientific_gate_results": {
+    "t0.25": {
+      "checked": true,
+      "pre": true
+    },
+    "w1": {
+      "checked": true,
+      "pre": true
+    }
+  },
+  "technical_audit_passed": true
+}

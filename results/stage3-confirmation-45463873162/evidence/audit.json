@@ -1,0 +1,22 @@
+{
+  "phase": "confirmation",
+  "passed": true,
+  "datasets": 7488,
+  "exact_repeat_shards": 96,
+  "distinct_host_shards": 96,
+  "source_manifest_sha256": "cb5e6896095b7ef51f5d8490b70c63af63b14045b623b0332b4f07bc02186576",
+  "fits": 52416,
+  "checks": 209664,
+  "required_identities": 0,
+  "sensitivity_rows": 0,
+  "diagnostic_counts": {
+    "fits": 52416,
+    "checks": 209664,
+    "identities": 0,
+    "sensitivity": 0
+  },
+  "max_endpoint_fraction": 0,
+  "max_p_difference": 0,
+  "cross_host_differences": 0,
+  "max_differences": {}
+}

@@ -1,0 +1,806 @@
+{
+  "phase": "confirmation",
+  "run_id": "45463873162",
+  "run_commit": "55b9d09ba7e17b13e341e67b0aa03855351bc25b",
+  "datasets": 7488,
+  "scientific_arms": [
+    "baseline",
+    "stage2",
+    "w1",
+    "t0.25",
+    "anchorsOnly"
+  ],
+  "zero_weight_audit_arms": [
+    "w0",
+    "t0"
+  ],
+  "fit_rows": 52416,
+  "check_rows": 209664,
+  "fit_key": [
+    "j",
+    "arm"
+  ],
+  "check_key": [
+    "j",
+    "arm",
+    "panel",
+    "seed_kind"
+  ],
+  "sha256": {
+    "evidence/fits.csv.gz": "068f2bf62544d792cfd08ef3ff4f4f202263e0d8bafba1431c552dccbd02c15f",
+    "evidence/checks.csv.gz": "3afb8e87aae0217b7d1df224643f599959011f8ffdfa1d94af57addb6e76a7d5",
+    "task-g-index.csv": "8a17ff4b73d4a9fc01ae302544eb09f9cfa129efdb80c4f4f37ae8fb6da6f702",
+    "TASK-G.md": "231a469a67aecbe05a2fbd45ae1490c868d8dc097670f5b6a4af38b2c9f66ae1",
+    "evidence/audit.json": "63c429062332e590bcaab1ae20b2e76fd7fa15ac3bf2c747136125d3c9ade0e1"
+  },
+  "primary_rds": [
+    {
+      "shard": 1,
+      "archive": "artifacts/stage3-confirmation-1.zip",
+      "member": "primary-1/results.rds",
+      "rds_sha256": "d7475266687a33c80b9fcc330c29b6dad5daa747408f1054b387e045dfd1473a",
+      "bytes": 1694394,
+      "datasets": 78
+    },
+    {
+      "shard": 2,
+      "archive": "artifacts/stage3-confirmation-2.zip",
+      "member": "primary-2/results.rds",
+      "rds_sha256": "66479c049c26a459da1cfad6bc4fce627401776f9fdc627554c4f2325989e9ad",
+      "bytes": 1714290,
+      "datasets": 78
+    },
+    {
+      "shard": 3,
+      "archive": "artifacts/stage3-confirmation-3.zip",
+      "member": "primary-3/results.rds",
+      "rds_sha256": "3a65f24fdeb49c66de96856e0f6fb0280aa4f26b53d1f3c486e50cddf2498c11",
+      "bytes": 1740289,
+      "datasets": 78
+    },
+    {
+      "shard": 4,
+      "archive": "artifacts/stage3-confirmation-4.zip",
+      "member": "primary-4/results.rds",
+      "rds_sha256": "330f679b2015f36cc7d29c86e3f7f807860c1547fd22c2126e6f88e5e5321f90",
+      "bytes": 1689313,
+      "datasets": 78
+    },
+    {
+      "shard": 5,
+      "archive": "artifacts/stage3-confirmation-5.zip",
+      "member": "primary-5/results.rds",
+      "rds_sha256": "dd9dcf641be13e3a14909f4dee8c2609ca6ae4f1e5dcd080180ae2258bd327b6",
+      "bytes": 1679271,
+      "datasets": 78
+    },
+    {
+      "shard": 6,
+      "archive": "artifacts/stage3-confirmation-6.zip",
+      "member": "primary-6/results.rds",
+      "rds_sha256": "61e4c0513a5e73eb874deb43ccb49717334c3c6bfe444d9d0a8eb21506663375",
+      "bytes": 1633607,
+      "datasets": 78
+    },
+    {
+      "shard": 7,
+      "archive": "artifacts/stage3-confirmation-7.zip",
+      "member": "primary-7/results.rds",
+      "rds_sha256": "9d08291ea5ae9e9b625175e527255ccca7e1b4340ddc1a932f6e804e3b565228",
+      "bytes": 1662481,
+      "datasets": 78
+    },
+    {
+      "shard": 8,
+      "archive": "artifacts/stage3-confirmation-8.zip",
+      "member": "primary-8/results.rds",
+      "rds_sha256": "0ca98760b0b8d0d0d5ff5ec9e97313c322c13b08c08b2c4ec198ea623fb2c6b4",
+      "bytes": 1698283,
+      "datasets": 78
+    },
+    {
+      "shard": 9,
+      "archive": "artifacts/stage3-confirmation-9.zip",
+      "member": "primary-9/results.rds",
+      "rds_sha256": "ef0e3ddf2eaa441761017bcc3a447fb341bee04b00c73823425327df311487a8",
+      "bytes": 1704535,
+      "datasets": 78
+    },
+    {
+      "shard": 10,
+      "archive": "artifacts/stage3-confirmation-10.zip",
+      "member": "primary-10/results.rds",
+      "rds_sha256": "1ff00617ac107fbe972b8b8f1bad0c6a0ce47303228d21aeb96d03d783766cc1",
+      "bytes": 1683437,
+      "datasets": 78
+    },
+    {
+      "shard": 11,
+      "archive": "artifacts/stage3-confirmation-11.zip",
+      "member": "primary-11/results.rds",
+      "rds_sha256": "19284cf5bca5f45e1a5793af0b66f25fddc5d04f35b4907297bf007ee384d3cd",
+      "bytes": 1722694,
+      "datasets": 78
+    },
+    {
+      "shard": 12,
+      "archive": "artifacts/stage3-confirmation-12.zip",
+      "member": "primary-12/results.rds",
+      "rds_sha256": "9d1ab05a7e7adf1d0ffea546d183e09c1e6e94663c5a8bacc8019cf91591ba34",
+      "bytes": 1747022,
+      "datasets": 78
+    },
+    {
+      "shard": 13,
+      "archive": "artifacts/stage3-confirmation-13.zip",
+      "member": "primary-13/results.rds",
+      "rds_sha256": "8417f7f5707025dd208799d38b0afbce93f1796a3476db08753449dfbeba12b2",
+      "bytes": 1749037,
+      "datasets": 78
+    },
+    {
+      "shard": 14,
+      "archive": "artifacts/stage3-confirmation-14.zip",
+      "member": "primary-14/results.rds",
+      "rds_sha256": "89b178bd70444060fc4a9014ba1b2ec19490225aa004fe184d9e88a2f816ca43",
+      "bytes": 1745624,
+      "datasets": 78
+    },
+    {
+      "shard": 15,
+      "archive": "artifacts/stage3-confirmation-15.zip",
+      "member": "primary-15/results.rds",
+      "rds_sha256": "9be214eb460bac7aae0f01d12bf06632a61c6dc36495646a9b91cdc29bafd14f",
+      "bytes": 1710817,
+      "datasets": 78
+    },
+    {
+      "shard": 16,
+      "archive": "artifacts/stage3-confirmation-16.zip",
+      "member": "primary-16/results.rds",
+      "rds_sha256": "06c807217040e4f189f9f96ff6987f42a7557ad9355ad5a8c5e4ccef5351da93",
+      "bytes": 1717849,
+      "datasets": 78
+    },
+    {
+      "shard": 17,
+      "archive": "artifacts/stage3-confirmation-17.zip",
+      "member": "primary-17/results.rds",
+      "rds_sha256": "e5b49e8fd5ac3b73426e4e187d90c89520e2a5a2471ce799209f826228034f44",
+      "bytes": 1706108,
+      "datasets": 78
+    },
+    {
+      "shard": 18,
+      "archive": "artifacts/stage3-confirmation-18.zip",
+      "member": "primary-18/results.rds",
+      "rds_sha256": "b726a668dc50abf22c6362d72a569ef3d10be5ad9a45e3820c2bb4a2998f1828",
+      "bytes": 1718219,
+      "datasets": 78
+    },
+    {
+      "shard": 19,
+      "archive": "artifacts/stage3-confirmation-19.zip",
+      "member": "primary-19/results.rds",
+      "rds_sha256": "8bd62f0f741d31ef9d60a39ea5874efded23e0ff39eeb215440e15c291428a67",
+      "bytes": 1662891,
+      "datasets": 78
+    },
+    {
+      "shard": 20,
+      "archive": "artifacts/stage3-confirmation-20.zip",
+      "member": "primary-20/results.rds",
+      "rds_sha256": "0c63d0a36b573f7e69b9e094665f1412cb7cb358e57b33508467248be0b59637",
+      "bytes": 1737999,
+      "datasets": 78
+    },
+    {
+      "shard": 21,
+      "archive": "artifacts/stage3-confirmation-21.zip",
+      "member": "primary-21/results.rds",
+      "rds_sha256": "887d427b271fa41bfb5b6277cae1cc70594871b68f7ce8a67a1e167a2d00c48d",
+      "bytes": 1777341,
+      "datasets": 78
+    },
+    {
+      "shard": 22,
+      "archive": "artifacts/stage3-confirmation-22.zip",
+      "member": "primary-22/results.rds",
+      "rds_sha256": "ef314c97607d3cb7cac5a5fa3be2fe2c927228e16fa6db843c36e41ffc42b3f4",
+      "bytes": 1761094,
+      "datasets": 78
+    },
+    {
+      "shard": 23,
+      "archive": "artifacts/stage3-confirmation-23.zip",
+      "member": "primary-23/results.rds",
+      "rds_sha256": "17772eabd8bfeb1f42e440e2c2a74b24a6b2386109bb292e83d882ea29f428a1",
+      "bytes": 1788924,
+      "datasets": 78
+    },
+    {
+      "shard": 24,
+      "archive": "artifacts/stage3-confirmation-24.zip",
+      "member": "primary-24/results.rds",
+      "rds_sha256": "462a1cbd93b518283f72c98033fbf3ed5cd1673ed9e59689e5412809abe80c66",
+      "bytes": 1781873,
+      "datasets": 78
+    },
+    {
+      "shard": 25,
+      "archive": "artifacts/stage3-confirmation-25.zip",
+      "member": "primary-25/results.rds",
+      "rds_sha256": "b2e0d9cc46e7212c339c72f6bd4aef2e1a47fdf2f978f4a3aafb0d0d1353ea59",
+      "bytes": 1825110,
+      "datasets": 78
+    },
+    {
+      "shard": 26,
+      "archive": "artifacts/stage3-confirmation-26.zip",
+      "member": "primary-26/results.rds",
+      "rds_sha256": "f6158835a72899a49fa6edb420d87aa8cdbf015f6d66618c60bb74775bddd2dc",
+      "bytes": 1838801,
+      "datasets": 78
+    },
+    {
+      "shard": 27,
+      "archive": "artifacts/stage3-confirmation-27.zip",
+      "member": "primary-27/results.rds",
+      "rds_sha256": "50f209b636e3bf930055b9cd8cf4a5f3ced53f61b9eab786ee3cf7912aca4f38",
+      "bytes": 1872803,
+      "datasets": 78
+    },
+    {
+      "shard": 28,
+      "archive": "artifacts/stage3-confirmation-28.zip",
+      "member": "primary-28/results.rds",
+      "rds_sha256": "7b79112628125a9c66316ab3757302921163dae54358ae7a05c0d4353cf65402",
+      "bytes": 1827444,
+      "datasets": 78
+    },
+    {
+      "shard": 29,
+      "archive": "artifacts/stage3-confirmation-29.zip",
+      "member": "primary-29/results.rds",
+      "rds_sha256": "f2cdb2c5739f220e1b9f9b9f07bed065fa9672b20bbc02f1948ec85941a6b796",
+      "bytes": 1773325,
+      "datasets": 78
+    },
+    {
+      "shard": 30,
+      "archive": "artifacts/stage3-confirmation-30.zip",
+      "member": "primary-30/results.rds",
+      "rds_sha256": "db6b922dcc8f30dc36b54b4735ac8a7a09a556d57e5fc04e68398b06202c5954",
+      "bytes": 1797022,
+      "datasets": 78
+    },
+    {
+      "shard": 31,
+      "archive": "artifacts/stage3-confirmation-31.zip",
+      "member": "primary-31/results.rds",
+      "rds_sha256": "6cf6b94ca35b33da46771b5dc6b462d873e5ae2e0750d66817793f821d2cd33e",
+      "bytes": 1797337,
+      "datasets": 78
+    },
+    {
+      "shard": 32,
+      "archive": "artifacts/stage3-confirmation-32.zip",
+      "member": "primary-32/results.rds",
+      "rds_sha256": "de379f124fd276eef4e202fa2254baed8213b344e118522ee44b18f2d58168de",
+      "bytes": 1803965,
+      "datasets": 78
+    },
+    {
+      "shard": 33,
+      "archive": "artifacts/stage3-confirmation-33.zip",
+      "member": "primary-33/results.rds",
+      "rds_sha256": "2075d8e0a7ebb8127e7866d447ca9382d894ac9057ca2bba98ed044b2d8b1d28",
+      "bytes": 1731180,
+      "datasets": 78
+    },
+    {
+      "shard": 34,
+      "archive": "artifacts/stage3-confirmation-34.zip",
+      "member": "primary-34/results.rds",
+      "rds_sha256": "9af324818dbb03a6925de2526a7e1fa1a793eaeed44855def0aff42127146cb3",
+      "bytes": 1635867,
+      "datasets": 78
+    },
+    {
+      "shard": 35,
+      "archive": "artifacts/stage3-confirmation-35.zip",
+      "member": "primary-35/results.rds",
+      "rds_sha256": "385c4fd963eeb1d3533f5120e0e24ab8f4bd4249007d3fd561669bc8f7193edc",
+      "bytes": 1646181,
+      "datasets": 78
+    },
+    {
+      "shard": 36,
+      "archive": "artifacts/stage3-confirmation-36.zip",
+      "member": "primary-36/results.rds",
+      "rds_sha256": "886f65b1d1ef6f2f893c007f26f85df20687bca88fe2ce606e9047074d3c3048",
+      "bytes": 1717917,
+      "datasets": 78
+    },
+    {
+      "shard": 37,
+      "archive": "artifacts/stage3-confirmation-37.zip",
+      "member": "primary-37/results.rds",
+      "rds_sha256": "cb8501011cc77dde9740ad78771c729e683101baaea5c981aff1ae852545fa5d",
+      "bytes": 1742975,
+      "datasets": 78
+    },
+    {
+      "shard": 38,
+      "archive": "artifacts/stage3-confirmation-38.zip",
+      "member": "primary-38/results.rds",
+      "rds_sha256": "ff20542e4d30c2e81d695a3c3944798229fb10265243488a6e431d8e61e86288",
+      "bytes": 1688335,
+      "datasets": 78
+    },
+    {
+      "shard": 39,
+      "archive": "artifacts/stage3-confirmation-39.zip",
+      "member": "primary-39/results.rds",
+      "rds_sha256": "b574f1204be67ca52cfbcdc5818a69f2b91fbe16cd5ea20a7ca31db55f19fcab",
+      "bytes": 1722630,
+      "datasets": 78
+    },
+    {
+      "shard": 40,
+      "archive": "artifacts/stage3-confirmation-40.zip",
+      "member": "primary-40/results.rds",
+      "rds_sha256": "16a97f05fd63a0933405355cb7cc83175ccaf42f05630783a4e54fa8215c4d94",
+      "bytes": 1692661,
+      "datasets": 78
+    },
+    {
+      "shard": 41,
+      "archive": "artifacts/stage3-confirmation-41.zip",
+      "member": "primary-41/results.rds",
+      "rds_sha256": "17b970216e7d524f1b675066a9ead9b5ffdde213ce16410ef39bf408e2e593fc",
+      "bytes": 1753646,
+      "datasets": 78
+    },
+    {
+      "shard": 42,
+      "archive": "artifacts/stage3-confirmation-42.zip",
+      "member": "primary-42/results.rds",
+      "rds_sha256": "e2c1ce4dd95639f16dc4ac5a5bdf1d9afb816397519bb81df37e30238117fcc6",
+      "bytes": 1763882,
+      "datasets": 78
+    },
+    {
+      "shard": 43,
+      "archive": "artifacts/stage3-confirmation-43.zip",
+      "member": "primary-43/results.rds",
+      "rds_sha256": "81ee9a2e552deb818f457a5df040d96c360ac32496bedcaa43acaa5f658c2f3c",
+      "bytes": 1748529,
+      "datasets": 78
+    },
+    {
+      "shard": 44,
+      "archive": "artifacts/stage3-confirmation-44.zip",
+      "member": "primary-44/results.rds",
+      "rds_sha256": "1d3f585788c66dfe352cb024ef7306a27b36d367030c509aee18ef3491779c78",
+      "bytes": 1697837,
+      "datasets": 78
+    },
+    {
+      "shard": 45,
+      "archive": "artifacts/stage3-confirmation-45.zip",
+      "member": "primary-45/results.rds",
+      "rds_sha256": "9c852bb31fe7187c1255016d151df4a8a3cf2a7349c5138101046e4135d1433b",
+      "bytes": 1697709,
+      "datasets": 78
+    },
+    {
+      "shard": 46,
+      "archive": "artifacts/stage3-confirmation-46.zip",
+      "member": "primary-46/results.rds",
+      "rds_sha256": "85db9b2de3188eb32eee6060f0bbe9883e5a9c46f34e52731b73d37af50c990b",
+      "bytes": 1747757,
+      "datasets": 78
+    },
+    {
+      "shard": 47,
+      "archive": "artifacts/stage3-confirmation-47.zip",
+      "member": "primary-47/results.rds",
+      "rds_sha256": "66d3233ba005650a839da8a7f85d7c2d13f3b28359d5fd0183aee43630b892c5",
+      "bytes": 1698719,
+      "datasets": 78
+    },
+    {
+      "shard": 48,
+      "archive": "artifacts/stage3-confirmation-48.zip",
+      "member": "primary-48/results.rds",
+      "rds_sha256": "f97312ce081552838ba0a57f64ea7b2ab670c51bd541ceec9011e971fc95f42f",
+      "bytes": 1740276,
+      "datasets": 78
+    },
+    {
+      "shard": 49,
+      "archive": "artifacts/stage3-confirmation-49.zip",
+      "member": "primary-49/results.rds",
+      "rds_sha256": "644b49eb2e55260b8147663b71287f822aea6bdba727471af10be09d2101e631",
+      "bytes": 1715797,
+      "datasets": 78
+    },
+    {
+      "shard": 50,
+      "archive": "artifacts/stage3-confirmation-50.zip",
+      "member": "primary-50/results.rds",
+      "rds_sha256": "1f21d5ea8a5067e6d6816b02773731257feb566719207e717b3e4196998f9432",
+      "bytes": 1735278,
+      "datasets": 78
+    },
+    {
+      "shard": 51,
+      "archive": "artifacts/stage3-confirmation-51.zip",
+      "member": "primary-51/results.rds",
+      "rds_sha256": "f7bdc9fa5fdd8e549b3f25a945fa41aec6559db468ab433e3ce3f54341f5fcb1",
+      "bytes": 1753232,
+      "datasets": 78
+    },
+    {
+      "shard": 52,
+      "archive": "artifacts/stage3-confirmation-52.zip",
+      "member": "primary-52/results.rds",
+      "rds_sha256": "861c86a0953a91abe2adda3e035476bdec0e3702b828c2c929900f62fbe89e92",
+      "bytes": 1760541,
+      "datasets": 78
+    },
+    {
+      "shard": 53,
+      "archive": "artifacts/stage3-confirmation-53.zip",
+      "member": "primary-53/results.rds",
+      "rds_sha256": "2b0d0a72bb59dddd2ec032b5607b497a4eb9a379bfa7b353604c2565c295a1af",
+      "bytes": 1765573,
+      "datasets": 78
+    },
+    {
+      "shard": 54,
+      "archive": "artifacts/stage3-confirmation-54.zip",
+      "member": "primary-54/results.rds",
+      "rds_sha256": "36998b3ed4ed4050d6a42ea07e45362156c94dc7dfdd01526be1ca0ad446bd07",
+      "bytes": 1772946,
+      "datasets": 78
+    },
+    {
+      "shard": 55,
+      "archive": "artifacts/stage3-confirmation-55.zip",
+      "member": "primary-55/results.rds",
+      "rds_sha256": "915e6c55f2ce05cd21435a563211f09465656fc4005ed500f266036109ea9c7d",
+      "bytes": 1802737,
+      "datasets": 78
+    },
+    {
+      "shard": 56,
+      "archive": "artifacts/stage3-confirmation-56.zip",
+      "member": "primary-56/results.rds",
+      "rds_sha256": "1d513ce6f1a43c8165c0a6e7539c077edbed580fba9d3cb48b86c5d104bc3dc7",
+      "bytes": 1802994,
+      "datasets": 78
+    },
+    {
+      "shard": 57,
+      "archive": "artifacts/stage3-confirmation-57.zip",
+      "member": "primary-57/results.rds",
+      "rds_sha256": "e25d6512425e66e399613c57a4cd619e491cda3ceeff2677c68e1b9827a28c0d",
+      "bytes": 1794715,
+      "datasets": 78
+    },
+    {
+      "shard": 58,
+      "archive": "artifacts/stage3-confirmation-58.zip",
+      "member": "primary-58/results.rds",
+      "rds_sha256": "8ebeeb49e5e176a1b42d46df69cb50aecd68f8c05a15dff92965dde72a5cd39f",
+      "bytes": 1792499,
+      "datasets": 78
+    },
+    {
+      "shard": 59,
+      "archive": "artifacts/stage3-confirmation-59.zip",
+      "member": "primary-59/results.rds",
+      "rds_sha256": "768a6a2c35b2c0adf9757bc5598a2debb4c88c0d70093796350ba019b4e7a849",
+      "bytes": 1804284,
+      "datasets": 78
+    },
+    {
+      "shard": 60,
+      "archive": "artifacts/stage3-confirmation-60.zip",
+      "member": "primary-60/results.rds",
+      "rds_sha256": "0454c31726d0d6a16f7c3fadb199c1a66d617ead6d464e9ff9c90c030222c09d",
+      "bytes": 1802220,
+      "datasets": 78
+    },
+    {
+      "shard": 61,
+      "archive": "artifacts/stage3-confirmation-61.zip",
+      "member": "primary-61/results.rds",
+      "rds_sha256": "9a8ab70e6dd0a7019dfcf2d229772832088024a80c9b1861c7bb4093c2ba3b98",
+      "bytes": 1815354,
+      "datasets": 78
+    },
+    {
+      "shard": 62,
+      "archive": "artifacts/stage3-confirmation-62.zip",
+      "member": "primary-62/results.rds",
+      "rds_sha256": "b52bb297bc305b8d3891b81313d78fd569cab9539cfb29c512a646e793d8eee6",
+      "bytes": 1772534,
+      "datasets": 78
+    },
+    {
+      "shard": 63,
+      "archive": "artifacts/stage3-confirmation-63.zip",
+      "member": "primary-63/results.rds",
+      "rds_sha256": "f8160c51bedb6f2a31af0e77c7763593e3b2f227fcfd07ad2bb1f3c507b9b119",
+      "bytes": 1784090,
+      "datasets": 78
+    },
+    {
+      "shard": 64,
+      "archive": "artifacts/stage3-confirmation-64.zip",
+      "member": "primary-64/results.rds",
+      "rds_sha256": "a077166eb3b41ff2f27feb88d290ae983e31a6096611f2776142ae48b7bb4ef4",
+      "bytes": 1808425,
+      "datasets": 78
+    },
+    {
+      "shard": 65,
+      "archive": "artifacts/stage3-confirmation-65.zip",
+      "member": "primary-65/results.rds",
+      "rds_sha256": "00659bc253cc4a1071b6ad4bb9dc85b940b6d46c168304d8ac4146029e982f86",
+      "bytes": 1803649,
+      "datasets": 78
+    },
+    {
+      "shard": 66,
+      "archive": "artifacts/stage3-confirmation-66.zip",
+      "member": "primary-66/results.rds",
+      "rds_sha256": "fc4cc8850d990f118f927fe4ce011026c1a5c80e6e9ecbd858570f250751231c",
+      "bytes": 1800281,
+      "datasets": 78
+    },
+    {
+      "shard": 67,
+      "archive": "artifacts/stage3-confirmation-67.zip",
+      "member": "primary-67/results.rds",
+      "rds_sha256": "7a548915f18476ced1fd9cc9330869bd0a8c41bff8ff79bca24aaf868689c469",
+      "bytes": 1745947,
+      "datasets": 78
+    },
+    {
+      "shard": 68,
+      "archive": "artifacts/stage3-confirmation-68.zip",
+      "member": "primary-68/results.rds",
+      "rds_sha256": "43f4e4e4ddb16fbfe7418b550e9dc6a9ede50b87c0e701bd1cef3f845be78442",
+      "bytes": 1655394,
+      "datasets": 78
+    },
+    {
+      "shard": 69,
+      "archive": "artifacts/stage3-confirmation-69.zip",
+      "member": "primary-69/results.rds",
+      "rds_sha256": "5d22a80d36ddf047c0cc93999e0b60debdb863a96794bee07f32fefbb5381229",
+      "bytes": 1676888,
+      "datasets": 78
+    },
+    {
+      "shard": 70,
+      "archive": "artifacts/stage3-confirmation-70.zip",
+      "member": "primary-70/results.rds",
+      "rds_sha256": "8d1d6106312048a5a2c880e48cbb9b451f79768d93ccf53fbe8abcb6f0dcfd39",
+      "bytes": 1708086,
+      "datasets": 78
+    },
+    {
+      "shard": 71,
+      "archive": "artifacts/stage3-confirmation-71.zip",
+      "member": "primary-71/results.rds",
+      "rds_sha256": "a1e177f450efad5e4cac725329e7084edc271a4fcdc43e1b8f8809b125ff7b65",
+      "bytes": 1698297,
+      "datasets": 78
+    },
+    {
+      "shard": 72,
+      "archive": "artifacts/stage3-confirmation-72.zip",
+      "member": "primary-72/results.rds",
+      "rds_sha256": "a0bada4e0c14fc0d4e346f74ac30ebf92ee1d0642f397f462bedb8ea493f1830",
+      "bytes": 1641921,
+      "datasets": 78
+    },
+    {
+      "shard": 73,
+      "archive": "artifacts/stage3-confirmation-73.zip",
+      "member": "primary-73/results.rds",
+      "rds_sha256": "2e2eaeaa495edaeeeae4f35f3f9ed5a5992d836fdec804e18ba2399df28b9a6d",
+      "bytes": 1694664,
+      "datasets": 78
+    },
+    {
+      "shard": 74,
+      "archive": "artifacts/stage3-confirmation-74.zip",
+      "member": "primary-74/results.rds",
+      "rds_sha256": "e9f39d86c378b190aee3848daa79fc134708eec1bbb5b23d63ea26e2fcac3ca8",
+      "bytes": 1725299,
+      "datasets": 78
+    },
+    {
+      "shard": 75,
+      "archive": "artifacts/stage3-confirmation-75.zip",
+      "member": "primary-75/results.rds",
+      "rds_sha256": "6b96900d9241d71be18aa812a1fd3c2a4cdc58c7de8e81e0f6b584563bc8b006",
+      "bytes": 1739681,
+      "datasets": 78
+    },
+    {
+      "shard": 76,
+      "archive": "artifacts/stage3-confirmation-76.zip",
+      "member": "primary-76/results.rds",
+      "rds_sha256": "1d7d1df2887c0eff8636ab575047db4bc982c59bd781e070c87415e1507f977e",
+      "bytes": 1755573,
+      "datasets": 78
+    },
+    {
+      "shard": 77,
+      "archive": "artifacts/stage3-confirmation-77.zip",
+      "member": "primary-77/results.rds",
+      "rds_sha256": "1f9f661b025c8f1d58613ebcf958de6b451072113c3a664680275fd5a809b7a7",
+      "bytes": 1745452,
+      "datasets": 78
+    },
+    {
+      "shard": 78,
+      "archive": "artifacts/stage3-confirmation-78.zip",
+      "member": "primary-78/results.rds",
+      "rds_sha256": "06af6e03777e8464452aa5adc954e54282a24e67a3124b2022d4f5465a72e871",
+      "bytes": 1750621,
+      "datasets": 78
+    },
+    {
+      "shard": 79,
+      "archive": "artifacts/stage3-confirmation-79.zip",
+      "member": "primary-79/results.rds",
+      "rds_sha256": "cb15039250f595ef504c52554609f7d894301440687e715f38b740ec819ebdf7",
+      "bytes": 1752701,
+      "datasets": 78
+    },
+    {
+      "shard": 80,
+      "archive": "artifacts/stage3-confirmation-80.zip",
+      "member": "primary-80/results.rds",
+      "rds_sha256": "d1d41279901488b37a1a22ba63a6c770fd27489c3dbc1fe6488d51f27558c2f6",
+      "bytes": 1795978,
+      "datasets": 78
+    },
+    {
+      "shard": 81,
+      "archive": "artifacts/stage3-confirmation-81.zip",
+      "member": "primary-81/results.rds",
+      "rds_sha256": "dea6ba083e787dfdb19bb5c01b495f04482c5dde5ceacae5c83ee935d22f9325",
+      "bytes": 1721920,
+      "datasets": 78
+    },
+    {
+      "shard": 82,
+      "archive": "artifacts/stage3-confirmation-82.zip",
+      "member": "primary-82/results.rds",
+      "rds_sha256": "747fdb570a24cc489a708f89db3d41875b2440fef989b3ad2564be403f7e87e7",
+      "bytes": 1737662,
+      "datasets": 78
+    },
+    {
+      "shard": 83,
+      "archive": "artifacts/stage3-confirmation-83.zip",
+      "member": "primary-83/results.rds",
+      "rds_sha256": "142b80fccb55188d326b02229b78ec102e3b5bab23bbc6bb4fdf2305a08b167d",
+      "bytes": 1734951,
+      "datasets": 78
+    },
+    {
+      "shard": 84,
+      "archive": "artifacts/stage3-confirmation-84.zip",
+      "member": "primary-84/results.rds",
+      "rds_sha256": "0fb79bbdb592a0d0389c0e0c1bffae8aab28ef843340b69332172fdfc9c8d7bc",
+      "bytes": 1738694,
+      "datasets": 78
+    },
+    {
+      "shard": 85,
+      "archive": "artifacts/stage3-confirmation-85.zip",
+      "member": "primary-85/results.rds",
+      "rds_sha256": "e0a052ac658dd391631b2e3a8ee86bdc32f69f1e0173f41b3ebc4c2ec5063755",
+      "bytes": 1753158,
+      "datasets": 78
+    },
+    {
+      "shard": 86,
+      "archive": "artifacts/stage3-confirmation-86.zip",
+      "member": "primary-86/results.rds",
+      "rds_sha256": "17097c6c758063a0d483a5d7ae32edbe6f75983ed0e0ba6ef2213dfc35d02110",
+      "bytes": 1714353,
+      "datasets": 78
+    },
+    {
+      "shard": 87,
+      "archive": "artifacts/stage3-confirmation-87.zip",
+      "member": "primary-87/results.rds",
+      "rds_sha256": "2136778b7b0e0ee00820d70822a6640ae972c4b10aa5f1270e0dbfb84b2b6086",
+      "bytes": 1738453,
+      "datasets": 78
+    },
+    {
+      "shard": 88,
+      "archive": "artifacts/stage3-confirmation-88.zip",
+      "member": "primary-88/results.rds",
+      "rds_sha256": "8eae7020f51a0da84dc87945b39af38cebbe920446671b2068a6d9e755e54370",
+      "bytes": 1755664,
+      "datasets": 78
+    },
+    {
+      "shard": 89,
+      "archive": "artifacts/stage3-confirmation-89.zip",
+      "member": "primary-89/results.rds",
+      "rds_sha256": "9a384a981e4875562c55d8d0e522a386eb5e1c3322f67d731547d654d2e8591c",
+      "bytes": 1837639,
+      "datasets": 78
+    },
+    {
+      "shard": 90,
+      "archive": "artifacts/stage3-confirmation-90.zip",
+      "member": "primary-90/results.rds",
+      "rds_sha256": "92ff2970e97758f3276e6352b37349786fd67a26a4dc7c3d62d2657a6b8b0e2b",
+      "bytes": 1815999,
+      "datasets": 78
+    },
+    {
+      "shard": 91,
+      "archive": "artifacts/stage3-confirmation-91.zip",
+      "member": "primary-91/results.rds",
+      "rds_sha256": "cd2bd2fa41af15c82b85cb7e6367e0579bb4222f4550735a8d1e11c6d2b80325",
+      "bytes": 1800997,
+      "datasets": 78
+    },
+    {
+      "shard": 92,
+      "archive": "artifacts/stage3-confirmation-92.zip",
+      "member": "primary-92/results.rds",
+      "rds_sha256": "650a8e52d8445ec6b855bfa71882e2880476d3641254c2af426dfbb57e37483e",
+      "bytes": 1831257,
+      "datasets": 78
+    },
+    {
+      "shard": 93,
+      "archive": "artifacts/stage3-confirmation-93.zip",
+      "member": "primary-93/results.rds",
+      "rds_sha256": "344143a624dc1463b61a6615e88168c5cbe153d63fbc5ef40544321342ef8781",
+      "bytes": 1815706,
+      "datasets": 78
+    },
+    {
+      "shard": 94,
+      "archive": "artifacts/stage3-confirmation-94.zip",
+      "member": "primary-94/results.rds",
+      "rds_sha256": "efa447392eca7437edf269f921a33050ee8e002c50f7504963ffdedf8b1f16c4",
+      "bytes": 1865880,
+      "datasets": 78
+    },
+    {
+      "shard": 95,
+      "archive": "artifacts/stage3-confirmation-95.zip",
+      "member": "primary-95/results.rds",
+      "rds_sha256": "6c3b255a682b201994f9075d8241c73d56d943080d11173d68af7ca2e1aa6472",
+      "bytes": 1815860,
+      "datasets": 78
+    },
+    {
+      "shard": 96,
+      "archive": "artifacts/stage3-confirmation-96.zip",
+      "member": "primary-96/results.rds",
+      "rds_sha256": "548d652368129d356c2c96f26da4412643f34eb41ea71722bed0a894ba64de4e",
+      "bytes": 1728581,
+      "datasets": 78
+    }
+  ]
+}
