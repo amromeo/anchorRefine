@@ -1,0 +1,129 @@
+name: Stage 2 selected rule
+run-name: Stage 2 selected ${{ inputs.mode }}
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Run the selected rule on development or open the gated confirmation study
+        type: choice
+        required: true
+        options: [development, confirmation]
+      development_run_id:
+        description: Successful published selected-rule development run, required for confirmation
+        type: string
+        required: false
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: stage2-selected-${{ inputs.mode }}
+  cancel-in-progress: false
+env:
+  MODE: ${{ inputs.mode }}
+  DEVELOPMENT_RUN_ID: ${{ inputs.development_run_id }}
+  LC_ALL: C.UTF-8
+  TZ: UTC
+  OPENBLAS_NUM_THREADS: 1
+  OMP_NUM_THREADS: 1
+  MKL_NUM_THREADS: 1
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify source lock and eligibility
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bash stage2/verify-selected.sh
+          bash stage2/workflow-eligibility.sh gate
+
+  evaluate:
+    needs: gate
+    runs-on: ubuntu-24.04
+    container: rocker/r-ver@sha256:5e8963d73b87865e0ad779df4202555fb1b436ee95dc7d7442450308b8ea77f3
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]
+    env:
+      SHARD: ${{ matrix.shard }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify frozen sources and libraries
+        shell: bash
+        run: |
+          mkdir -p /tmp/selected-libs
+          tar -C /tmp/selected-libs -xzf stage0/frozen/bundle.tar.gz
+          bash stage2/verify-selected.sh /tmp/selected-libs
+      - name: Run paired fits
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$MODE" in
+            development) runner=stage2/reproduce-selected.R ;;
+            confirmation) runner=stage2/confirmation-run.R ;;
+            *) exit 1 ;;
+          esac
+          neighbor=$((SHARD % 48 + 1))
+          pids=()
+          for role in primary repeat other; do
+            index=$SHARD
+            if [[ "$role" = other ]]; then index=$neighbor; fi
+            dest="output/$role-$index"
+            mkdir -p "$dest"
+            cat /proc/sys/kernel/random/boot_id > "$dest/boot.txt"
+            uname -a > "$dest/platform.txt"
+            Rscript --vanilla "$runner" /tmp/selected-libs "$index" 48 "$dest" > "$dest/run.log" 2>&1 &
+            pids+=($!)
+          done
+          result=0
+          for pid in "${pids[@]}"; do wait "$pid" || result=1; done
+          tail -n 6 output/*/run.log
+          test "$result" = 0
+          bash stage2/verify-selected.sh /tmp/selected-libs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: selected-${{ inputs.mode }}-${{ matrix.shard }}
+          path: output/
+          overwrite: true
+          retention-days: 90
+
+  results:
+    needs: evaluate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: selected-${{ inputs.mode }}-*
+          path: saved/
+          merge-multiple: true
+      - name: Audit each shard and produce the report
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash stage2/verify-selected.sh
+          mkdir -p output/evidence
+          if [[ "$MODE" == development ]]; then
+            python3 stage2/reproduce-audit.py saved output/evidence
+            bash stage2/workflow-eligibility.sh issue
+          else
+            python3 stage2/confirmation-audit.py saved output/evidence
+            /usr/bin/python3.12 -m venv "$RUNNER_TEMP/selected-python"
+            "$RUNNER_TEMP/selected-python/bin/pip" install --only-binary=:all: --require-hashes -r stage1/report-requirements.txt
+            "$RUNNER_TEMP/selected-python/bin/python" stage2/confirmation-report.py output/evidence output
+          fi
+          gzip -n output/evidence/*.csv
+          bash stage2/verify-selected.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: ${{ inputs.mode == 'development' && 'selected-development-receipt' || 'selected-confirmation-report' }}
+          path: output/
+          overwrite: true
+          retention-days: 90
