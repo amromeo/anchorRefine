@@ -1,0 +1,20 @@
+{
+  "artifact_digest": "sha256:fdea7877d0ae0235fe9d02f166d5ba87e6094ee022832ea9d367b7f97156cb3e",
+  "artifact_id": 14929735330,
+  "artifact_size": 257384,
+  "commit": "2feb4868b1b8fe64ce3c956a038bc3e60313c1b9",
+  "phase": "influence",
+  "report_files_sha256": {
+    "REPORT.md": "938f5300172b1523268078828291cc5d15929442199d59299bbc29a538f8346c",
+    "evidence/audit.json": "4d11c23fe7ddca093be8b74eb5fcb43f99d3acdfa18a53a52e2a42104559b395",
+    "evidence/fits.csv.gz": "140afc7e48f632ce15d048bdd451968cf9873daf16e99b3c0b8431e951afbefd",
+    "evidence/original-influence-audit.json": "b5388e63fa4309e1bcca9d26b47fcbd0b8d56cf7a05447b334122bc0f16dc53e",
+    "influence-fallback.csv": "fec7838da14264a2bb1e669ba9f8fc45939c6d2f266440d3d2264418b92c8999",
+    "influence-nonfallback.csv": "d0bfa731032063f9f6f009aaeeb63144f01dae4eba3569aa1e042a326b87115d",
+    "influence.csv": "1a2aeb5d303c35cdeb4a9e230fe683e9f90015ddd1407b74e443add8309e869d",
+    "receipt.json": "2823bd19ab04692d05137d18a31f8d077fcb0815b129ffeff84c1ddba7ba676a"
+  },
+  "run_attempt": 1,
+  "run_id": 45412130146,
+  "source_manifest_sha256": "5db4755face4cb67db6e4ac35cd33c859859fbb79cbd4f4d833263a0ee5a8251"
+}

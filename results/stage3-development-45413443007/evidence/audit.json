@@ -1,0 +1,21 @@
+{
+  "phase": "development",
+  "passed": true,
+  "datasets": 3744,
+  "exact_repeat_shards": 96,
+  "distinct_host_shards": 96,
+  "fits": 52416,
+  "checks": 209664,
+  "required_identities": 0,
+  "sensitivity_rows": 28800,
+  "diagnostic_counts": {
+    "fits": 52416,
+    "checks": 209664,
+    "identities": 0,
+    "sensitivity": 28800
+  },
+  "max_endpoint_fraction": 0,
+  "max_p_difference": 0,
+  "cross_host_differences": 0,
+  "max_differences": {}
+}

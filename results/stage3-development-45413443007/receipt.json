@@ -1,0 +1,14 @@
+{
+  "audit_sha256": "d45dceee081a2852f3ee00ce2d24f00193be0826302c6affda71295fffbe2c93",
+  "chosen_t": 0.25,
+  "chosen_w": 1.0,
+  "datasets": 3744,
+  "fallback_sha256": "fec7838da14264a2bb1e669ba9f8fc45939c6d2f266440d3d2264418b92c8999",
+  "influence_sha256": "1a2aeb5d303c35cdeb4a9e230fe683e9f90015ddd1407b74e443add8309e869d",
+  "nonfallback_sha256": "d0bfa731032063f9f6f009aaeeb63144f01dae4eba3569aa1e042a326b87115d",
+  "passed": true,
+  "phase": "development",
+  "report_sha256": "11ed62053fae7bee306ba0e6cb708afc7869ef9c8c8e80422136832d86d3a525",
+  "selection_sha256": "1bc85d771e82106e4ded375bd9366bee92024d3a1b64b0e811a68b24230edf37",
+  "table_sha256": "1a2aeb5d303c35cdeb4a9e230fe683e9f90015ddd1407b74e443add8309e869d"
+}
