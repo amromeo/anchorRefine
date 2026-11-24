@@ -45,7 +45,7 @@ def label(arm):
     return {"baseline":"Unchanged refineR","stage2":"Stage 2","anchorsOnly":"Anchors-only"}.get(arm,arm)
 
 
-def influence(evidence):
+def influence(evidence, parent_fallback=None):
     by_arm=defaultdict(dict)
     for r in read(evidence/"fits.csv.gz"):
         by_arm[r["arm"]][int(r["j"])]=r
@@ -53,12 +53,16 @@ def influence(evidence):
     for n,arm in product(NS,W):
         values=[r for r in by_arm[arm].values() if int(r["N"])==n]
         require(len(values)==24,(arm,n,len(values)))
+        parents=by_arm["stage2"]
+        if parent_fallback is not None:
+            values=[r for r in values if logical(parents[int(r["j"])]["fallback"])==parent_fallback]
+        total=len(values)
         shifts=[(num(r["center_shift"]),num(r["spread_shift"])) for r in values]
         paired=np.array([v for v in shifts if all(map(math.isfinite,v))],dtype=float).reshape((-1,2))
         m=len(paired)
         med=np.median(paired,axis=0) if m else [None,None]
         med_abs=np.median(abs(paired),axis=0) if m else [None,None]
-        row=dict(N=n,weight=int(arm[1:]),planned=24,measurable=m,unevaluable=24-m,
+        row=dict(N=n,weight=int(arm[1:]),planned=total,measurable=m,unevaluable=total-m,
                  center_signed=med[0],center_absolute=med_abs[0],spread_signed=med[1],spread_absolute=med_abs[1],
                  parent_failures=sum(by_arm["stage2"][int(r["j"])]["fit_status"]=="fit_failed" for r in values),
                  fit_failures=sum(r["fit_status"]=="fit_failed" for r in values),
@@ -67,27 +71,45 @@ def influence(evidence):
                  extra_fallback=sum(r["extra_fallback"]=="TRUE" for r in values),
                  parent_retained=sum(r["parent_retained"]=="TRUE" for r in values),
                  identical_fits=sum(r["fit_status"]=="ResultFound" and r["fit_hash"]==by_arm["stage2"][int(r["j"])]["fit_hash"] for r in values),
-                 unchanged_center_spread=int((paired==0).all(axis=1).sum()))
+                 unchanged_center_spread=int((paired==0).all(axis=1).sum()),
+                 parent_fallbacks=sum(logical(r["parent_fallback"]) for r in values),
+                 weighted_attempts=sum(logical(r["weighted_search_attempted"]) for r in values),
+                 weighted_entries=sum(logical(r["weighted_search_entered"]) for r in values),
+                 updated_fits=sum(r["branch"]=="weighted" and r["fit_hash"]!=parents[int(r["j"])]["fit_hash"] for r in values),
+                 retained_after_scoring=sum(r["branch"]=="retained_parent" for r in values))
         if arm=="w0" and m:
             require((paired==0).all(),(n,"weight-zero influence"))
         rows.append(row)
     return rows
 
 
-def influence_text(rows):
-    return "\n\n".join([
-        "Each N has 24 fixtures. Center is the native median and spread is half the distance from the 15.87th to the 84.13th percentile, after mapping each quantile to the parent Stage 2 transformation. Shifts are candidate minus parent, divided by the parent Sigma. Medians include unchanged fits.",
-        table(["N","w","Paired / 24","Center, signed","Center, absolute","Spread, signed","Spread, absolute","Unchanged fits","Fallbacks"],
-              [[f"{int(r['N']):,}",r["weight"],r["measurable"],
-                *(fmt(r[k],5) for k in ("center_signed","center_absolute","spread_signed","spread_absolute")),
-                r["identical_fits"],r["fallbacks"]] for r in rows]),
-        "[Full influence results](influence.csv)"])
+INFLUENCE_TABLES = {"all": ("influence.csv","table_sha256"),
+                    "nonfallback": ("influence-nonfallback.csv","nonfallback_sha256"),
+                    "fallback": ("influence-fallback.csv","fallback_sha256")}
+
+
+def influence_text(groups):
+    sections=["Center is the native median and spread is half the distance between the 15.87th and 84.13th percentiles, after mapping each quantile to the parent Stage 2 transformation. Shifts are candidate minus parent, divided by parent Sigma. Unchanged fits contribute zero. Parent fallback status is fixed before any weighted search."]
+    for group,title in [("all","All fixtures"),("nonfallback","Stage 2 non-fallback fixtures")]:
+        sections.extend([f"### {title}",
+            table(["N","w","Measured / assigned","Center signed","Center absolute","Spread signed","Spread absolute","Searches entered","Fits changed","Update failures"],
+                  [[f"{int(r['N']):,}",r["weight"],f"{r['measurable']} / {r['planned']}",
+                    *(fmt(r[k],5) for k in ("center_signed","center_absolute","spread_signed","spread_absolute")),
+                    r["weighted_entries"],r["updated_fits"],r["extra_fallback"]] for r in groups[group]])])
+    sections.extend(["### Searches on Stage 2 fallback fixtures",
+        table(["N","Fallback fixtures","Positive-weight searches attempted / entered","Changed fits","Incumbent selected","Update failures"],
+          [[f"{n:,}",rr[0]["planned"],f"{sum(int(r['weighted_attempts']) for r in rr)} / {sum(int(r['weighted_entries']) for r in rr)}",
+            *(sum(int(r[k]) for r in rr) for k in ("updated_fits","retained_after_scoring","extra_fallback"))]
+           for n in NS for rr in [[r for r in groups["fallback"] if int(r["N"])==n and int(r["weight"])>0]]]),
+        "[All fixtures](influence.csv) · [Stage 2 non-fallback](influence-nonfallback.csv) · [Stage 2 fallback](influence-fallback.csv)"])
+    return "\n\n".join(sections)
 
 
 def load_arm_data(evidence, phase):
     n,_,names=CONFIG[phase]
     # Retain only needed scalar fields. Raw case files also contain full search traces.
-    fields=("fit_status","fallback","reason","center_shift","spread_shift","healthy_center_z","healthy_spread_z",
+    search_fields=("branch","parent_fallback","weighted_search_path","weighted_search_entered","weighted_search_attempted")
+    fields=(*search_fields,"fit_status","fallback","reason","center_shift","spread_shift","healthy_center_z","healthy_spread_z",
             "same_peak","healthy_median_in_basin","inherited_fallback","extra_fallback","parent_retained")
     est_fields=tuple(f"{e}_{k}" for e in EXTRACTIONS for k in ("lower","upper","z_lower","z_upper"))
     fits={a:[None]*n for a in names}
@@ -119,7 +141,7 @@ def load_arm_data(evidence, phase):
                                          ab.mean(axis=1),ab.max(axis=1),np.minimum(ab,5.).mean(axis=1))
         arms[a]=data
         extras[a]={k:np.array([num(r[k]) for r in rows]) for k in ("center_shift","spread_shift","healthy_center_z","healthy_spread_z")}
-        for k in ("same_peak","healthy_median_in_basin","inherited_fallback","extra_fallback","parent_retained"):
+        for k in (*search_fields,"same_peak","healthy_median_in_basin","inherited_fallback","extra_fallback","parent_retained"):
             extras[a][k]=np.array([r[k] for r in rows])
     return arms,extras
 
@@ -170,15 +192,18 @@ def strata(meta,extras,chosen):
                 mask=(arr==v)&sub
                 if mask.any():
                     yield f,v or "unavailable",part,mask
-    # Parent retention after a valid search is an available update, provided it
-    # passed all eligibility checks. Inherited primary fallback has no update.
+    # A scored incumbent is an available weighted update on either parent path.
+    # Direct zero-weight dispatch is reported as such and has no fitted update.
     primary=chosen["primary"]; post=chosen["postfit"]
-    both=((extras[primary]["inherited_fallback"]!="TRUE") & (extras[primary]["extra_fallback"]!="TRUE")
-          & (extras[post]["extra_fallback"]!="TRUE"))
-    for name in (primary,post):
-        both &= np.isfinite(extras[name]["center_shift"]) & np.isfinite(extras[name]["spread_shift"])
-    if primary!="w0" and post!="t0" and both.any():
-        yield "both_updates_available","yes","all",both
+    if primary!="w0" and post!="t0":
+        both=(extras[primary]["weighted_search_entered"]=="TRUE") & (extras[primary]["extra_fallback"]!="TRUE")
+        both &= extras[post]["extra_fallback"]!="TRUE"
+        for name in (primary,post):
+            both &= np.isfinite(extras[name]["center_shift"]) & np.isfinite(extras[name]["spread_shift"])
+        for level,mask in (("yes",both),("parent_fallback",both & (extras[primary]["parent_fallback"]=="TRUE")),
+                           ("parent_nonfallback",both & (extras[primary]["parent_fallback"]=="FALSE"))):
+            if mask.any():
+                yield "both_updates_available",level,"all",mask
 
 
 def analyze(meta,arms,extras,chosen):
@@ -194,11 +219,12 @@ def analyze(meta,arms,extras,chosen):
         for a in include:
             arm=arms[a]; key=dict(**k,arm=a)
             if a in selected:
-                keys=Counter((reason,extra,inherit) for reason,extra,inherit in zip(arm.reasons[mask],
-                             extras[a]["extra_fallback"][mask],extras[a]["inherited_fallback"][mask]))
-                for (reason,extra,inherit),count in sorted(keys.items()):
-                    tables["branches"].append(dict(**key,reason=reason,extra_fallback=extra,inherited_fallback=inherit,
-                                                  count=count,total=int(mask.sum())))
+                branch_fields=("branch","parent_fallback","weighted_search_path","weighted_search_attempted",
+                               "weighted_search_entered","extra_fallback","inherited_fallback","parent_retained")
+                keys=Counter(zip(arm.reasons[mask],*(extras[a][f][mask] for f in branch_fields)))
+                for values,count in sorted(keys.items()):
+                    tables["branches"].append(dict(**key,**dict(zip(("reason",*branch_fields),values)),
+                                                   count=count,total=int(mask.sum())))
                 if a!="anchorsOnly" and study:
                     flip_metrics(tables,key,boot,arm,mask)
             for e in EXTRACTIONS:
@@ -296,6 +322,18 @@ def development_text(tables,chosen,rank,inf,audit):
                       "Yes" if r["all_met"] else "No"] for r in tables["development-gates"]]),
                 "## Guidance and fresh-panel checks",
                 "E is the larger absolute endpoint z error before checking. Each capture or loss denominator includes all classifiable valid fits in that group. Only guidance-panel decisions determine release."]
+    enabled=chosen["primary"]!="w0" and chosen["postfit"]!="t0"
+    subset=[]
+    for level in ("yes","parent_nonfallback","parent_fallback"):
+        for a in (chosen["primary"],chosen["postfit"]):
+            rr=[r for r in tables["accuracy"] if r["group"]=="both_updates_available" and r["level"]==level
+                 and r["extraction"]=="native" and r["arm"]==a and r["mode"]=="pre"]
+            if rr:
+                r=rr[0]
+                subset.append([level,a,r["planned"],r["returned"],fmt(r["all_set_loss"])])
+    subset_text=table(["Stage 2 parent subset","Arm","Assigned","Returned","Pre-check loss"],subset) if subset else (
+       "At least one selected weight was zero, so no paired fitted updates were available." if not enabled else
+       "No dataset had two available updates.")
     panel=[]
     for a in dict.fromkeys(("baseline","stage2",*chosen.values())):
         for p in PANELS:
@@ -305,6 +343,7 @@ def development_text(tables,chosen,rank,inf,audit):
                 labels.append(f"{r['count']}/{r['denominator']}")
             panel.append([label(a),p,*labels])
     sections +=[table(["Arm","Panel","Declined","E > 1 caught","E > 5 caught","E < 0.25 declined"],panel),
+                "## Both selected updates available",subset_text,
                 "Paired intervals use 2,000 percentile bootstrap resamples of factorial cells, preserving their replicates, with PCG64 seed 37000000. Synthetic ground truth is available only to scoring. The technical audit covers every planned case and all primary, repeated and independent-host results.",
                 f"All {audit['exact_repeat_shards']} same-host shard repeats and {audit['distinct_host_shards']} separate-host comparisons passed. The maximum cross-host endpoint difference was {audit['max_endpoint_fraction']:.4g} of reference width. The maximum absolute PIT probability difference was {audit['max_p_difference']:.4g}.",
                 "[Paired losses and jointly returned results](paired-loss.csv) · [Accuracy](accuracy.csv) · [Endpoint errors](endpoints.csv) · [Center and spread bias](curve.csv) · [Fallback and peak decisions](branches.csv) · [Panel capture](panel-rates.csv) · [PIT-seed and panel disagreement](decision-pairs.csv) · [Unit, width and N sensitivity](sensitivity-summary.csv) · [Technical audit](evidence/audit.json) · [Case-level fits](evidence/fits.csv.gz) · [Case-level checks](evidence/checks.csv.gz)"]
@@ -319,11 +358,17 @@ def report(phase,evidence,out):
             audit["exact_repeat_shards"]==audit["distinct_host_shards"]==shards,"Incomplete technical audit")
     receipt=dict(phase=phase,passed=True,datasets=n,audit_sha256=digest(evidence/"audit.json"))
     if phase=="influence":
-        inf=influence(evidence)
-        save(out/"influence.csv",inf)
-        text="# Stage 3 influence check\n\nAll 96 frozen fixtures were evaluated before full development.\n\n"+influence_text(inf)
-        text+=f"\n\nAll {shards} same-host repeats and {shards} distinct-host audits passed. [Technical audit](evidence/audit.json) · [Fixture identities](evidence/identities.csv.gz)\n"
-        receipt["influence_sha256"]=digest(out/"influence.csv")
+        inf={name:influence(evidence,subset) for name,subset in (("all",None),("nonfallback",False),("fallback",True))}
+        for name,(filename,field) in INFLUENCE_TABLES.items():
+            save(out/filename,inf[name])
+            receipt[field]=digest(out/filename)
+        receipt["influence_sha256"]=receipt["table_sha256"]
+        original=evidence/"original-influence-audit.json"
+        prior=json.loads(original.read_text())
+        require(prior["passed"] and prior["datasets"]==n,"Original influence equivalence missing")
+        receipt["original_audit_sha256"]=digest(original)
+        text="# Stage 3 amended influence check\n\nAll 96 frozen fixtures were evaluated before full development.\n\n"+influence_text(inf)
+        text+=f"\n\nAll {shards} same-host repeats and {shards} distinct-host comparisons passed. The comparison to the original run verified all 96 Stage 2 parents, all 96 weight-zero results and {prior['paths']['guided_positive']['fits']} positive-weight non-fallback fits against the practical tolerances. [Original-run comparison by path](evidence/original-influence-audit.json) · [Technical audit](evidence/audit.json) · [Fixture identities](evidence/identities.csv.gz)\n"
     else:
         planned=list(design(phase).values())
         meta={k:np.array([r[k] for r in planned]) for k in planned[0]}
@@ -334,8 +379,10 @@ def report(phase,evidence,out):
         for k,rows in t.items():save(out/(k+".csv"),rows)
         save(out/"selection.csv",rank)
         save(out/"sensitivity-summary.csv",diagnostic_summary(evidence))
-        inf=list(read(out/"influence.csv"))
-        require(len(inf)==24,"Expected 24 rows from prior influence report")
+        inf={name:list(read(out/filename)) for name,(filename,field) in INFLUENCE_TABLES.items()}
+        require(all(len(rr)==24 for rr in inf.values()),"Incomplete amended influence tables")
+        for name,(filename,field) in INFLUENCE_TABLES.items():
+            receipt[field]=digest(out/filename)
         receipt.update(chosen_w=float(chosen["primary"][1:]),chosen_t=float(chosen["postfit"][1:]),
                        selection_sha256=digest(out/"selection.csv"),influence_sha256=digest(out/"influence.csv"))
         text=development_text(t,chosen,rank,inf,audit)

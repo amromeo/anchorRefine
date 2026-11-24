@@ -204,17 +204,30 @@ run_case <- function(row) {
         healthy_shape <- metric_pair(stage2_healthy_z(q, row$lambda, row$mu, row$sigma))
         shape <- res$stage3
         branch <- one(shape$branch, NA_character_)
-        # For the primary arm, fallbacks retain the same Stage 2 result.
-        # The post-fit arm may adjust a valid inherited fallback.
-        inherited <- (is_primary || is_post) && isTRUE(parent$fallback)
+        # The parent may have fallen back to unchanged refineR. A valid parent
+        # can undergo a weighted update on either routine search path.
+        parent_valid <- identical(parent$status, "ResultFound")
+        parent_fallback <- isTRUE(parent$fallback)
+        inherited <- (is_primary || is_post) && parent_fallback
+        weighted_attempt <- if (is_primary) !is_zero && parent_valid else NA
+        weighted_entered <- if (is_primary) !is_zero && isTRUE(shape$entered) else NA
+        weighted_path <- if (!is_primary) NA_character_ else if (is_zero) "zero" else
+            if (!parent_valid) "invalid_parent" else if (parent_fallback) "unguided" else "guided"
+        if (is_primary && !is_zero) {
+            stopifnot(is.logical(shape$entered), length(shape$entered) == 1L, !is.na(shape$entered),
+                      identical(shape$entered, branch %in% c("weighted", "retained_parent", "search_fallback")))
+            if (parent_valid) stopifnot(identical(shape$path, weighted_path))
+        }
         added <- if (is_post) isTRUE(res$additional_fallback) else
-            is_primary && isTRUE(res$fallback) && !inherited
+            isTRUE(weighted_attempt) && !branch %in% c("weighted", "retained_parent")
         retained <- if (is_primary && !is_zero && valid) identical(parent$fit, fit) else
             if (is_post && !is_zero && valid) identical(parent$fit, fit) else NA
         guidance_used <- !ao && !identical(arm, "baseline") && valid && !isTRUE(parent$fallback)
         meta <- data.frame(arm, guidance_used, weight = if (is_primary || is_post) as.numeric(substring(arm, 2L)) else NA_real_,
             fit_hash = hash, fit_status = res$status, fallback = res$fallback,
-            reason = one(res$reason, NA_character_), branch, inherited_fallback = inherited,
+            reason = one(res$reason, NA_character_), branch, parent_fallback,
+            inherited_fallback = inherited, weighted_search_attempted = weighted_attempt,
+            weighted_search_entered = weighted_entered, weighted_search_path = weighted_path,
             extra_fallback = added, parent_retained = retained,
             fit_upstream_status = one(fit$Status, NA_character_), Mu = one(fit$Mu), Sigma = one(fit$Sigma),
             Lambda = one(fit$Lambda), Shift = one(fit$Shift), P = one(fit$P), Cost = one(fit$Cost),

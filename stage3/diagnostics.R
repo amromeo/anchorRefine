@@ -116,10 +116,11 @@ stage3_algebra_checks <- function(j) {
 }
 
 stage3_original_profile <- function(j, x, seed, parent) {
-    guided <- stage2_valid_fit(parent$fit) && !isTRUE(parent$fallback)
-    coverage <- stage3_identity(j, "profile_available", "guided", as.integer(guided),
-                                as.integer(guided))
-    if (!guided) return(coverage)
+    valid <- stage2_valid_fit(parent$fit)
+    path <- if (isTRUE(parent$fallback)) "unguided" else "guided"
+    coverage <- stage3_identity(j, "profile_available", path, as.integer(valid),
+                                as.integer(valid))
+    if (!valid) return(coverage)
     hist <- stage3_histogram(x, seed, parent)
     fit <- parent$fit
     step <- .002

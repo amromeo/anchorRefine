@@ -73,17 +73,27 @@ stage3_first_pass <- function(x, parent) {
     data <- rep(raw, times = ceiling(250 / length(raw))) - 0
     rounding <- refineR:::findRoundingBase(data)
     ctx <- stage3_context(parent$election, 1L)
+    if (isTRUE(parent$fallback)) ctx$peak <- FALSE
     regions <- stage2_regions(data, stage3_initial_lambda(), rounding, NULL, ctx)
     hist <- refineR:::generateHistData(data, regions$abEst$abHist, rounding)
     parent_trace <- parent$peak_trace[parent$peak_trace$pass == 1L, , drop = FALSE]
-    if (!identical(ctx$trace, parent_trace) || !identical(hist$abOr, parent$fit$abOr) ||
-        !identical(rounding, parent$fit$roundingBase))
+    if (isTRUE(parent$fallback)) {
+        # The recorded Stage 2 peak trace belongs to the failed guided search.
+        # The fallback's original regions and grid-entry RNG are verified
+        # separately against the actual upstream findRI invocation.
+        if (!identical(as.double(parent$fit$Shift), 0) ||
+            !identical(as.double(hist$abOr), as.double(parent$fit$abOr)) ||
+            !identical(as.double(rounding), as.double(parent$fit$roundingBase)))
+            stop("Unguided fallback shift, histogram window or rounding base did not replay")
+    } else if (!identical(ctx$trace, parent_trace) || !identical(hist$abOr, parent$fit$abOr) ||
+               !identical(rounding, parent$fit$roundingBase)) {
         stop("Stage 2 first-pass peak trace or histogram window did not replay")
+    }
     list(regions = regions, data = data, rounding = rounding, hist = hist, trace = ctx$trace)
 }
 
 stage3_histogram <- function(x, seed, parent) {
-    if (!stage2_valid_fit(parent$fit) || isTRUE(parent$fallback)) return(NULL)
+    if (!stage2_valid_fit(parent$fit)) return(NULL)
     state <- stage2_rng()
     on.exit(stage2_restore_rng(state))
     stage2_job(seed, function() stage3_first_pass(x, parent)$hist)
@@ -108,6 +118,32 @@ stage3_parent_histogram <- function(x, anchors, seed, parent) {
     hist <- guided(x, anchors, seed, "peak", parent$election)
     stopifnot(!is.null(hist$counts), identical(hist$abOr, parent$fit$abOr))
     hist
+}
+
+# Observe the original zero-bootstrap findRI path before its first fit.
+# The inner future_lapply creates the seeds exactly as in upstream. The outer
+# future returns the actual histogram, regions, shifted data and worker RNG.
+# Only the cloned function receives these private bindings.
+stage3_fallback_reference <- function(x, seed) {
+    state <- stage2_rng()
+    on.exit(stage2_restore_rng(state))
+    upstream <- refineR::findRI
+    scope <- new.env(parent = environment(upstream))
+    scope$testParam <- function(lambdaVec, bestParam, Data, HistData, startValues, ...) {
+        invokeRestart("stage3_fallback_grid", list(hist = HistData, regions = startValues,
+                      data = Data, lambda = lambdaVec, rng = stage2_rng()))
+    }
+    scope$future_lapply <- function(X, FUN, ..., future.packages = NULL) {
+        if (is.null(future.packages)) return(future.apply::future_lapply(X, FUN, ...))
+        observed <- future.apply::future_lapply(X, function(i) {
+            withRestarts(FUN(i), stage3_fallback_grid = identity)
+        }, ..., future.packages = future.packages)
+        stopifnot(length(observed) == 1L, !is.null(observed[[1L]]$regions))
+        invokeRestart("stage3_fallback_result", observed[[1L]])
+    }
+    environment(upstream) <- scope
+    withRestarts(upstream(Data = x, model = "BoxCox", NBootstrap = 0, seed = seed),
+                 stage3_fallback_result = identity)
 }
 
 stage3_new_trial_store <- function(hist, anchors, h, reference) {
@@ -208,8 +244,9 @@ stage3_primary_many <- function(x, anchors, h, seed, parent, weights = stage3_gr
     if (!length(positive)) return(output)
     state <- stage2_rng()
     on.exit(stage2_restore_rng(state))
-    inactive <- if (!stage2_valid_fit(parent$fit)) "invalid_parent" else if (isTRUE(parent$fallback))
-        "inherited_fallback" else NULL
+    parent_fallback <- isTRUE(parent$fallback)
+    path <- if (parent_fallback) "unguided" else "guided"
+    inactive <- if (!stage2_valid_fit(parent$fit)) "invalid_parent" else NULL
     if (is.null(inactive)) {
         reference <- stage3_loglik(parent$fit, anchors, h)
         inactive <- if (is.na(reference)) "unresolved_reference" else if (!is.finite(reference))
@@ -217,7 +254,8 @@ stage3_primary_many <- function(x, anchors, h, seed, parent, weights = stage3_gr
     }
     if (!is.null(inactive)) {
         for (j in positive) {
-            output[[j]]$stage3 <- stage3_details(weights[j], inactive)
+            output[[j]]$stage3 <- c(stage3_details(weights[j], inactive),
+                list(path = path, parent_fallback = parent_fallback, entered = FALSE))
             if (inactive %in% c("zero_reference_mass", "unresolved_reference")) {
                 output[[j]]$fallback <- TRUE
                 output[[j]]$reason <- inactive
@@ -226,9 +264,19 @@ stage3_primary_many <- function(x, anchors, h, seed, parent, weights = stage3_gr
         return(output)
     }
 
-    native_hist <- stage3_parent_histogram(x, anchors, seed, parent)
+    if (parent_fallback) {
+        observed <- stage3_fallback_reference(x, seed)
+        native_hist <- observed$hist
+    } else {
+        observed <- NULL
+        native_hist <- stage3_parent_histogram(x, anchors, seed, parent)
+    }
     stage2_job(seed, function() {
         first <- stage3_first_pass(x, parent)
+        if (parent_fallback && (!identical(first$regions, observed$regions) ||
+            !identical(first$data, observed$data) || !identical(stage2_initial_lambda(), observed$lambda) ||
+            !identical(stage2_rng(), observed$rng)))
+            stop("Unguided first-pass regions, grid, shifted data or RNG differ from refineR")
         if (!identical(first$hist, native_hist))
             stop("Frozen parent and weighted first-pass histogram edges or counts differ")
         hist <- stage3_rebin_hist(first$hist, hist_factor)
@@ -268,6 +316,7 @@ stage3_primary_many <- function(x, anchors, h, seed, parent, weights = stage3_gr
                 if (is.null(second)) {
                     stage2_restore_rng(second_state)
                     ctx <- stage3_context(parent$election, 2L, first$trace)
+                    if (parent_fallback) ctx$peak <- FALSE
                     next_lambda <- stage3_refined_lambda(lambda, index)
                     regions <- stage2_regions(first$data, next_lambda, first$rounding,
                                               first$regions$abEst, ctx)
@@ -303,8 +352,9 @@ stage3_primary_many <- function(x, anchors, h, seed, parent, weights = stage3_gr
             }
             tuple <- if (is.null(best)) parent_tuple else best
             output[[j]]$reason <- reason
-            output[[j]]$stage3 <- stage3_details(w, branch, store$B, hist$overlapFactor,
-                                                  hash, tuple, parent_tuple)
+            output[[j]]$stage3 <- c(stage3_details(w, branch, store$B, hist$overlapFactor,
+                                                   hash, tuple, parent_tuple),
+                list(path = path, parent_fallback = parent_fallback, entered = TRUE))
         }
         output
     })

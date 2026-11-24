@@ -9,6 +9,8 @@ from itertools import product
 from pathlib import Path
 import sys
 import uuid
+import zipfile
+from collections import Counter
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from stage2.audit import (ELECTION, EXTRACTIONS, INPUT_HASHES, PANELS, PARAMETERS, SEEDS, SIDES,
@@ -81,6 +83,26 @@ def validate_case(fits, checks, j, arms, planned):
             check_one_fit(r,ctx)
         else:
             require(r["fit_status"] in ("ResultFound","fit_failed"),ctx)
+        parent_valid=parent["fit_status"]=="ResultFound"
+        fallback=flag(parent["fallback"])
+        require(flag(r["parent_fallback"])==fallback,(ctx,"parent fallback"))
+        if arm in W or arm in T:
+            require(flag(r["inherited_fallback"])==fallback,(ctx,"inherited fallback"))
+        if arm in W:
+            attempt=arm!="w0" and parent_valid
+            path="zero" if arm=="w0" else "invalid_parent" if not parent_valid else "unguided" if fallback else "guided"
+            require(r["weighted_search_path"]==path and flag(r["weighted_search_attempted"])==attempt,(ctx,path))
+            entered=flag(r["weighted_search_entered"])
+            success=r["branch"] in ("weighted","retained_parent")
+            require(entered==(r["branch"] in ("weighted","retained_parent","search_fallback")),(ctx,"weighted search entry"))
+            require(flag(r["extra_fallback"])==(attempt and not success),(ctx,"additional failure"))
+            if attempt:
+                require(success or (not missing(r["reason"]) and not missing(r["branch"])),(ctx,"unspecified update failure"))
+                require(r["fit_status"]=="ResultFound" and (success or flag(r["parent_retained"])),(ctx,"lost valid parent"))
+                if not success or r["branch"]=="retained_parent":
+                    same_fields(r,parent,("fit_hash",*PARAMETERS,*LIMITS,*ZS,*FLAGS),ctx)
+            elif arm!="w0":
+                require(r["fit_status"]=="fit_failed" and not entered,(ctx,"failed parent dispatch"))
         if arm in ("w0","t0"):
             require(all(flag(r[k]) for k in ("zero_fit_exact","zero_rng_exact","zero_score_exact")),(ctx,"zero identity"))
             same_fields(r,parent,("fit_hash","fit_status","fallback",*PARAMETERS,*TRACE,
@@ -153,6 +175,7 @@ def paired_fits(comp, primary, other):
     strict=(*FIT_KEY,*SEED_FIELDS,*INPUT_HASHES,*ELECTION,*TRACE,*FLAGS,"fit_status","fallback","reason",
             "guidance_used","fit_upstream_status","clarity","election_reason","same_peak",
             "healthy_median_in_basin","inherited_fallback","extra_fallback","parent_retained","branch",
+            "parent_fallback","weighted_search_path","weighted_search_entered","weighted_search_attempted",
             "upstream_peak_index","anchor_initial_index","initial_peak_count","B","k","overlap",
             "zero_fit_exact","zero_rng_exact","zero_score_exact")
     for key,r in primary.items():
@@ -230,6 +253,72 @@ def diagnostic_values(comp,filename,dirs):
     return headings,rows
 
 
+ORIGINAL_RUN = 45407973511
+ORIGINAL_REPORT_SHA = "2de251156297713d1cfbf477dba08bb014817a63b0af83b1a7a28fa49edbfa3f"
+
+
+def original_influence_audit(evidence):
+    """Read the pinned GitHub report artifact, after all current shard files have closed."""
+    archive=Path(__file__).resolve().parents[1]/"results"/f"stage3-influence-{ORIGINAL_RUN}"/"artifacts"/"stage3-influence-report.zip"
+    require(digest(archive)==ORIGINAL_REPORT_SHA,"Original influence report digest mismatch")
+    def rows(stream,fields):
+        data={}
+        with gzip.open(stream,"rt",encoding="utf-8",newline="") as f:
+            for r in csv.DictReader(f):
+                key=tuple(r[k] for k in fields)
+                require(key not in data,(key,"duplicate original-run audit key"))
+                data[key]=r
+        return data
+    with zipfile.ZipFile(archive) as z:
+        original=json.loads(z.read("evidence/audit.json"))
+        require(original["phase"]=="influence" and original["passed"] and original["datasets"]==96,"Incomplete original run")
+        old={}; new={}
+        for name,key in (("fits",FIT_KEY),("checks",CHECK_KEY)):
+            with z.open("evidence/"+name+".csv.gz") as f:
+                old[name]=rows(f,key)
+            new[name]=rows(evidence/(name+".csv.gz"),key)
+            require(old[name].keys()==new[name].keys(),(name,"changed influence inventory"))
+    paths={k:Counter() for k in ("parent","zero","guided_positive","unguided_positive")}
+    maxima={}
+    with (evidence/"original-influence-differences.csv").open("w",newline="") as f:
+        writer=csv.writer(f,lineterminator="\n")
+        writer.writerow(["key","field","original","amended","mode","difference","passed"])
+        comparators={k:Comparison(writer) for k in paths}
+        for key,row in old["fits"].items():
+            j,arm=key; now=new["fits"][key]
+            fallback=flag(old["fits"][j,"stage2"]["fallback"])
+            path="parent" if arm=="stage2" else "zero" if arm=="w0" else "unguided_positive" if fallback else "guided_positive"
+            stats=paths[path]; comp=comparators[path]; unchanged=path!="unguided_positive"
+            same_fields(row,now,(*SEED_FIELDS,*INPUT_HASHES,"N","j","arm"),key)
+            stats["input_hash_comparisons"]+=len(INPUT_HASHES)
+            stats["fits"]+=1
+            stats["fit_hash_exact"]+=row["fit_hash"]==now["fit_hash"]
+            stats["parameter_vectors_exact"]+=all(row[k]==now[k] for k in PARAMETERS)
+            stats["raw_endpoints_exact"]+=sum(row[k]==now[k] for k in LIMITS)
+            stats["raw_endpoints"]+=len(LIMITS)
+            if unchanged:
+                common={k:now[k] for k in row}
+                paired_fits(comp,{key:row},{key:common})
+            for panel,seed in product(PANELS,SEEDS):
+                ck=(*key,panel,seed); a=old["checks"][ck]; b=new["checks"][ck]
+                stats["checks"]+=1
+                stats["decisions_exact"]+=a["status"]==b["status"]
+                stats["p_exact"]+=a["p"]==b["p"]
+                stats["released_endpoints"]+=len(LIMITS)
+                stats["released_endpoints_exact"]+=sum(a["released_"+k]==b["released_"+k] for k in LIMITS)
+                if unchanged:
+                    paired_checks(comp,{ck:a},{ck:b},old["fits"])
+        for path,comp in comparators.items():
+            maxima[path]=dict(enforced=path!="unguided_positive",max_endpoint_fraction=comp.maxima.get("endpoint_fraction",0.)
+                              if path!="unguided_positive" else None,
+                              max_p_difference=comp.maxima.get("p",0.) if path!="unguided_positive" else None)
+            paths[path]=dict(paths[path],**maxima[path])
+    require(paths["parent"]["fits"]==paths["zero"]["fits"]==96,"Lost original parent or zero coverage")
+    receipt=dict(passed=True,original_run_id=ORIGINAL_RUN,original_report_sha256=ORIGINAL_REPORT_SHA,datasets=96,
+                 paths=paths,endpoint_fraction_tolerance=.001,p_tolerance=.0001)
+    (evidence/"original-influence-audit.json").write_text(json.dumps(receipt,indent=2,allow_nan=False)+"\n")
+
+
 def audit(phase,raw,evidence):
     n,shards,arms=CONFIG[phase]
     planned=design(phase)
@@ -288,9 +377,13 @@ def audit(phase,raw,evidence):
                             require(ids==set(indices),(shard,"native-profile coverage"))
                             for j in indices:
                                 parent=fit_tables[0][str(j),"stage2"]
-                                guided=parent["fit_status"]=="ResultFound" and not flag(parent["fallback"])
+                                valid=parent["fit_status"]=="ResultFound"
+                                path="unguided" if flag(parent["fallback"]) else "guided"
+                                coverage=[r for r in rows if int(r["j"])==j and r["metric"]=="profile_available"]
+                                require(len(coverage)==1 and coverage[0]["variant"]==path and
+                                        number(coverage[0]["observed"])==int(valid),(j,"original profile path"))
                                 profile=[r for r in rows if int(r["j"])==j and r["metric"]=="native_profile"]
-                                require(len(profile)==3*int(guided) and all(flag(r["required"]) for r in profile),
+                                require(len(profile)==3*int(valid) and all(flag(r["required"]) for r in profile),
                                         (j,"native profile parity evidence"))
                             identities.extend(r for r in rows if int(r["j"])==1 and flag(r["required"]))
                         required_count+=sum(flag(r["required"]) for r in rows)
@@ -325,7 +418,11 @@ def audit(phase,raw,evidence):
                            max_endpoint_fraction=comp.maxima.get("endpoint_fraction",0),
                            max_p_difference=comp.maxima.get("p",0),cross_host_differences=comp.count,
                            max_differences=comp.maxima)
+        if phase=="influence":
+            original_influence_audit(evidence)
+            receipt["original_audit_sha256"]=digest(evidence/"original-influence-audit.json")
     except Exception as error:
+        receipt["passed"]=False
         receipt["error"]=f"{type(error).__name__}: {error}"
         receipt["verified_shards"]=len(hosts)
         persist()
