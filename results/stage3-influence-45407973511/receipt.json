@@ -1,0 +1,8 @@
+{
+  "audit_sha256": "938c0d0e395330313d14a9f6b80a4e7503fb4fa829d5c1e4082a023f4bf1b4da",
+  "datasets": 96,
+  "influence_sha256": "f82f28a1de5f4da4f4df088263cbc8e56972a01faf00f34f78e3d31364e7fe26",
+  "passed": true,
+  "phase": "influence",
+  "report_sha256": "c846732d08024c34217903a3d200e9c9a4aabb123a77b81498f7bc8b56aa509a"
+}

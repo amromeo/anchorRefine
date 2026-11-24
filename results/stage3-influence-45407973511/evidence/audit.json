@@ -1,0 +1,21 @@
+{
+  "phase": "influence",
+  "passed": true,
+  "datasets": 96,
+  "exact_repeat_shards": 24,
+  "distinct_host_shards": 24,
+  "fits": 672,
+  "checks": 2688,
+  "required_identities": 411,
+  "sensitivity_rows": 0,
+  "diagnostic_counts": {
+    "fits": 672,
+    "checks": 2688,
+    "identities": 891,
+    "sensitivity": 0
+  },
+  "max_endpoint_fraction": 0,
+  "max_p_difference": 0,
+  "cross_host_differences": 0,
+  "max_differences": {}
+}

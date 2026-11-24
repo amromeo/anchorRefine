@@ -1,0 +1,13 @@
+{
+  "commit": "a2a26c91804c5998dd12430fe09e3c989f417794",
+  "phase": "influence",
+  "report_files_sha256": {
+    "REPORT.md": "c846732d08024c34217903a3d200e9c9a4aabb123a77b81498f7bc8b56aa509a",
+    "evidence/audit.json": "938c0d0e395330313d14a9f6b80a4e7503fb4fa829d5c1e4082a023f4bf1b4da",
+    "influence.csv": "f82f28a1de5f4da4f4df088263cbc8e56972a01faf00f34f78e3d31364e7fe26",
+    "receipt.json": "220dd4f2b1c867c5253d3e07f9988339900cbbcb616e9d5ef63560c6055ac698"
+  },
+  "run_attempt": 1,
+  "run_id": 45407973511,
+  "source_manifest_sha256": "8658ab26b4577355d6b4ce4d2e38aa6cadb5605553ae9778a28262d06c9ba73a"
+}
