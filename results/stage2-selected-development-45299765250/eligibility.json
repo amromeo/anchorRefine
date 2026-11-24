@@ -1,0 +1,13 @@
+{
+  "K": 24,
+  "audit_sha256": "9861a3fd21ba04804e2c2ba73744454a1491cda63f211ff67508f25a45bc4588",
+  "development_commit": "c043917226b20929296b80cda53e0ae293968b42",
+  "development_run_id": 45299765250,
+  "mode": "development",
+  "repo": "amromeo/anchorRefine",
+  "rule": "peak",
+  "run_attempt": 1,
+  "selected_source_sha256": "e555874ea0d8286c9ca1d0f1f7183222275cefd71b50e260057b4c52e9a83f51",
+  "source_manifest_sha256": "57e2d3909632775c96e4ad09cb085b201acb236e16456056c7ed5981870822f8",
+  "workflow": ".github/workflows/stage2-selected.yml"
+}
