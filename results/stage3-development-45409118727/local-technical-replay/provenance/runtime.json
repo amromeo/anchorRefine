@@ -1,0 +1,53 @@
+{
+  "original_location": "/tmp/anchor-stage3-build/dev-case1",
+  "worker": "local workspace",
+  "host_platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "r_version": [
+    "R version 4.5.0 (2025-04-11)",
+    "x86_64-pc-linux-gnu"
+  ],
+  "files": [
+    {
+      "file": "/tmp/anchor-stage3-build/stage3engine.so",
+      "bytes": 34712,
+      "sha256": "1e0f544d4eeb11e0d3077ffed7bc25acd967679e624f90588ce7dbb64b4e90e6"
+    },
+    {
+      "file": "/tmp/anchor-stage3-build/local-R",
+      "bytes": 372,
+      "sha256": "190a549a030654bb87e1c5be7cba8c43edb33de0dd8faf6b8b65e1a5c9abc1ee"
+    },
+    {
+      "file": "/tmp/anchor-stage3-build/r450.deb",
+      "bytes": 66548366,
+      "sha256": "384dc0571c22bc0976ab41edcf44b5f9f5c435af9a0926c1e0f36e8aa6e40df6"
+    },
+    {
+      "file": "/tmp/anchor-stage3-build/icu.deb",
+      "bytes": 9376124,
+      "sha256": "f7f6f99c6d7b025914df2447fc93e11d22c44c0c8bdd8b6f36691c9e7ddcef88"
+    },
+    {
+      "file": "/tmp/anchor-stage3-build/r450/opt/R/4.5.0/lib/R/bin/exec/R",
+      "bytes": 18304,
+      "sha256": "08a4dd35f60977a7ea2c0327191085240f2ec500215b9b8e5bb5f5a02a2cd864"
+    },
+    {
+      "file": "/tmp/anchor-stage3-build/r450/opt/R/4.5.0/lib/R/lib/libR.so",
+      "bytes": 13115776,
+      "sha256": "484db4c6179acd0470f21653dd17781a024f4b26dc91ed999926c6e6aa6e4d5e"
+    },
+    {
+      "file": "/tmp/anchor-stage3-libs/installed-files.sha256",
+      "bytes": 93071,
+      "sha256": "00595b3a1a9f8ccba0ce89931d055020bd3d876c392323d7bbd459ad8a734e77"
+    }
+  ],
+  "ordered_input_hashes": {
+    "routine_hash": "408774f4d9b7cdff63474f8c507c8177ac03470a5f96d84396a5679ba5983c55",
+    "anchor_hash": "25376edf2d275cb6fbcb7076884eb2c40afa9e4349acaca48f4994ac01ee9406",
+    "diagnostic_hash": "4168a1bdab2eb53b25bd4a254726bf8786fc916377c6c0ee78478d9a17b15e9c"
+  },
+  "original_rule_reference_commit": "dc82857d600de43080f499873f1639658b456a3f",
+  "provenance_note": "Environment information was read from the retained local runtime, launcher and files after the replay. The original outputs contain no recorded command line or independent checkout SHA."
+}

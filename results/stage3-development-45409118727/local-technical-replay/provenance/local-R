@@ -1,0 +1,8 @@
+#!/bin/bash
+set -eu
+s3_lib=/tmp/anchor-stage3-build/r450/opt/R/4.5.0/lib/R
+export R_HOME="$s3_lib"
+export LD_LIBRARY_PATH="$s3_lib/lib:/tmp/anchor-stage3-build/r450/usr/lib/x86_64-linux-gnu"
+export STAGE3_ENGINE=/tmp/anchor-stage3-build/stage3engine.so
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 LC_ALL=C.UTF-8 TZ=UTC
+exec "$s3_lib/bin/exec/R" --vanilla --slave "$@"

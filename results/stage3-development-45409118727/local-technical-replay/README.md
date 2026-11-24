@@ -1,0 +1,7 @@
+# Local R 4.5.0 technical replay of development case 1
+
+The local workspace completed one technical replay under the original Stage 3 fallback rule, before the amendment. The parent run directory identifies the GitHub development study that used those original methods. This replay ran independently on the local machine. Its results are excluded from weight selection.
+
+The original output directory was `/tmp/anchor-stage3-build/dev-case1`. The stdout/stderr log records `Completed development j = 1 ( 1 of 1 )`. All six original files and the adjacent original log are available byte for byte under `original/`. They contain 14 fit rows, 56 check rows, 40 sensitivity rows, 0 algebra identity rows, serialized results and the original R process ID. [Original file hashes](original/SHA256SUMS) · [Run log](original/dev-case1.log)
+
+The launcher sets R 4.5.0 on Linux x86-64, single-threaded BLAS/OpenMP, a C.UTF-8 locale and UTC. The provenance records the retained deployment packages, interpreter, shared library, scorer and installed-library manifest hashes. The replay outputs contain no recorded command line or local checkout SHA. The original-rule workflow used the source manifest in [dc82857](https://github.com/amromeo/anchorRefine/commit/dc82857d600de43080f499873f1639658b456a3f). [Runtime and ordered input hashes](provenance/runtime.json) · [Local launcher](provenance/local-R) · [Original source freeze](provenance/source-manifest.sha256)
