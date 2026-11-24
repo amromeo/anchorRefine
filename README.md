@@ -8,6 +8,8 @@ Stage 1 evaluated 4,320 archived refineR fits. With historical C2 limits, the an
 
 Stage 2 development selected K = 24. The guided fit improved on refineR above 20% pathology at both sample sizes and missed the lower-pathology margin at N = 50,000. Confirmation awaits review. [Development report](results/stage2-development-45283676579/REVIEW.md)
 
+The three development ablations support using unchanged refineR when the anchors and refineR choose the same first peak. This amendment awaits approval. [Ablations, fallback rates and panel disagreement](results/stage2-ablations-45293475762/REVIEW.md)
+
 anchorRefine is derived from refineR 2.0.0. It is an independent project and is not endorsed by the refineR authors. Matthias Beck, Tatjana Ammer, Christopher M Rank and Andre Schuetzenmeister wrote refineR. This package is licensed under GPL-3. The upstream source and notices are in [vendor/refineR](vendor/refineR).
 
 To install from this checkout, run the following from the repository root in R. The vendored package requires ash, future and future.apply.

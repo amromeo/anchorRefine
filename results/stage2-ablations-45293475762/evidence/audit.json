@@ -1,0 +1,39 @@
+{
+  "datasets": 1440,
+  "fits": 7200,
+  "checks": 28800,
+  "original_reference_fits": 2880,
+  "original_reference_checks": 11520,
+  "original_reference_sha256": {
+    "fits": "785a06233db585f73e2720fdf381a0e0849b982c2b2e3e452bd5e9b786ebb93a",
+    "checks": "2308b04b6c64ad5c1873ac3ea7989518537d733f90fee0c8735dad6b8e83038c"
+  },
+  "new_fit_rows": 4320,
+  "new_check_rows": 17280,
+  "exact_repeat_shards": 48,
+  "distinct_host_shards": 48,
+  "max_endpoint_fraction": 0.0,
+  "max_p_difference": 0.0,
+  "max_parameter_differences": {
+    "Mu": 0.0,
+    "Sigma": 0.0,
+    "Lambda": 0.0,
+    "Shift": 0.0,
+    "P": 0.0,
+    "Cost": 0.0,
+    "rf": 0.0
+  },
+  "max_score_differences": {
+    "native_z_lower": 0.0,
+    "native_z_upper": 0.0,
+    "historical_z_lower": 0.0,
+    "historical_z_upper": 0.0
+  },
+  "max_election_and_statistic_differences": {
+    "peak_location": 0.0,
+    "peak_left": 0.0,
+    "peak_right": 0.0,
+    "peak_target": 0.0,
+    "statistic": 0.0
+  }
+}
