@@ -1,0 +1,116 @@
+{
+  "passed": true,
+  "cohort": "large",
+  "datasets": 1440,
+  "fits": 7200,
+  "checks": 14400,
+  "archived_baseline_matches": 1440,
+  "requested_endpoints": 2736,
+  "archive_stage0": false,
+  "exact_repeat_shards": 48,
+  "distinct_host_shards": 48,
+  "max_p_difference": 0.0,
+  "max_endpoint_fraction": 0.0,
+  "max_differences": {
+    "stage1": {
+      "Sigma": 1.0658141036401503e-14,
+      "statistic": 6.0254023992456496e-12,
+      "p": 2.134958876354176e-13,
+      "native_upper": 4.362732397567015e-12,
+      "endpoint_fraction": 4.922385773697604e-14,
+      "native_z_upper": 1.212363542890671e-13,
+      "released_native_upper": 4.362732397567015e-12,
+      "historical_upper": 4.362732397567015e-12,
+      "historical_z_upper": 1.212363542890671e-13,
+      "released_historical_upper": 4.362732397567015e-12,
+      "Mu": 5.684341886080802e-14,
+      "native_lower": 1.5916157281026244e-12,
+      "native_z_lower": 1.6786572132332367e-13,
+      "released_native_lower": 1.5916157281026244e-12,
+      "historical_lower": 1.5916157281026244e-12,
+      "historical_z_lower": 1.6786572132332367e-13,
+      "released_historical_lower": 1.5916157281026244e-12
+    },
+    "cross_host": {}
+  },
+  "differing_fields": {
+    "stage1": 8010
+  },
+  "discrepancies": 0,
+  "score_groups_with_zero_upper": {
+    "primary": [],
+    "other": []
+  },
+  "extraction_coverage": [
+    {
+      "arm": "baseline",
+      "extraction": "historical",
+      "fit_status": "ResultFound",
+      "interval": "returned",
+      "count": 1440
+    },
+    {
+      "arm": "baseline",
+      "extraction": "native",
+      "fit_status": "ResultFound",
+      "interval": "returned",
+      "count": 1440
+    },
+    {
+      "arm": "candidate",
+      "extraction": "historical",
+      "fit_status": "ResultFound",
+      "interval": "returned",
+      "count": 1440
+    },
+    {
+      "arm": "candidate",
+      "extraction": "native",
+      "fit_status": "ResultFound",
+      "interval": "returned",
+      "count": 1440
+    },
+    {
+      "arm": "peak",
+      "extraction": "historical",
+      "fit_status": "ResultFound",
+      "interval": "returned",
+      "count": 1440
+    },
+    {
+      "arm": "peak",
+      "extraction": "native",
+      "fit_status": "ResultFound",
+      "interval": "returned",
+      "count": 1440
+    },
+    {
+      "arm": "region",
+      "extraction": "historical",
+      "fit_status": "ResultFound",
+      "interval": "returned",
+      "count": 1440
+    },
+    {
+      "arm": "region",
+      "extraction": "native",
+      "fit_status": "ResultFound",
+      "interval": "returned",
+      "count": 1440
+    },
+    {
+      "arm": "start",
+      "extraction": "historical",
+      "fit_status": "ResultFound",
+      "interval": "returned",
+      "count": 1440
+    },
+    {
+      "arm": "start",
+      "extraction": "native",
+      "fit_status": "ResultFound",
+      "interval": "returned",
+      "count": 1440
+    }
+  ]
+}
