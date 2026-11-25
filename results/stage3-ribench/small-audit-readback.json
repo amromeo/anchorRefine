@@ -1,0 +1,13 @@
+{
+  "phase": "ribench-small",
+  "run_id": 45530368829,
+  "cohort": "small",
+  "audit_mode": "sampled",
+  "original_shards": 48,
+  "cases": 2880,
+  "checks": 40320,
+  "same": 288,
+  "cross": 288,
+  "cross_all_fields_exact": 288,
+  "differences": []
+}

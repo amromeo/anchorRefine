@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "phase": "ribench",
+  "cohort": "large",
+  "run_id": "45541935930",
+  "source": "8ab8e80014c586dc8a217d85b6dd5c2f38146e9c",
+  "original_zip_and_rds_pairs": 48,
+  "datasets": 1440,
+  "original_armB_records": 1440,
+  "fit_rows": 10080,
+  "check_rows": 20160,
+  "guide_examples": {
+    "nonfallback": {
+      "j": 289,
+      "arm": "w1",
+      "decision": "keep",
+      "fit_status": "ResultFound",
+      "fit_hash": "28c95476a264bf4b2b51d06ecc8d676d228b486feb91838ee7c13cebfeaba559"
+    },
+    "t0.25": {
+      "j": 289,
+      "arm": "t0.25",
+      "decision": "keep",
+      "fit_status": "ResultFound",
+      "fit_hash": "c1d5bf1e0b07f4993b6060d77bfc4eecfc136dcec836694dfe746129ba43f94c"
+    },
+    "anchorsOnly": {
+      "j": 289,
+      "arm": "anchorsOnly",
+      "decision": "keep",
+      "fit_status": "ResultFound",
+      "fit_hash": "8d479d3d5514f14da1c0d861398ecce4b3888a570d8daf02bad381bd7925463d"
+    },
+    "decline": {
+      "j": 3745,
+      "arm": "baseline",
+      "decision": "decline",
+      "fit_status": "ResultFound",
+      "fit_hash": "a4b4162a25bdf5977ed9db4105c2e28bf86d3eb2a80f4fd908c573a67c1e5939"
+    },
+    "CRP": {
+      "j": 4897,
+      "arm": "w1",
+      "decision": "keep",
+      "fit_status": "ResultFound",
+      "fit_hash": "deb41cf4e02d601cdfe9547cc8c2e671065f3cc17a7fc987e3ecc4acaf9e5abf"
+    },
+    "fallback": {
+      "j": 3751,
+      "arm": "w1",
+      "decision": "keep",
+      "fit_status": "ResultFound",
+      "fit_hash": "2723bcaeb8bd5e66888b492d218072e3c6a09021003735bef181b966e8940b6d"
+    }
+  },
+  "manifest_sha256": "c13112de13d49229b0846e704a7f455d0b02d15346280b651da145528662a300"
+}

@@ -1,0 +1,5734 @@
+{
+  "artifacts": [
+    {
+      "digest": "sha256:9edd9d5e018f9a6ea6c3b2a09e06aa9a5ecd67489aaf4103280d6e16337d6f18",
+      "id": 14986049041,
+      "name": "stage3-ribench-small-1",
+      "size_in_bytes": 658470
+    },
+    {
+      "digest": "sha256:14b321b93f6cac16b3e7c001a7e321dbdb52b613f82414165a5a86d3914b4d1d",
+      "id": 14986660029,
+      "name": "stage3-ribench-small-2",
+      "size_in_bytes": 673777
+    },
+    {
+      "digest": "sha256:0fa2a2aff61087766575a23a068420f78afbf5862e279da26d7cb3b998ac6630",
+      "id": 14985684283,
+      "name": "stage3-ribench-small-3",
+      "size_in_bytes": 672124
+    },
+    {
+      "digest": "sha256:3cb8d1b545705bb6ba129c4c759a847d5680efd00d8814f36ca537857869bb21",
+      "id": 14986660556,
+      "name": "stage3-ribench-small-4",
+      "size_in_bytes": 691757
+    },
+    {
+      "digest": "sha256:8f7a9a514a178fa41f0fcbf1f00a26c687217e0e788fdf967c49e212861d8d1c",
+      "id": 14986780425,
+      "name": "stage3-ribench-small-5",
+      "size_in_bytes": 696859
+    },
+    {
+      "digest": "sha256:fbdfbdd8abbddbad4cb40b37eedc7218ddeff19914dfcda2f563faaeddcfbb28",
+      "id": 14986785292,
+      "name": "stage3-ribench-small-6",
+      "size_in_bytes": 670451
+    },
+    {
+      "digest": "sha256:7c79f25af6c72715fad73eac3ba673e6d07ab9214b7573a022cbe8e736a2bdc1",
+      "id": 14986728120,
+      "name": "stage3-ribench-small-7",
+      "size_in_bytes": 698065
+    },
+    {
+      "digest": "sha256:0e95c95203666a62dae8a637a1ace09e2455c62334cc76913a67fb1002f79ace",
+      "id": 14986320636,
+      "name": "stage3-ribench-small-8",
+      "size_in_bytes": 723872
+    },
+    {
+      "digest": "sha256:f79fbf124c3b25c9ed9314ce5a4fd00b6db457f6a4359c32706d4abbda4050d6",
+      "id": 14986022912,
+      "name": "stage3-ribench-small-9",
+      "size_in_bytes": 695423
+    },
+    {
+      "digest": "sha256:8c542cb958e9da567dbc6553826ece2f51c8b2a63c38ccf98403cdc86e43a522",
+      "id": 14985882489,
+      "name": "stage3-ribench-small-10",
+      "size_in_bytes": 691361
+    },
+    {
+      "digest": "sha256:ac1a14c1b0634f48a34ba16281873fffdd09a24c5a3d7ed8e132b9799c86ed05",
+      "id": 14985579881,
+      "name": "stage3-ribench-small-11",
+      "size_in_bytes": 784957
+    },
+    {
+      "digest": "sha256:2c2d8935421334392f0f5ce454ddc91941ac8835f9023dfec25f8c27498add6e",
+      "id": 14987675714,
+      "name": "stage3-ribench-small-12",
+      "size_in_bytes": 861525
+    },
+    {
+      "digest": "sha256:ca6ec1d634cb7acf180b8b9565ee95806df932e6bba87d52766fdcea894c87c6",
+      "id": 14985744276,
+      "name": "stage3-ribench-small-13",
+      "size_in_bytes": 804314
+    },
+    {
+      "digest": "sha256:8c46256624b45c596d80486b71c41dbe1dee95221eab96eb53e0abc511c75a35",
+      "id": 14984879505,
+      "name": "stage3-ribench-small-14",
+      "size_in_bytes": 785045
+    },
+    {
+      "digest": "sha256:ce9c1814a7dfc94d5244036bd40f411a0827d30492b4de05ca0ab0d46ceec525",
+      "id": 14984524846,
+      "name": "stage3-ribench-small-15",
+      "size_in_bytes": 697874
+    },
+    {
+      "digest": "sha256:afbebe994ba91cf394746f57ac49e506fcb3abd2b1ebfd93d31945d7336c26b3",
+      "id": 14985068654,
+      "name": "stage3-ribench-small-16",
+      "size_in_bytes": 718064
+    },
+    {
+      "digest": "sha256:2f6be2053f3042e5a0a6faff7c034e8d1b118197d0445234b8b9ab478e59f7a2",
+      "id": 14986325236,
+      "name": "stage3-ribench-small-17",
+      "size_in_bytes": 647060
+    },
+    {
+      "digest": "sha256:f8ce3db362d605ced3ddd2963562e09836307ba77c0e4e56c80143f35887b3ee",
+      "id": 14987859215,
+      "name": "stage3-ribench-small-18",
+      "size_in_bytes": 672963
+    },
+    {
+      "digest": "sha256:ca29eda0eb8ec9dd7dc18c485ff1d0f805d1c03c40205af7e2a49f23487abec3",
+      "id": 14985758654,
+      "name": "stage3-ribench-small-19",
+      "size_in_bytes": 715762
+    },
+    {
+      "digest": "sha256:48e555984a5244bc293dbe4fa851ae9390dd91201a8e373e5fde51dedecd8e51",
+      "id": 14987569600,
+      "name": "stage3-ribench-small-20",
+      "size_in_bytes": 739726
+    },
+    {
+      "digest": "sha256:b92bdfe3095bd71d83b8233503531292511c110986e6b137c503a1b32768179f",
+      "id": 14986421703,
+      "name": "stage3-ribench-small-21",
+      "size_in_bytes": 696052
+    },
+    {
+      "digest": "sha256:1fe13a74e423150ac9270c8dbcb37d8f751b83fec4a793f460a40b462c8a7125",
+      "id": 14986780502,
+      "name": "stage3-ribench-small-22",
+      "size_in_bytes": 681233
+    },
+    {
+      "digest": "sha256:057e0410467205e17672389f6710584ca3688c22d20d01de205629c430977298",
+      "id": 14986036467,
+      "name": "stage3-ribench-small-23",
+      "size_in_bytes": 699446
+    },
+    {
+      "digest": "sha256:27eefc9d5517d746357d5fb06c7b21e9f2ec982f3908ca829c86bc7e1b4c50c6",
+      "id": 14987912554,
+      "name": "stage3-ribench-small-24",
+      "size_in_bytes": 679751
+    },
+    {
+      "digest": "sha256:e598be86cef4ff02963704fbccfc71ee3f661a01f416ecd94d338df51265cc34",
+      "id": 14989090632,
+      "name": "stage3-ribench-small-25",
+      "size_in_bytes": 720176
+    },
+    {
+      "digest": "sha256:0a5dbd5dad9e30ed5a512529a9ef4f62025c72e753983138c98d44d704b9e072",
+      "id": 14988443450,
+      "name": "stage3-ribench-small-26",
+      "size_in_bytes": 736188
+    },
+    {
+      "digest": "sha256:b731f55089a9aeeb7af84c0f6d04ac33c567f3ac8cf6c177104e3135d6a349ed",
+      "id": 14986217319,
+      "name": "stage3-ribench-small-27",
+      "size_in_bytes": 742667
+    },
+    {
+      "digest": "sha256:997b7ea98ba8831bddf65c7f1633e73ab5d5dd07ce79bab76b255dea5c65d24a",
+      "id": 14986984889,
+      "name": "stage3-ribench-small-28",
+      "size_in_bytes": 754754
+    },
+    {
+      "digest": "sha256:c0f0d35ba8dab18d200135ff6b1ff338d0b6322e6eb78a826107124de3d64005",
+      "id": 14987460316,
+      "name": "stage3-ribench-small-29",
+      "size_in_bytes": 712321
+    },
+    {
+      "digest": "sha256:8b84ea60f36ed3c8fb2f592585ef57cd3a6ff43931e86146796c5f3556de4971",
+      "id": 14987504562,
+      "name": "stage3-ribench-small-30",
+      "size_in_bytes": 749921
+    },
+    {
+      "digest": "sha256:f23b4ee651d5d4b59dce9a676227cdd9527f765798e37f629235e14de080c19c",
+      "id": 14988247741,
+      "name": "stage3-ribench-small-31",
+      "size_in_bytes": 735730
+    },
+    {
+      "digest": "sha256:4fb778383372a28e8927721c8b9637c508749e5f119e096f6afeb8ef9581cbc8",
+      "id": 14986319621,
+      "name": "stage3-ribench-small-32",
+      "size_in_bytes": 781489
+    },
+    {
+      "digest": "sha256:0d052048464e19e6dae2be67d782d3fbe2bc408f363c41c25369aec645093042",
+      "id": 14988770041,
+      "name": "stage3-ribench-small-33",
+      "size_in_bytes": 699126
+    },
+    {
+      "digest": "sha256:13100230ca2393a8b5d53e74d9cc17e0dff7b4fc274130fcb7b8701dca1308bb",
+      "id": 14990026022,
+      "name": "stage3-ribench-small-34",
+      "size_in_bytes": 678937
+    },
+    {
+      "digest": "sha256:416cd57793c87c44e2ec7004703353def5a4a9428a06e5d6d69e47aaca350812",
+      "id": 14987737997,
+      "name": "stage3-ribench-small-35",
+      "size_in_bytes": 668352
+    },
+    {
+      "digest": "sha256:6268d26bfcc1868f30fd160faca30a2f3fd4f7632ee23df677c829ee7a476503",
+      "id": 14988106727,
+      "name": "stage3-ribench-small-36",
+      "size_in_bytes": 679849
+    },
+    {
+      "digest": "sha256:d4da1c4a60f17603aeb66a0d756257597d87fe40b0a14c55788314abf284340c",
+      "id": 14987838974,
+      "name": "stage3-ribench-small-37",
+      "size_in_bytes": 684106
+    },
+    {
+      "digest": "sha256:022c67056ab99158587354429e6ee5c3faad1049206d17643f2096382799ce77",
+      "id": 14984574957,
+      "name": "stage3-ribench-small-38",
+      "size_in_bytes": 710653
+    },
+    {
+      "digest": "sha256:c5c6f6f700c693181c25241826cf6ffe34728bde89834fe1d21eff13155c3551",
+      "id": 14988590961,
+      "name": "stage3-ribench-small-39",
+      "size_in_bytes": 700334
+    },
+    {
+      "digest": "sha256:42b7f64b13b23127322a56011f4aa22f8e29de8be954f4d9c3ec1bac00e12d6c",
+      "id": 14988826909,
+      "name": "stage3-ribench-small-40",
+      "size_in_bytes": 762110
+    },
+    {
+      "digest": "sha256:14555c5389b3c9e0b571eb9cd03b153c038016d21401ba71182a2bfe02e0d477",
+      "id": 14988881890,
+      "name": "stage3-ribench-small-41",
+      "size_in_bytes": 786446
+    },
+    {
+      "digest": "sha256:65e2fe679b94fffabcaf5dfa93a194e9baa805d1fe06f28da510803ae28124fb",
+      "id": 14987670911,
+      "name": "stage3-ribench-small-42",
+      "size_in_bytes": 740707
+    },
+    {
+      "digest": "sha256:169c011ad4ed5ae68f4eec0d986e8211ab847ab2b72cc3bc20b4753a0ecd8464",
+      "id": 14987397200,
+      "name": "stage3-ribench-small-43",
+      "size_in_bytes": 738561
+    },
+    {
+      "digest": "sha256:44993da82a3a5cb063a0707de83c7741250ea56f76182ceac40d1c2705b4d6d4",
+      "id": 14988213475,
+      "name": "stage3-ribench-small-44",
+      "size_in_bytes": 743902
+    },
+    {
+      "digest": "sha256:513740212e6586cb6eb6aafb5fbd80b88993ec4aa3446166ad03f94e8fb59b24",
+      "id": 14986773360,
+      "name": "stage3-ribench-small-45",
+      "size_in_bytes": 714590
+    },
+    {
+      "digest": "sha256:5eb058daace8ce77f95f8db5692ab8276adfde586b7c3bf3b750a11dafc45c6a",
+      "id": 14985894937,
+      "name": "stage3-ribench-small-46",
+      "size_in_bytes": 798252
+    },
+    {
+      "digest": "sha256:4c880d3302e5fd02ae0c2bae1b4aa54bc139ba84de7ee9169d6f47181ee980ad",
+      "id": 14985984654,
+      "name": "stage3-ribench-small-47",
+      "size_in_bytes": 785185
+    },
+    {
+      "digest": "sha256:4991dce4f20aae90557f85e0adf819cd0eff23a00af138939e747e3f52ac62d2",
+      "id": 14987142674,
+      "name": "stage3-ribench-small-48",
+      "size_in_bytes": 737539
+    },
+    {
+      "digest": "sha256:57bbb2560d9211240345c9b282ba2a8bda54bc2d7f3ac8fd0c62d27eefee5837",
+      "id": 14989796527,
+      "name": "stage3-ribench-small-report",
+      "size_in_bytes": 8521212
+    }
+  ],
+  "assessment": "PASS",
+  "audit_mode": "sampled",
+  "audit_sha256": "45ef0949779f9ec5b7fea6b623cbfe3a7b6cbded06716b7e4f4ee95a174c6334",
+  "audited_datasets": 288,
+  "caps_and_zero_weight_controls_reconciled": true,
+  "cohort": "small",
+  "commit": "ffbf4450537a619b4abdda4dff5c3a3a145d6a02",
+  "datasets": 2880,
+  "decision_rows": 40320,
+  "fit_rows": 20160,
+  "groups_recomputed": 614,
+  "groups_with_zero_upper": {},
+  "independent_verifier_sha256": "3257ed5606818695ea6b7bbd9058da6eed31896787399877991dffe0d0f542c7",
+  "inputs": {
+    "archive/c2/testsets.csv": "da284e6351953b8799ce54aa2a8680c80c43680ffe4da8f7e3edc07c74727995",
+    "stage2/ribench/comparators/comparators.csv.gz": "f4eb4aaa3e585c35ecca594beba9fa8d139b10f18d27b64aa0e28bfed4e559d5",
+    "stage2/ribench/design-small.csv": "c4bf51558511e8c8f0af8e9e393f89bd98b07ce0caaf607bd405579135fd163c"
+  },
+  "max_absolute_differences": {
+    "anchors_only_loss": 1.4432899320127035e-15,
+    "arm_common_mean": 1.5543122344752192e-15,
+    "arm_implausible": 0.0,
+    "arm_loss": 1.5543122344752192e-15,
+    "arm_nonreturns": 0.0,
+    "arm_returned": 0.0,
+    "arm_scored": 0.0,
+    "baseline_common_mean": 1.4432899320127035e-15,
+    "baseline_implausible": 0.0,
+    "baseline_loss": 1.4432899320127035e-15,
+    "baseline_nonreturns": 0.0,
+    "baseline_returned": 0.0,
+    "baseline_scored": 0.0,
+    "ci_high": 4.246603069191224e-15,
+    "ci_low": 4.6629367034256575e-15,
+    "closed_ci_high": 4.6629367034256575e-15,
+    "closed_ci_low": 1.5543122344752192e-15,
+    "common_difference": 1.5543122344752192e-15,
+    "common_scored": 0.0,
+    "gap_closed": 1.5543122344752192e-15,
+    "matched": 0.0,
+    "planned": 0.0,
+    "population_share": 0.0,
+    "remaining_ci_high": 4.246603069191224e-15,
+    "remaining_ci_low": 4.6629367034256575e-15,
+    "remaining_gap": 1.5543122344752192e-15,
+    "stage2_loss": 8.881784197001252e-16,
+    "unmatched": 0.0,
+    "value": 1.7763568394002505e-15,
+    "weighted_contribution": 2.220446049250313e-16,
+    "whole_count": 0.0,
+    "whole_difference": 2.220446049250313e-16
+  },
+  "principal_native_comparisons": [
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.16495176712764836,
+      "arm_returned": 1440,
+      "ci": [
+        -0.03948566328838447,
+        -0.017979534803105966
+      ],
+      "comparator": "stage2",
+      "difference": -0.028235891915398357,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.19318765904304674,
+      "reference_returned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.16495176712764836,
+      "arm_returned": 1440,
+      "ci": [
+        -0.18384994849045388,
+        -0.07726618841338877
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.12685018996374198,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.29180195709139034,
+      "reference_returned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.16495176712764836,
+      "arm_returned": 1440,
+      "ci": [
+        -0.14876665926640578,
+        0.045266121367665495
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.038979905416139,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.20393167254378738,
+      "reference_returned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.16495176712764836,
+      "arm_returned": 1440,
+      "ci": [
+        -0.07238659308781639,
+        0.017257042304088917
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.026542683878480165,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 6,
+      "reference_loss": 0.19149445100612855,
+      "reference_returned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.30101492633481836,
+      "arm_returned": 1398,
+      "ci": [
+        -0.3719033151263806,
+        -0.1925560021838219
+      ],
+      "comparator": "stage2",
+      "difference": -0.2785844616033672,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.5795993879381854,
+      "reference_returned": 1317,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.30101492633481836,
+      "arm_returned": 1398,
+      "ci": [
+        -0.08962938652345233,
+        0.13490678626057362
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.009212969243427988,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.29180195709139034,
+      "reference_returned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.30101492633481836,
+      "arm_returned": 1398,
+      "ci": [
+        -0.16783306736669004,
+        0.1596276204713999
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.003730529884076292,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.2972843964507421,
+      "reference_returned": 1409,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.30101492633481836,
+      "arm_returned": 1398,
+      "ci": [
+        -1.098728537317975,
+        0.04872913991449876
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.4292272018088593,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.7302421281436775,
+      "reference_returned": 1265,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1756556767050645,
+      "arm_returned": 1440,
+      "ci": [
+        -0.02406517309895806,
+        -0.01196783445057486
+      ],
+      "comparator": "stage2",
+      "difference": -0.01753198233798221,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.19318765904304674,
+      "reference_returned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1756556767050645,
+      "arm_returned": 1440,
+      "ci": [
+        -0.17126222435129426,
+        -0.06770140623246966
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.11614628038632585,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.29180195709139034,
+      "reference_returned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1756556767050645,
+      "arm_returned": 1440,
+      "ci": [
+        -0.13792842418510473,
+        0.05744894020262134
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.028275995838722857,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.20393167254378738,
+      "reference_returned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1756556767050645,
+      "arm_returned": 1440,
+      "ci": [
+        -0.06238906119457992,
+        0.029783432268756283
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.015838774301064007,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 6,
+      "reference_loss": 0.19149445100612855,
+      "reference_returned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.31834630325468144,
+      "arm_returned": 1394,
+      "ci": [
+        -0.3575893406297454,
+        -0.18090588590823892
+      ],
+      "comparator": "stage2",
+      "difference": -0.2612530846835041,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.5795993879381854,
+      "reference_returned": 1317,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.31834630325468144,
+      "arm_returned": 1394,
+      "ci": [
+        -0.058128904106107736,
+        0.14149080561050253
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.026544346163291092,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.29180195709139034,
+      "reference_returned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.31834630325468144,
+      "arm_returned": 1394,
+      "ci": [
+        -0.1291747651480358,
+        0.15922580882646095
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.021061906803939382,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.2972843964507421,
+      "reference_returned": 1409,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.31834630325468144,
+      "arm_returned": 1394,
+      "ci": [
+        -1.0523553520542084,
+        0.05307395706581239
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.4118958248889963,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.7302421281436775,
+      "reference_returned": 1265,
+      "stratum": "<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.384619537946299,
+      "arm_returned": 1440,
+      "ci": [
+        -0.2777113355520013,
+        -0.11806205180178814
+      ],
+      "comparator": "stage2",
+      "difference": -0.1901936382928206,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 4,
+      "reference_loss": 0.5748131762391195,
+      "reference_returned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.384619537946299,
+      "arm_returned": 1440,
+      "ci": [
+        0.009462619661312104,
+        0.18193866124028335
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.09661091627855037,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.2880086216677486,
+      "reference_returned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.384619537946299,
+      "arm_returned": 1440,
+      "ci": [
+        0.07819134644515914,
+        0.20414292761285294
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.14227391992689012,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 2,
+      "reference_loss": 0.24234561801940882,
+      "reference_returned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.384619537946299,
+      "arm_returned": 1440,
+      "ci": [
+        -0.09377599406300925,
+        0.09489393415454453
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.001049245343700061,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 16,
+      "reference_loss": 0.38566878328999904,
+      "reference_returned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.7770749969427296,
+      "arm_returned": 1305,
+      "ci": [
+        -0.8230033721966354,
+        -0.43028804194915715
+      ],
+      "comparator": "stage2",
+      "difference": -0.6133886832942057,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 1.3904636802369352,
+      "reference_returned": 1135,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.7770749969427296,
+      "arm_returned": 1305,
+      "ci": [
+        0.3198137806529984,
+        0.6697845746492468
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.489066375274981,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.2880086216677486,
+      "reference_returned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.7770749969427296,
+      "arm_returned": 1305,
+      "ci": [
+        0.1033256507507172,
+        0.5345904914915365
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.329455160265577,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.44761983667715255,
+      "reference_returned": 1372,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.7770749969427296,
+      "arm_returned": 1305,
+      "ci": [
+        -0.9206282892353108,
+        -0.012379160991751953
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.45123298104663295,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 1.2283079779893624,
+      "reference_returned": 1141,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.4559169682804357,
+      "arm_returned": 1440,
+      "ci": [
+        -0.14219807898449593,
+        -0.09655560485199206
+      ],
+      "comparator": "stage2",
+      "difference": -0.11889620795868387,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 4,
+      "reference_loss": 0.5748131762391195,
+      "reference_returned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.4559169682804357,
+      "arm_returned": 1440,
+      "ci": [
+        0.05356578889709515,
+        0.2922763368262726
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.16790834661268705,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.2880086216677486,
+      "reference_returned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.4559169682804357,
+      "arm_returned": 1440,
+      "ci": [
+        0.11385247910781386,
+        0.33005370326654065
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.21357135026102686,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 2,
+      "reference_loss": 0.24234561801940882,
+      "reference_returned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.4559169682804357,
+      "arm_returned": 1440,
+      "ci": [
+        -0.05618800251114802,
+        0.21132306206338738
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.07024818499043663,
+      "group": "pathology",
+      "mode": "pre",
+      "planned": 1440,
+      "reference_implausible": 16,
+      "reference_loss": 0.38566878328999904,
+      "reference_returned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.8213753948700954,
+      "arm_returned": 1307,
+      "ci": [
+        -0.6723162579725862,
+        -0.4639248520631398
+      ],
+      "comparator": "stage2",
+      "difference": -0.5690882853668398,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 1.3904636802369352,
+      "reference_returned": 1135,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.8213753948700954,
+      "arm_returned": 1307,
+      "ci": [
+        0.33372169632731796,
+        0.7510247563754932
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.5333667732023468,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.2880086216677486,
+      "reference_returned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.8213753948700954,
+      "arm_returned": 1307,
+      "ci": [
+        0.1299426301652093,
+        0.628561237390602
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.3737555581929429,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 0.44761983667715255,
+      "reference_returned": 1372,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.8213753948700954,
+      "arm_returned": 1307,
+      "ci": [
+        -0.8818313546962337,
+        0.09322134836997363
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.40693258311926694,
+      "group": "pathology",
+      "mode": "checked",
+      "planned": 1440,
+      "reference_implausible": 0,
+      "reference_loss": 1.2283079779893624,
+      "reference_returned": 1141,
+      "stratum": ">20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.3981593765672053,
+      "arm_returned": 377,
+      "ci": [
+        -0.38775320915146677,
+        -0.0912577961586631
+      ],
+      "comparator": "stage2",
+      "difference": -0.24465853604389495,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 377,
+      "reference_implausible": 2,
+      "reference_loss": 0.6428179126111002,
+      "reference_returned": 377,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.3981593765672053,
+      "arm_returned": 377,
+      "ci": [
+        0.05741524792080254,
+        0.20515046647240057
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.14022552004779917,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 377,
+      "reference_implausible": 0,
+      "reference_loss": 0.2579338565194061,
+      "reference_returned": 377,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.3981593765672053,
+      "arm_returned": 377,
+      "ci": [
+        0.14459714568585805,
+        0.28980501625110217
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.2217012208672642,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 377,
+      "reference_implausible": 1,
+      "reference_loss": 0.17645815569994108,
+      "reference_returned": 377,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.3981593765672053,
+      "arm_returned": 377,
+      "ci": [
+        0.026812424502378883,
+        0.23459665585395498
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.13449849703468053,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 377,
+      "reference_implausible": 2,
+      "reference_loss": 0.26366087953252476,
+      "reference_returned": 377,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.863649464101192,
+      "arm_returned": 333,
+      "ci": [
+        -1.2429383555788749,
+        -0.5271583356385681
+      ],
+      "comparator": "stage2",
+      "difference": -0.9062366443203819,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 377,
+      "reference_implausible": 0,
+      "reference_loss": 1.769886108421574,
+      "reference_returned": 263,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.863649464101192,
+      "arm_returned": 333,
+      "ci": [
+        0.3836409375985547,
+        0.8655958017660674
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.605715607581786,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 377,
+      "reference_implausible": 0,
+      "reference_loss": 0.2579338565194061,
+      "reference_returned": 377,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.863649464101192,
+      "arm_returned": 333,
+      "ci": [
+        0.361365076674203,
+        0.7090072376682753
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.5387314207840134,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 377,
+      "reference_implausible": 0,
+      "reference_loss": 0.32491804331717866,
+      "reference_returned": 364,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.863649464101192,
+      "arm_returned": 333,
+      "ci": [
+        -0.1798788570100496,
+        0.5012578072457949
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.18000150551932645,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 377,
+      "reference_implausible": 0,
+      "reference_loss": 0.6836479585818657,
+      "reference_returned": 337,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.518382072951132,
+      "arm_returned": 377,
+      "ci": [
+        -0.16068187568055567,
+        -0.08645908168866692
+      ],
+      "comparator": "stage2",
+      "difference": -0.12443583965996824,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 377,
+      "reference_implausible": 2,
+      "reference_loss": 0.6428179126111002,
+      "reference_returned": 377,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.518382072951132,
+      "arm_returned": 377,
+      "ci": [
+        0.09277316273498655,
+        0.42424936916252287
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.26044821643172594,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 377,
+      "reference_implausible": 0,
+      "reference_loss": 0.2579338565194061,
+      "reference_returned": 377,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.518382072951132,
+      "arm_returned": 377,
+      "ci": [
+        0.1796868021749844,
+        0.5077954450514617
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.3419239172511909,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 377,
+      "reference_implausible": 1,
+      "reference_loss": 0.17645815569994108,
+      "reference_returned": 377,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.518382072951132,
+      "arm_returned": 377,
+      "ci": [
+        0.07774069689676243,
+        0.44466892440802436
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.2547211934186072,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 377,
+      "reference_implausible": 2,
+      "reference_loss": 0.26366087953252476,
+      "reference_returned": 377,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.140429942992875,
+      "arm_returned": 316,
+      "ci": [
+        -0.8374920995657031,
+        -0.4151097075921271
+      ],
+      "comparator": "stage2",
+      "difference": -0.6294561654286989,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 377,
+      "reference_implausible": 0,
+      "reference_loss": 1.769886108421574,
+      "reference_returned": 263,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.140429942992875,
+      "arm_returned": 316,
+      "ci": [
+        0.5162322157713182,
+        1.24465958836195
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.8824960864734689,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 377,
+      "reference_implausible": 0,
+      "reference_loss": 0.2579338565194061,
+      "reference_returned": 377,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.140429942992875,
+      "arm_returned": 316,
+      "ci": [
+        0.4717379663149464,
+        1.1189770313680674
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.8155118996756963,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 377,
+      "reference_implausible": 0,
+      "reference_loss": 0.32491804331717866,
+      "reference_returned": 364,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.140429942992875,
+      "arm_returned": 316,
+      "ci": [
+        -0.029504776227129874,
+        0.8917744730038198
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.4567819844110094,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 377,
+      "reference_implausible": 0,
+      "reference_loss": 0.6836479585818657,
+      "reference_returned": 337,
+      "stratum": "fallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.2562031939035748,
+      "arm_returned": 2503,
+      "ci": [
+        -0.11760425024352075,
+        -0.06436445432926514
+      ],
+      "comparator": "stage2",
+      "difference": -0.08881432497454529,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 2503,
+      "reference_implausible": 2,
+      "reference_loss": 0.34501751887812016,
+      "reference_returned": 2503,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.2562031939035748,
+      "arm_returned": 2503,
+      "ci": [
+        -0.11246717142263422,
+        0.029952744847784426
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.038517608935156294,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 2503,
+      "reference_implausible": 0,
+      "reference_loss": 0.2947208028387311,
+      "reference_returned": 2503,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.2562031939035748,
+      "arm_returned": 2503,
+      "ci": [
+        -0.06344761001338275,
+        0.0955439499281655
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.026033567969845395,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 2503,
+      "reference_implausible": 1,
+      "reference_loss": 0.23016962593372942,
+      "reference_returned": 2503,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.2562031939035748,
+      "arm_returned": 2503,
+      "ci": [
+        -0.08822400605986762,
+        0.020325512248237598
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.03613196622533523,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 2503,
+      "reference_implausible": 20,
+      "reference_loss": 0.29233516012891003,
+      "reference_returned": 2503,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.4901532726941748,
+      "arm_returned": 2370,
+      "ci": [
+        -0.4547075974886294,
+        -0.29999610922395764
+      ],
+      "comparator": "stage2",
+      "difference": -0.3766640486391214,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 2503,
+      "reference_implausible": 0,
+      "reference_loss": 0.8668173213332963,
+      "reference_returned": 2189,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.4901532726941748,
+      "arm_returned": 2370,
+      "ci": [
+        0.07311202449770347,
+        0.336029285859973
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.19543246985544369,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 2503,
+      "reference_implausible": 0,
+      "reference_loss": 0.2947208028387311,
+      "reference_returned": 2503,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.4901532726941748,
+      "arm_returned": 2370,
+      "ci": [
+        -0.0840381186137242,
+        0.2814239514039168
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.11054160934076214,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 2503,
+      "reference_implausible": 0,
+      "reference_loss": 0.3796116633534127,
+      "reference_returned": 2417,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.4901532726941748,
+      "arm_returned": 2370,
+      "ci": [
+        -1.112844746377522,
+        -0.05945365026399189
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.5336489136606852,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 2503,
+      "reference_implausible": 0,
+      "reference_loss": 1.02380218635486,
+      "reference_returned": 2069,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.28527150110928623,
+      "arm_returned": 2503,
+      "ci": [
+        -0.07104234041856321,
+        -0.05041108870287274
+      ],
+      "comparator": "stage2",
+      "difference": -0.05974601776883386,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 2503,
+      "reference_implausible": 2,
+      "reference_loss": 0.34501751887812016,
+      "reference_returned": 2503,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.28527150110928623,
+      "arm_returned": 2503,
+      "ci": [
+        -0.08392760204636344,
+        0.06421549733339602
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.009449301729444875,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 2503,
+      "reference_implausible": 0,
+      "reference_loss": 0.2947208028387311,
+      "reference_returned": 2503,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.28527150110928623,
+      "arm_returned": 2503,
+      "ci": [
+        -0.03482196023792078,
+        0.13673670217238584
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.05510187517555683,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 2503,
+      "reference_implausible": 1,
+      "reference_loss": 0.23016962593372942,
+      "reference_returned": 2503,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.28527150110928623,
+      "arm_returned": 2503,
+      "ci": [
+        -0.07036637301982378,
+        0.060480451076537156
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.007063659019623802,
+      "group": "parent",
+      "mode": "pre",
+      "planned": 2503,
+      "reference_implausible": 20,
+      "reference_loss": 0.29233516012891003,
+      "reference_returned": 2503,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.48392215612919093,
+      "arm_returned": 2385,
+      "ci": [
+        -0.44902546454564773,
+        -0.31762715085681215
+      ],
+      "comparator": "stage2",
+      "difference": -0.38289516520410527,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 2503,
+      "reference_implausible": 0,
+      "reference_loss": 0.8668173213332963,
+      "reference_returned": 2189,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.48392215612919093,
+      "arm_returned": 2385,
+      "ci": [
+        0.10129157586387294,
+        0.2948607983519195
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.1892013532904598,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 2503,
+      "reference_implausible": 0,
+      "reference_loss": 0.2947208028387311,
+      "reference_returned": 2503,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.48392215612919093,
+      "arm_returned": 2385,
+      "ci": [
+        -0.04696571896729165,
+        0.24429815105189204
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.10431049277577821,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 2503,
+      "reference_implausible": 0,
+      "reference_loss": 0.3796116633534127,
+      "reference_returned": 2417,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.48392215612919093,
+      "arm_returned": 2385,
+      "ci": [
+        -1.0836631976750817,
+        -0.07294765137331424
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.539880030225669,
+      "group": "parent",
+      "mode": "checked",
+      "planned": 2503,
+      "reference_implausible": 0,
+      "reference_loss": 1.02380218635486,
+      "reference_returned": 2069,
+      "stratum": "nonfallback"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.17048477013855562,
+      "arm_returned": 198,
+      "ci": [
+        -0.05833562194821702,
+        -0.02594885634216736
+      ],
+      "comparator": "stage2",
+      "difference": -0.04023619608298722,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.21072096622154288,
+      "reference_returned": 198,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.17048477013855562,
+      "arm_returned": 198,
+      "ci": [
+        -0.12726027427024256,
+        -0.04774079044024072
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.08567686001684317,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.25616163015539883,
+      "reference_returned": 198,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.17048477013855562,
+      "arm_returned": 198,
+      "ci": [
+        0.018044297353478612,
+        0.11230112183044252
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.06183014567876689,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.10865462445978874,
+      "reference_returned": 198,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.17048477013855562,
+      "arm_returned": 198,
+      "ci": [
+        0.01401423317777091,
+        0.099954981177394
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.05424116400057833,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.1162436061379773,
+      "reference_returned": 198,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.312658005325191,
+      "arm_returned": 192,
+      "ci": [
+        -0.739743245106303,
+        -0.24286617219931111
+      ],
+      "comparator": "stage2",
+      "difference": -0.4744009146678427,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.7870589199930337,
+      "reference_returned": 173,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.312658005325191,
+      "arm_returned": 192,
+      "ci": [
+        -0.07607077556993189,
+        0.2126908048481845
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.0564963751697922,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.25616163015539883,
+      "reference_returned": 198,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.312658005325191,
+      "arm_returned": 192,
+      "ci": [
+        0.061559526020802675,
+        0.32561277828635354
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.17911465952578645,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.13354334579940455,
+      "reference_returned": 197,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.312658005325191,
+      "arm_returned": 192,
+      "ci": [
+        0.05539412485574982,
+        0.31939336011143316
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.1715256778475978,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.14113232747759316,
+      "reference_returned": 197,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1894036353339252,
+      "arm_returned": 198,
+      "ci": [
+        -0.031220850398904664,
+        -0.012461436889780252
+      ],
+      "comparator": "stage2",
+      "difference": -0.021317330887617655,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.21072096622154288,
+      "reference_returned": 198,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1894036353339252,
+      "arm_returned": 198,
+      "ci": [
+        -0.11462230045480831,
+        -0.021330498208737225
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.0667579948214736,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.25616163015539883,
+      "reference_returned": 198,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1894036353339252,
+      "arm_returned": 198,
+      "ci": [
+        0.03137602681165913,
+        0.14151649523453078
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.08074901087413645,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.10865462445978874,
+      "reference_returned": 198,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1894036353339252,
+      "arm_returned": 198,
+      "ci": [
+        0.026224236949540368,
+        0.12870175114394042
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.0731600291959479,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.1162436061379773,
+      "reference_returned": 198,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.4200399406806482,
+      "arm_returned": 188,
+      "ci": [
+        -0.5268244872473357,
+        -0.197213948630936
+      ],
+      "comparator": "stage2",
+      "difference": -0.3670189793123854,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.7870589199930337,
+      "reference_returned": 173,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.4200399406806482,
+      "arm_returned": 188,
+      "ci": [
+        -0.0365318726974975,
+        0.39325522552630593
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.16387831052524945,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.25616163015539883,
+      "reference_returned": 198,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.4200399406806482,
+      "arm_returned": 188,
+      "ci": [
+        0.07165520565457595,
+        0.5358944702553382
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.28649659488124374,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.13354334579940455,
+      "reference_returned": 197,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.4200399406806482,
+      "arm_returned": 188,
+      "ci": [
+        0.0682643872980941,
+        0.5239404708826009
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.2789076132030551,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 198,
+      "reference_implausible": 0,
+      "reference_loss": 0.14113232747759316,
+      "reference_returned": 197,
+      "stratum": "fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.6500005613318569,
+      "arm_returned": 179,
+      "ci": [
+        -0.6722729333656638,
+        -0.19695794291829102
+      ],
+      "comparator": "stage2",
+      "difference": -0.4707793366710444,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 179,
+      "reference_implausible": 2,
+      "reference_loss": 1.1207798980029011,
+      "reference_returned": 179,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.6500005613318569,
+      "arm_returned": 179,
+      "ci": [
+        0.29614541260000316,
+        0.4876332683796585
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.39010636503550417,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 179,
+      "reference_implausible": 0,
+      "reference_loss": 0.2598941962963528,
+      "reference_returned": 179,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.6500005613318569,
+      "arm_returned": 179,
+      "ci": [
+        0.294454697900963,
+        0.4901819879758406
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.39854185152269705,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 179,
+      "reference_implausible": 1,
+      "reference_loss": 0.25145870980915985,
+      "reference_returned": 179,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.6500005613318569,
+      "arm_returned": 179,
+      "ci": [
+        0.01185444652561526,
+        0.37818091028926853
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.2232747648601119,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 179,
+      "reference_implausible": 2,
+      "reference_loss": 0.4267257964717449,
+      "reference_returned": 179,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.4731260497863776,
+      "arm_returned": 141,
+      "ci": [
+        -1.8058771581557145,
+        -0.7782169081707191
+      ],
+      "comparator": "stage2",
+      "difference": -1.3839096860589446,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 179,
+      "reference_implausible": 0,
+      "reference_loss": 2.857035735845322,
+      "reference_returned": 90,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.4731260497863776,
+      "arm_returned": 141,
+      "ci": [
+        0.9476778621112627,
+        1.5286377424374509
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 1.2132318534900248,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 179,
+      "reference_implausible": 0,
+      "reference_loss": 0.2598941962963528,
+      "reference_returned": 179,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.4731260497863776,
+      "arm_returned": 141,
+      "ci": [
+        0.7132570661221052,
+        1.1321508704850143
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.9365197935724431,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 179,
+      "reference_implausible": 0,
+      "reference_loss": 0.5366062562139343,
+      "reference_returned": 167,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.4731260497863776,
+      "arm_returned": 141,
+      "ci": [
+        -0.6554384164279565,
+        0.7095122014682885
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.18937700205006533,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 179,
+      "reference_implausible": 0,
+      "reference_loss": 1.2837490477363123,
+      "reference_returned": 140,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.8822800095332938,
+      "arm_returned": 179,
+      "ci": [
+        -0.26020087696403826,
+        -0.20509102044037333
+      ],
+      "comparator": "stage2",
+      "difference": -0.23849988846960743,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 179,
+      "reference_implausible": 2,
+      "reference_loss": 1.1207798980029011,
+      "reference_returned": 179,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.8822800095332938,
+      "arm_returned": 179,
+      "ci": [
+        0.3923626006575738,
+        0.8317598523623708
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.622385813236941,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 179,
+      "reference_implausible": 0,
+      "reference_loss": 0.2598941962963528,
+      "reference_returned": 179,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.8822800095332938,
+      "arm_returned": 179,
+      "ci": [
+        0.388774250762029,
+        0.863493231930307
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.6308212997241339,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 179,
+      "reference_implausible": 1,
+      "reference_loss": 0.25145870980915985,
+      "reference_returned": 179,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.8822800095332938,
+      "arm_returned": 179,
+      "ci": [
+        0.12005281953785289,
+        0.7452342105840384
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.45555421306154886,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 179,
+      "reference_implausible": 2,
+      "reference_loss": 0.4267257964717449,
+      "reference_returned": 179,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.937285923204165,
+      "arm_returned": 128,
+      "ci": [
+        -1.1735363776019285,
+        -0.6191241574214706
+      ],
+      "comparator": "stage2",
+      "difference": -0.9197498126411574,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 179,
+      "reference_implausible": 0,
+      "reference_loss": 2.857035735845322,
+      "reference_returned": 90,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.937285923204165,
+      "arm_returned": 128,
+      "ci": [
+        1.2052403253923651,
+        2.011199622169088
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 1.6773917269078122,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 179,
+      "reference_implausible": 0,
+      "reference_loss": 0.2598941962963528,
+      "reference_returned": 179,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.937285923204165,
+      "arm_returned": 128,
+      "ci": [
+        0.9122558518529938,
+        1.7243867617223079
+      ],
+      "comparator": "taskE_armB",
+      "difference": 1.4006796669902306,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 179,
+      "reference_implausible": 0,
+      "reference_loss": 0.5366062562139343,
+      "reference_returned": 167,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.937285923204165,
+      "arm_returned": 128,
+      "ci": [
+        -0.4351545829898985,
+        1.3132562389637736
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.6535368754678526,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 179,
+      "reference_implausible": 0,
+      "reference_loss": 1.2837490477363123,
+      "reference_returned": 140,
+      "stratum": "fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.16406969418388054,
+      "arm_returned": 1242,
+      "ci": [
+        -0.03773258222305228,
+        -0.015761579912282754
+      ],
+      "comparator": "stage2",
+      "difference": -0.026322799946652316,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.19039249413053286,
+      "reference_returned": 1242,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.16406969418388054,
+      "arm_returned": 1242,
+      "ci": [
+        -0.19365624250688546,
+        -0.078670759810573
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.13341405415817512,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.29748374834205565,
+      "reference_returned": 1242,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.16406969418388054,
+      "arm_returned": 1242,
+      "ci": [
+        -0.17737216639577186,
+        0.039881048717398934
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.05505107298199356,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.21912076716587411,
+      "reference_returned": 1242,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.16406969418388054,
+      "arm_returned": 1242,
+      "ci": [
+        -0.08876603303015229,
+        0.006539091472322014
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.03942126832296775,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1242,
+      "reference_implausible": 6,
+      "reference_loss": 0.20349096250684828,
+      "reference_returned": 1242,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.2991587833073676,
+      "arm_returned": 1206,
+      "ci": [
+        -0.33295358323254814,
+        -0.16396644369221527
+      ],
+      "comparator": "stage2",
+      "difference": -0.2473673458974363,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.5465261292048039,
+      "reference_returned": 1144,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.2991587833073676,
+      "arm_returned": 1206,
+      "ci": [
+        -0.10458587070139078,
+        0.1365461976001876
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.001675034965311962,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.29748374834205565,
+      "reference_returned": 1242,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.2991587833073676,
+      "arm_returned": 1206,
+      "ci": [
+        -0.20694885033554775,
+        0.1421512612351521
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.024229258899384782,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.3233880422067524,
+      "reference_returned": 1212,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.2991587833073676,
+      "arm_returned": 1206,
+      "ci": [
+        -1.2581501763972662,
+        0.021112009345082023
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.5249994000149613,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.8241581833223288,
+      "reference_returned": 1068,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.173463973155536,
+      "arm_returned": 1242,
+      "ci": [
+        -0.023395211197915728,
+        -0.011282233287156452
+      ],
+      "comparator": "stage2",
+      "difference": -0.01692852097499685,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.19039249413053286,
+      "reference_returned": 1242,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.173463973155536,
+      "arm_returned": 1242,
+      "ci": [
+        -0.182346465303671,
+        -0.07100662402750887
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.12401977518651966,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.29748374834205565,
+      "reference_returned": 1242,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.173463973155536,
+      "arm_returned": 1242,
+      "ci": [
+        -0.16410327303609526,
+        0.04964606859401358
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.045656794010338106,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.21912076716587411,
+      "reference_returned": 1242,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.173463973155536,
+      "arm_returned": 1242,
+      "ci": [
+        -0.0789750074507178,
+        0.018555067475881967
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.030026989351312296,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1242,
+      "reference_implausible": 6,
+      "reference_loss": 0.20349096250684828,
+      "reference_returned": 1242,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.30213427409981714,
+      "arm_returned": 1206,
+      "ci": [
+        -0.34576438292043193,
+        -0.16171001893061224
+      ],
+      "comparator": "stage2",
+      "difference": -0.2443918551049868,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.5465261292048039,
+      "reference_returned": 1144,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.30213427409981714,
+      "arm_returned": 1206,
+      "ci": [
+        -0.07071400529563117,
+        0.10251152619189645
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.004650525757761499,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.29748374834205565,
+      "reference_returned": 1242,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.30213427409981714,
+      "arm_returned": 1206,
+      "ci": [
+        -0.176869801044434,
+        0.11393654415779823
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.02125376810693524,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.3233880422067524,
+      "reference_returned": 1212,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.30213427409981714,
+      "arm_returned": 1206,
+      "ci": [
+        -1.2117239840625966,
+        0.004049056666183579
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.5220239092225117,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1242,
+      "reference_implausible": 0,
+      "reference_loss": 0.8241581833223288,
+      "reference_returned": 1068,
+      "stratum": "nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.34694848070124357,
+      "arm_returned": 1261,
+      "ci": [
+        -0.20670893299998747,
+        -0.10583403502502738
+      ],
+      "comparator": "stage2",
+      "difference": -0.15036426477204182,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1261,
+      "reference_implausible": 2,
+      "reference_loss": 0.49731274547328547,
+      "reference_returned": 1261,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.34694848070124357,
+      "arm_returned": 1261,
+      "ci": [
+        -0.03161351053975828,
+        0.13920518446222369
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.054948992941916956,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1261,
+      "reference_implausible": 0,
+      "reference_loss": 0.29199948775932666,
+      "reference_returned": 1261,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.34694848070124357,
+      "arm_returned": 1261,
+      "ci": [
+        0.04835338608840061,
+        0.15908605950821647
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.10589647364961065,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1261,
+      "reference_implausible": 1,
+      "reference_loss": 0.24105200705163288,
+      "reference_returned": 1261,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.34694848070124357,
+      "arm_returned": 1261,
+      "ci": [
+        -0.11846078001075594,
+        0.051045828276878376
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.032892225380561566,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1261,
+      "reference_implausible": 14,
+      "reference_loss": 0.37984070608180515,
+      "reference_returned": 1261,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6782699704090159,
+      "arm_returned": 1164,
+      "ci": [
+        -0.6352830859199237,
+        -0.38604352854411467
+      ],
+      "comparator": "stage2",
+      "difference": -0.504012585360115,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1261,
+      "reference_implausible": 0,
+      "reference_loss": 1.182282555769131,
+      "reference_returned": 1045,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6782699704090159,
+      "arm_returned": 1164,
+      "ci": [
+        0.2287793908154607,
+        0.5688342323037899
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.3862704826496892,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1261,
+      "reference_implausible": 0,
+      "reference_loss": 0.29199948775932666,
+      "reference_returned": 1261,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6782699704090159,
+      "arm_returned": 1164,
+      "ci": [
+        0.00976400126995318,
+        0.46407782560179733
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.24328183008165224,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1261,
+      "reference_implausible": 0,
+      "reference_loss": 0.4349881403273635,
+      "reference_returned": 1205,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6782699704090159,
+      "arm_returned": 1164,
+      "ci": [
+        -1.0181335267331721,
+        -0.09976975830742424
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.5421681015655139,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1261,
+      "reference_implausible": 0,
+      "reference_loss": 1.22043807197453,
+      "reference_returned": 1001,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.39539437955382056,
+      "arm_returned": 1261,
+      "ci": [
+        -0.12115338670635845,
+        -0.08466572573911758
+      ],
+      "comparator": "stage2",
+      "difference": -0.10191836591946478,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1261,
+      "reference_implausible": 2,
+      "reference_loss": 0.49731274547328547,
+      "reference_returned": 1261,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.39539437955382056,
+      "arm_returned": 1261,
+      "ci": [
+        0.007736843307728295,
+        0.20466517399379394
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.10339489179449399,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1261,
+      "reference_implausible": 0,
+      "reference_loss": 0.29199948775932666,
+      "reference_returned": 1261,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.39539437955382056,
+      "arm_returned": 1261,
+      "ci": [
+        0.08282762487658904,
+        0.23411796362615817
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.15434237250218766,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1261,
+      "reference_implausible": 1,
+      "reference_loss": 0.24105200705163288,
+      "reference_returned": 1261,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.39539437955382056,
+      "arm_returned": 1261,
+      "ci": [
+        -0.08356348333008046,
+        0.12075207290742213
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.015553673472015458,
+      "group": "parent/pathology",
+      "mode": "pre",
+      "planned": 1261,
+      "reference_implausible": 14,
+      "reference_loss": 0.37984070608180515,
+      "reference_returned": 1261,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.6629709661850848,
+      "arm_returned": 1179,
+      "ci": [
+        -0.6249857233855483,
+        -0.4219364359911749
+      ],
+      "comparator": "stage2",
+      "difference": -0.5193115895840461,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1261,
+      "reference_implausible": 0,
+      "reference_loss": 1.182282555769131,
+      "reference_returned": 1045,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.6629709661850848,
+      "arm_returned": 1179,
+      "ci": [
+        0.23953139013834643,
+        0.5196154417863227
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.3709714784257582,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1261,
+      "reference_implausible": 0,
+      "reference_loss": 0.29199948775932666,
+      "reference_returned": 1261,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.6629709661850848,
+      "arm_returned": 1179,
+      "ci": [
+        0.029700739440971985,
+        0.42072179383462405
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.22798282585772123,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1261,
+      "reference_implausible": 0,
+      "reference_loss": 0.4349881403273635,
+      "reference_returned": 1205,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.6629709661850848,
+      "arm_returned": 1179,
+      "ci": [
+        -0.9990918226116989,
+        -0.12947977190444923
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.557467105789445,
+      "group": "parent/pathology",
+      "mode": "checked",
+      "planned": 1261,
+      "reference_implausible": 0,
+      "reference_loss": 1.22043807197453,
+      "reference_returned": 1001,
+      "stratum": "nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.18848109339395305,
+      "arm_returned": 156,
+      "ci": [
+        -0.06457064296162612,
+        -0.02706964912463766
+      ],
+      "comparator": "stage2",
+      "difference": -0.04406150314763727,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.23254259654159024,
+      "reference_returned": 156,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.18848109339395305,
+      "arm_returned": 156,
+      "ci": [
+        -0.0989151955179347,
+        -0.022563132732510885
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.05887305344913981,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.24735414684309281,
+      "reference_returned": 156,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.18848109339395305,
+      "arm_returned": 156,
+      "ci": [
+        0.023587734373178952,
+        0.12062515391836656
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.06997833682186926,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.11850275657208374,
+      "reference_returned": 156,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.18848109339395305,
+      "arm_returned": 156,
+      "ci": [
+        0.01907750094089028,
+        0.10851284190920565
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.06175279296168794,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.12672830043226505,
+      "reference_returned": 156,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.33871884470201624,
+      "arm_returned": 151,
+      "ci": [
+        -0.9183190344016215,
+        -0.30389545818177
+      ],
+      "comparator": "stage2",
+      "difference": -0.5974189381838687,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.9361377828858851,
+      "reference_returned": 132,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.33871884470201624,
+      "arm_returned": 151,
+      "ci": [
+        -0.04489579759077814,
+        0.24074348218925912
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.09136469785892344,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.24735414684309281,
+      "reference_returned": 156,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.33871884470201624,
+      "arm_returned": 151,
+      "ci": [
+        0.07411622799399714,
+        0.31016194294535077
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.1886265571988816,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.15009228750313458,
+      "reference_returned": 155,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.33871884470201624,
+      "arm_returned": 151,
+      "ci": [
+        0.06896679338755501,
+        0.3029019088713387
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.18040101333870026,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.15831783136331595,
+      "reference_returned": 155,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.20569348808299678,
+      "arm_returned": 156,
+      "ci": [
+        -0.037263467342214064,
+        -0.016710014647461382
+      ],
+      "comparator": "stage2",
+      "difference": -0.02684910845859351,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.23254259654159024,
+      "reference_returned": 156,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.20569348808299678,
+      "arm_returned": 156,
+      "ci": [
+        -0.08946012441950532,
+        0.0045469563642153285
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.04166065876009604,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.24735414684309281,
+      "reference_returned": 156,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.20569348808299678,
+      "arm_returned": 156,
+      "ci": [
+        0.03537269078833649,
+        0.14758918560039835
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.08719073151091301,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.11850275657208374,
+      "reference_returned": 156,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.20569348808299678,
+      "arm_returned": 156,
+      "ci": [
+        0.030644468559131176,
+        0.1369408790091189
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.07896518765073171,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.12672830043226505,
+      "reference_returned": 156,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.46936206196011565,
+      "arm_returned": 147,
+      "ci": [
+        -0.6537313052293869,
+        -0.25874571107106187
+      ],
+      "comparator": "stage2",
+      "difference": -0.46677572092576936,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.9361377828858851,
+      "reference_returned": 132,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.46936206196011565,
+      "arm_returned": 147,
+      "ci": [
+        -0.0029863577657306952,
+        0.4774088882730944
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.22200791511702284,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.24735414684309281,
+      "reference_returned": 156,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.46936206196011565,
+      "arm_returned": 147,
+      "ci": [
+        0.07331299735055109,
+        0.605119242038749
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.319269774456981,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.15009228750313458,
+      "reference_returned": 155,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.46936206196011565,
+      "arm_returned": 147,
+      "ci": [
+        0.07106870426036029,
+        0.5887953790963572
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.3110442305967997,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 156,
+      "reference_implausible": 0,
+      "reference_loss": 0.15831783136331595,
+      "reference_returned": 155,
+      "stratum": "1000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.6412728553754256,
+      "arm_returned": 115,
+      "ci": [
+        -0.824757858194282,
+        -0.212251693954297
+      ],
+      "comparator": "stage2",
+      "difference": -0.5463206110803197,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 115,
+      "reference_implausible": 2,
+      "reference_loss": 1.1875934664557453,
+      "reference_returned": 115,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.6412728553754256,
+      "arm_returned": 115,
+      "ci": [
+        0.26949189868957,
+        0.5315100240828466
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.38224666855158396,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 115,
+      "reference_implausible": 0,
+      "reference_loss": 0.2590261868238415,
+      "reference_returned": 115,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.6412728553754256,
+      "arm_returned": 115,
+      "ci": [
+        0.25544665373196723,
+        0.4959667224091264
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.36610429059859056,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 115,
+      "reference_implausible": 1,
+      "reference_loss": 0.2751685647768347,
+      "reference_returned": 115,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 2,
+      "arm_loss": 0.6412728553754256,
+      "arm_returned": 115,
+      "ci": [
+        -0.00017907567341671546,
+        0.392675431992882
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.2045052702783307,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 115,
+      "reference_implausible": 1,
+      "reference_loss": 0.4367675850970948,
+      "reference_returned": 115,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.2113916786232455,
+      "arm_returned": 97,
+      "ci": [
+        -2.2668494756098276,
+        -0.9341179972468865
+      ],
+      "comparator": "stage2",
+      "difference": -1.671979474810024,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 115,
+      "reference_implausible": 0,
+      "reference_loss": 2.88337115343327,
+      "reference_returned": 57,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.2113916786232455,
+      "arm_returned": 97,
+      "ci": [
+        0.7373824874642604,
+        1.2578575180690952
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.9523654917994041,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 115,
+      "reference_implausible": 0,
+      "reference_loss": 0.2590261868238415,
+      "reference_returned": 115,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.2113916786232455,
+      "arm_returned": 97,
+      "ci": [
+        0.4718836282050291,
+        1.0210560553781898
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.7358701120048566,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 115,
+      "reference_implausible": 0,
+      "reference_loss": 0.4755215666183889,
+      "reference_returned": 109,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.2113916786232455,
+      "arm_returned": 97,
+      "ci": [
+        -0.6083992771700762,
+        0.4705418935101608
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.00588599669190294,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 115,
+      "reference_implausible": 0,
+      "reference_loss": 1.2055056819313426,
+      "reference_returned": 92,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.944797075832555,
+      "arm_returned": 115,
+      "ci": [
+        -0.26939889681612267,
+        -0.20824695639290866
+      ],
+      "comparator": "stage2",
+      "difference": -0.2427963906231901,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 115,
+      "reference_implausible": 2,
+      "reference_loss": 1.1875934664557453,
+      "reference_returned": 115,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.944797075832555,
+      "arm_returned": 115,
+      "ci": [
+        0.41105491259254373,
+        0.9447679384003025
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.6857708890087136,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 115,
+      "reference_implausible": 0,
+      "reference_loss": 0.2590261868238415,
+      "reference_returned": 115,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.944797075832555,
+      "arm_returned": 115,
+      "ci": [
+        0.36257070177600254,
+        0.9546410156241959
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.6696285110557202,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 115,
+      "reference_implausible": 1,
+      "reference_loss": 0.2751685647768347,
+      "reference_returned": 115,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 1,
+      "arm_loss": 0.944797075832555,
+      "arm_returned": 115,
+      "ci": [
+        0.15252017574491375,
+        0.8391301664268281
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.5080294907354603,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 115,
+      "reference_implausible": 1,
+      "reference_loss": 0.4367675850970948,
+      "reference_returned": 115,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.9546355122840378,
+      "arm_returned": 82,
+      "ci": [
+        -1.2651021180840238,
+        -0.6082170499710293
+      ],
+      "comparator": "stage2",
+      "difference": -0.928735641149232,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 115,
+      "reference_implausible": 0,
+      "reference_loss": 2.88337115343327,
+      "reference_returned": 57,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.9546355122840378,
+      "arm_returned": 82,
+      "ci": [
+        1.2445844706840852,
+        2.024016007722515
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 1.6956093254601963,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 115,
+      "reference_implausible": 0,
+      "reference_loss": 0.2590261868238415,
+      "reference_returned": 115,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.9546355122840378,
+      "arm_returned": 82,
+      "ci": [
+        0.8916730155661213,
+        1.9138476898259298
+      ],
+      "comparator": "taskE_armB",
+      "difference": 1.4791139456656488,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 115,
+      "reference_implausible": 0,
+      "reference_loss": 0.4755215666183889,
+      "reference_returned": 109,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.9546355122840378,
+      "arm_returned": 82,
+      "ci": [
+        -0.17341166413739237,
+        1.4531959775086227
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.7491298303526951,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 115,
+      "reference_implausible": 0,
+      "reference_loss": 1.2055056819313426,
+      "reference_returned": 92,
+      "stratum": "1000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.19414677815539894,
+      "arm_returned": 564,
+      "ci": [
+        -0.06624956853310385,
+        -0.02794274638236783
+      ],
+      "comparator": "stage2",
+      "difference": -0.04656048531856838,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.2407072634739673,
+      "reference_returned": 564,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.19414677815539894,
+      "arm_returned": 564,
+      "ci": [
+        -0.14235900245718403,
+        -0.04566941665337718
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.09161228970126149,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.2857590678566604,
+      "reference_returned": 564,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.19414677815539894,
+      "arm_returned": 564,
+      "ci": [
+        -0.13091999743440216,
+        0.035899049066957914
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.04066637469831132,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.23481315285371027,
+      "reference_returned": 564,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.19414677815539894,
+      "arm_returned": 564,
+      "ci": [
+        -0.045174019330893496,
+        0.031273742189626856
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.006550997680585978,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.2006977758359849,
+      "reference_returned": 564,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.35098679405051325,
+      "arm_returned": 545,
+      "ci": [
+        -0.5908552709705241,
+        -0.31428119726850506
+      ],
+      "comparator": "stage2",
+      "difference": -0.45285887699723965,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.8038456710477527,
+      "reference_returned": 493,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.35098679405051325,
+      "arm_returned": 545,
+      "ci": [
+        -0.03555140119993099,
+        0.18785615015198967
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.06522772619385274,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.2857590678566604,
+      "reference_returned": 564,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.35098679405051325,
+      "arm_returned": 545,
+      "ci": [
+        -0.07208898101123737,
+        0.1592981823762138
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.04540061385837368,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.3055861801921395,
+      "reference_returned": 555,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.35098679405051325,
+      "arm_returned": 545,
+      "ci": [
+        -1.1702932236921435,
+        0.11220645308054088
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.4508179978923571,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.8018047919428701,
+      "reference_returned": 491,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.2144734786220542,
+      "arm_returned": 564,
+      "ci": [
+        -0.032682129983832596,
+        -0.01970953862894234
+      ],
+      "comparator": "stage2",
+      "difference": -0.026233784851913144,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.2407072634739673,
+      "reference_returned": 564,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.2144734786220542,
+      "arm_returned": 564,
+      "ci": [
+        -0.12273657194415462,
+        -0.019856980882599528
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.07128558923460628,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.2857590678566604,
+      "reference_returned": 564,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.2144734786220542,
+      "arm_returned": 564,
+      "ci": [
+        -0.1085619903562027,
+        0.05633676431531888
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.020339674231656068,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.23481315285371027,
+      "reference_returned": 564,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.2144734786220542,
+      "arm_returned": 564,
+      "ci": [
+        -0.02787247442949913,
+        0.055699817653875196
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.013775702786069254,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.2006977758359849,
+      "reference_returned": 564,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.41648283401691116,
+      "arm_returned": 538,
+      "ci": [
+        -0.5106951792239903,
+        -0.2721315086599385
+      ],
+      "comparator": "stage2",
+      "difference": -0.3873628370308417,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.8038456710477527,
+      "reference_returned": 493,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.41648283401691116,
+      "arm_returned": 538,
+      "ci": [
+        0.04569847941523709,
+        0.2249740388693981
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.13072376616025067,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.2857590678566604,
+      "reference_returned": 564,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.41648283401691116,
+      "arm_returned": 538,
+      "ci": [
+        0.01715341877544063,
+        0.20079508918798392
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.1108966538247716,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.3055861801921395,
+      "reference_returned": 555,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.41648283401691116,
+      "arm_returned": 538,
+      "ci": [
+        -1.0535911335672412,
+        0.14246087726768517
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.3853219579259591,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 564,
+      "reference_implausible": 0,
+      "reference_loss": 0.8018047919428701,
+      "reference_returned": 491,
+      "stratum": "1000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.36802734048104274,
+      "arm_returned": 605,
+      "ci": [
+        -0.274435004048868,
+        -0.1498893478787953
+      ],
+      "comparator": "stage2",
+      "difference": -0.20542911331233704,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 605,
+      "reference_implausible": 2,
+      "reference_loss": 0.5734564537933798,
+      "reference_returned": 605,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.36802734048104274,
+      "arm_returned": 605,
+      "ci": [
+        -0.007110557803948043,
+        0.15345630647996827
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.07603878284104867,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 605,
+      "reference_implausible": 0,
+      "reference_loss": 0.2919885576399941,
+      "reference_returned": 605,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.36802734048104274,
+      "arm_returned": 605,
+      "ci": [
+        0.06536083764638853,
+        0.15778348443436843
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.11083952077662869,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 605,
+      "reference_implausible": 1,
+      "reference_loss": 0.25718781970441407,
+      "reference_returned": 605,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.36802734048104274,
+      "arm_returned": 605,
+      "ci": [
+        -0.07081481994736076,
+        0.09026381402362932
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.011714846398964118,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 605,
+      "reference_implausible": 4,
+      "reference_loss": 0.3563124940820787,
+      "reference_returned": 605,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.706905478728421,
+      "arm_returned": 557,
+      "ci": [
+        -0.8801275903948367,
+        -0.5616817082760855
+      ],
+      "comparator": "stage2",
+      "difference": -0.7194295965487219,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 605,
+      "reference_implausible": 0,
+      "reference_loss": 1.4263350752771429,
+      "reference_returned": 475,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.706905478728421,
+      "arm_returned": 557,
+      "ci": [
+        0.2708440247354885,
+        0.5694746456972563
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.41491692108842687,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 605,
+      "reference_implausible": 0,
+      "reference_loss": 0.2919885576399941,
+      "reference_returned": 605,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.706905478728421,
+      "arm_returned": 557,
+      "ci": [
+        0.25187084427090084,
+        0.5054727022680009
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.3707548941991926,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 605,
+      "reference_implausible": 0,
+      "reference_loss": 0.33615058452922836,
+      "reference_returned": 593,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.706905478728421,
+      "arm_returned": 557,
+      "ci": [
+        -0.7395513290551842,
+        0.08189104044034351
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.29891195125892817,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 605,
+      "reference_implausible": 0,
+      "reference_loss": 1.0058174299873492,
+      "reference_returned": 509,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.45262097455860534,
+      "arm_returned": 605,
+      "ci": [
+        -0.13995064107251318,
+        -0.10396153124420841
+      ],
+      "comparator": "stage2",
+      "difference": -0.12083547923477446,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 605,
+      "reference_implausible": 2,
+      "reference_loss": 0.5734564537933798,
+      "reference_returned": 605,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.45262097455860534,
+      "arm_returned": 605,
+      "ci": [
+        0.05586871119008062,
+        0.27288110040951297
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.16063241691861127,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 605,
+      "reference_implausible": 0,
+      "reference_loss": 0.2919885576399941,
+      "reference_returned": 605,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.45262097455860534,
+      "arm_returned": 605,
+      "ci": [
+        0.1262572969487302,
+        0.2821663421240573
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.19543315485419124,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 605,
+      "reference_implausible": 1,
+      "reference_loss": 0.25718781970441407,
+      "reference_returned": 605,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.45262097455860534,
+      "arm_returned": 605,
+      "ci": [
+        0.004981015636221098,
+        0.19682296454946419
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.09630848047652671,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 605,
+      "reference_implausible": 4,
+      "reference_loss": 0.3563124940820787,
+      "reference_returned": 605,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.7882977349377427,
+      "arm_returned": 556,
+      "ci": [
+        -0.7485965189426959,
+        -0.5287756740908317
+      ],
+      "comparator": "stage2",
+      "difference": -0.6380373403394004,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 605,
+      "reference_implausible": 0,
+      "reference_loss": 1.4263350752771429,
+      "reference_returned": 475,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.7882977349377427,
+      "arm_returned": 556,
+      "ci": [
+        0.3607075423911233,
+        0.6451806031010082
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.4963091772977484,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 605,
+      "reference_implausible": 0,
+      "reference_loss": 0.2919885576399941,
+      "reference_returned": 605,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.7882977349377427,
+      "arm_returned": 556,
+      "ci": [
+        0.3190883594990977,
+        0.5818099916884245
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.4521471504085141,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 605,
+      "reference_implausible": 0,
+      "reference_loss": 0.33615058452922836,
+      "reference_returned": 593,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.7882977349377427,
+      "arm_returned": 556,
+      "ci": [
+        -0.5949046429080949,
+        0.13444078258568942
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.21751969504960664,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 605,
+      "reference_implausible": 0,
+      "reference_loss": 1.0058174299873492,
+      "reference_returned": 509,
+      "stratum": "1000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.10364128376136537,
+      "arm_returned": 42,
+      "ci": [
+        -0.0545561185345417,
+        -0.006022462669672166
+      ],
+      "comparator": "stage2",
+      "difference": -0.026027912700001304,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.12966919646136668,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.10364128376136537,
+      "arm_returned": 42,
+      "ci": [
+        -0.24249208177541515,
+        -0.13639604384737758
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.1852338558397414,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.2888751396011068,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.10364128376136537,
+      "arm_returned": 42,
+      "ci": [
+        -0.009131818496283375,
+        0.08938090599519466
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.031565435718672305,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.07207584804269308,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.10364128376136537,
+      "arm_returned": 42,
+      "ci": [
+        -0.01713089953736285,
+        0.0849443973262144
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.02634082785931404,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.07730045590205134,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.21586060192555442,
+      "arm_returned": 41,
+      "ci": [
+        -0.03812814107897038,
+        -0.0027589984455802696
+      ],
+      "comparator": "stage2",
+      "difference": -0.01747682732260327,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.23333742924815767,
+      "reference_returned": 41,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.21586060192555442,
+      "arm_returned": 41,
+      "ci": [
+        -0.23503331712763484,
+        0.24294600316217727
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.07301453767555234,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.2888751396011068,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.21586060192555442,
+      "arm_returned": 41,
+      "ci": [
+        -0.008792346927511593,
+        0.47329898102193685
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.14378475388286135,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.07207584804269308,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.21586060192555442,
+      "arm_returned": 41,
+      "ci": [
+        -0.01590851884536372,
+        0.47263678717791996
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.13856014602350317,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.07730045590205126,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.12889846798023077,
+      "arm_returned": 42,
+      "ci": [
+        -0.016655145711539636,
+        0.01370935934223077
+      ],
+      "comparator": "stage2",
+      "difference": -0.0007707284811359363,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.12966919646136668,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.12889846798023077,
+      "arm_returned": 42,
+      "ci": [
+        -0.21446495537720284,
+        -0.10665117877403515
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.159976671620876,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.2888751396011068,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.12889846798023077,
+      "arm_returned": 42,
+      "ci": [
+        0.009253307442593596,
+        0.12446516583210028
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.05682261993753769,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.07207584804269308,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.12889846798023077,
+      "arm_returned": 42,
+      "ci": [
+        0.0031151444721040696,
+        0.12011996792927176
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.05159801207817942,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.07730045590205134,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.23684349021405526,
+      "arm_returned": 41,
+      "ci": [
+        -0.00855013634932546,
+        0.016391753053628378
+      ],
+      "comparator": "stage2",
+      "difference": 0.0035060609658975855,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.23333742924815767,
+      "reference_returned": 41,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.23684349021405526,
+      "arm_returned": 41,
+      "ci": [
+        -0.21143861224821373,
+        0.25947691838930015
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.052031649387051446,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.2888751396011068,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.23684349021405526,
+      "arm_returned": 41,
+      "ci": [
+        0.009807440841399015,
+        0.4903634625149803
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.16476764217136222,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.07207584804269308,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.23684349021405526,
+      "arm_returned": 41,
+      "ci": [
+        0.004148984861031848,
+        0.4864002059638278
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.15954303431200406,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 42,
+      "reference_implausible": 0,
+      "reference_loss": 0.07730045590205126,
+      "reference_returned": 42,
+      "stratum": "5000/fallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6656831579723197,
+      "arm_returned": 64,
+      "ci": [
+        -0.44803208789386534,
+        -0.14239917304675667
+      ],
+      "comparator": "stage2",
+      "difference": -0.33504110921687763,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 1.0007242671891974,
+      "reference_returned": 64,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6656831579723197,
+      "arm_returned": 64,
+      "ci": [
+        0.2569439085644502,
+        0.5562734715902631
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.4042292571550481,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 0.26145390081727155,
+      "reference_returned": 64,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6656831579723197,
+      "arm_returned": 64,
+      "ci": [
+        0.3081996166594221,
+        0.633141031403007
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.45682809380820066,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 0.20885506416411906,
+      "reference_returned": 64,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6656831579723197,
+      "arm_returned": 64,
+      "ci": [
+        -0.047727723921958405,
+        0.4571660743113206
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.2570012004367502,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 64,
+      "reference_implausible": 1,
+      "reference_loss": 0.4086819575355695,
+      "reference_returned": 64,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.9434299979701302,
+      "arm_returned": 44,
+      "ci": [
+        -1.115007309395742,
+        -0.37689519585657255
+      ],
+      "comparator": "stage2",
+      "difference": -0.8662842843968488,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 2.8097142823669787,
+      "reference_returned": 33,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.9434299979701302,
+      "arm_returned": 44,
+      "ci": [
+        0.9569437704900053,
+        2.264279112451193
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 1.6819760971528588,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 0.26145390081727155,
+      "reference_returned": 64,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.9434299979701302,
+      "arm_returned": 44,
+      "ci": [
+        0.6714493095553729,
+        1.8261767276857748
+      ],
+      "comparator": "taskE_armB",
+      "difference": 1.2970621901392,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 0.64636780783093,
+      "reference_returned": 58,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 1.9434299979701302,
+      "arm_returned": 44,
+      "ci": [
+        -1.021695505299584,
+        1.2054474557719093
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.5190874023030133,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 1.4243425956671167,
+      "reference_returned": 48,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.7699446560268088,
+      "arm_returned": 64,
+      "ci": [
+        -0.261719051016637,
+        -0.17741139803220402
+      ],
+      "comparator": "stage2",
+      "difference": -0.2307796111623885,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 1.0007242671891974,
+      "reference_returned": 64,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.7699446560268088,
+      "arm_returned": 64,
+      "ci": [
+        0.2643330368610943,
+        0.6464045982332739
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.5084907552095372,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 0.26145390081727155,
+      "reference_returned": 64,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.7699446560268088,
+      "arm_returned": 64,
+      "ci": [
+        0.3454671132761492,
+        0.7185395179044487
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.5610895918626899,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 0.20885506416411906,
+      "reference_returned": 64,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.7699446560268088,
+      "arm_returned": 64,
+      "ci": [
+        -0.07995430150042923,
+        0.5963683506630072
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.36126269849123926,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 64,
+      "reference_implausible": 1,
+      "reference_loss": 0.4086819575355695,
+      "reference_returned": 64,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.9061108803262683,
+      "arm_returned": 46,
+      "ci": [
+        -1.3320363261616812,
+        -0.5266065268942081
+      ],
+      "comparator": "stage2",
+      "difference": -0.9036034020407107,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 2.8097142823669787,
+      "reference_returned": 33,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.9061108803262683,
+      "arm_returned": 46,
+      "ci": [
+        0.7846858416440644,
+        2.342744643036806
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 1.6446569795089967,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 0.26145390081727155,
+      "reference_returned": 64,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.9061108803262683,
+      "arm_returned": 46,
+      "ci": [
+        0.5098940860821486,
+        1.6810966574155026
+      ],
+      "comparator": "taskE_armB",
+      "difference": 1.2597430724953382,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 0.64636780783093,
+      "reference_returned": 58,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 1.9061108803262683,
+      "arm_returned": 46,
+      "ci": [
+        -1.2818880609951275,
+        1.2804195619626746
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": 0.4817682846591513,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 64,
+      "reference_implausible": 0,
+      "reference_loss": 1.4243425956671167,
+      "reference_returned": 48,
+      "stratum": "5000/fallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.13904981902173247,
+      "arm_returned": 678,
+      "ci": [
+        -0.016095561065094164,
+        -0.004343241989243045
+      ],
+      "comparator": "stage2",
+      "difference": -0.009487911230191158,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.14853773025192366,
+      "reference_returned": 678,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.13904981902173247,
+      "arm_returned": 678,
+      "ci": [
+        -0.24226535521846845,
+        -0.10379562897615643
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.16818720335242185,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.3072370223741544,
+      "reference_returned": 678,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.13904981902173247,
+      "arm_returned": 678,
+      "ci": [
+        -0.2159066493094584,
+        0.046648534362280475
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.0670171051825788,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.2060669242043113,
+      "reference_returned": 678,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.13904981902173247,
+      "arm_returned": 678,
+      "ci": [
+        -0.13188031059153552,
+        -0.005655885701020028
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.0667646792998163,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 678,
+      "reference_implausible": 6,
+      "reference_loss": 0.20581449832154877,
+      "reference_returned": 678,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.25604521684846776,
+      "arm_returned": 661,
+      "ci": [
+        -0.1471494520916407,
+        -0.025631466635129944
+      ],
+      "comparator": "stage2",
+      "difference": -0.07642748816839637,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.3324727050168641,
+      "reference_returned": 651,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.25604521684846776,
+      "arm_returned": 661,
+      "ci": [
+        -0.17778220092109642,
+        0.10669307151911774
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.051191805525686584,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.3072370223741544,
+      "reference_returned": 678,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.25604521684846776,
+      "arm_returned": 661,
+      "ci": [
+        -0.33381198964448744,
+        0.14467447019150662
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.08215145393681215,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.3381966707852798,
+      "reference_returned": 657,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.25604521684846776,
+      "arm_returned": 661,
+      "ci": [
+        -1.3338194134276498,
+        -0.035680496167790086
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.5867078230196054,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.8427530398680732,
+      "reference_returned": 577,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1393498712630342,
+      "arm_returned": 678,
+      "ci": [
+        -0.01658493871866381,
+        -0.0031528565230533935
+      ],
+      "comparator": "stage2",
+      "difference": -0.00918785898888949,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.14853773025192366,
+      "reference_returned": 678,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1393498712630342,
+      "arm_returned": 678,
+      "ci": [
+        -0.24141569533174967,
+        -0.10440266143058208
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.16788715111112015,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.3072370223741544,
+      "reference_returned": 678,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1393498712630342,
+      "arm_returned": 678,
+      "ci": [
+        -0.2171893956600048,
+        0.04605352522267241
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.06671705294127717,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.2060669242043113,
+      "reference_returned": 678,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.1393498712630342,
+      "arm_returned": 678,
+      "ci": [
+        -0.1320379576758855,
+        -0.005296413933145357
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.06646462705851462,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 678,
+      "reference_implausible": 6,
+      "reference_loss": 0.20581449832154877,
+      "reference_returned": 678,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.2070124631953319,
+      "arm_returned": 668,
+      "ci": [
+        -0.23017554511080093,
+        -0.04720552492568452
+      ],
+      "comparator": "stage2",
+      "difference": -0.1254602418215322,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.3324727050168641,
+      "reference_returned": 651,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.2070124631953319,
+      "arm_returned": 668,
+      "ci": [
+        -0.2014149531953766,
+        0.02033459300517208
+      ],
+      "comparator": "anchorsOnly",
+      "difference": -0.1002245591788224,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.3072370223741544,
+      "reference_returned": 678,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.2070124631953319,
+      "arm_returned": 668,
+      "ci": [
+        -0.36375683252867774,
+        0.07295891974575201
+      ],
+      "comparator": "taskE_armB",
+      "difference": -0.13118420758994798,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.3381966707852798,
+      "reference_returned": 657,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.2070124631953319,
+      "arm_returned": 668,
+      "ci": [
+        -1.3649262563778708,
+        -0.09910400736955215
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.6357405766727412,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 678,
+      "reference_implausible": 0,
+      "reference_loss": 0.8427530398680732,
+      "reference_returned": 577,
+      "stratum": "5000/nonfallback/<=20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.3275083737396909,
+      "arm_returned": 656,
+      "ci": [
+        -0.1473430046394637,
+        -0.061086843019921046
+      ],
+      "comparator": "stage2",
+      "difference": -0.09958037244448292,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.42708874618417386,
+      "reference_returned": 656,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.3275083737396909,
+      "arm_returned": 656,
+      "ci": [
+        -0.05658845999431191,
+        0.1256587932614605
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.03549880561116285,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.29200956812852813,
+      "reference_returned": 656,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.3275083737396909,
+      "arm_returned": 656,
+      "ci": [
+        0.01946170715404745,
+        0.17046525462362838
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.10133771829618701,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.22617065544350393,
+      "reference_returned": 656,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.3275083737396909,
+      "arm_returned": 656,
+      "ci": [
+        -0.16952938928121009,
+        0.018970301743084655
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.07403136932356925,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 656,
+      "reference_implausible": 10,
+      "reference_loss": 0.40153974306326023,
+      "reference_returned": 656,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6518606982546865,
+      "arm_returned": 607,
+      "ci": [
+        -0.446461385053948,
+        -0.19147911648703622
+      ],
+      "comparator": "stage2",
+      "difference": -0.30534293327306133,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.9572036315277478,
+      "reference_returned": 570,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6518606982546865,
+      "arm_returned": 607,
+      "ci": [
+        0.15602484813085163,
+        0.578994681326109
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.3598511301261584,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.29200956812852813,
+      "reference_returned": 656,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6518606982546865,
+      "arm_returned": 607,
+      "ci": [
+        -0.29237093137737824,
+        0.4721385119135551
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.1257190194244695,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.5261416788302169,
+      "reference_returned": 612,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "w1",
+      "arm_implausible": 0,
+      "arm_loss": 0.6518606982546865,
+      "arm_returned": 607,
+      "ci": [
+        -1.2838355865291518,
+        -0.25840797944454025
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.7665125694549718,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 1.4183732677096583,
+      "reference_returned": 492,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.3426168033680054,
+      "arm_returned": 656,
+      "ci": [
+        -0.10467375032182927,
+        -0.06539029315792123
+      ],
+      "comparator": "stage2",
+      "difference": -0.08447194281616849,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.42708874618417386,
+      "reference_returned": 656,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.3426168033680054,
+      "arm_returned": 656,
+      "ci": [
+        -0.03886147415484533,
+        0.14531051919503618
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.05060723523947729,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.29200956812852813,
+      "reference_returned": 656,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.3426168033680054,
+      "arm_returned": 656,
+      "ci": [
+        0.0350886047618036,
+        0.20172613531808098
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.11644614792450143,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.22617065544350393,
+      "reference_returned": 656,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.3426168033680054,
+      "arm_returned": 656,
+      "ci": [
+        -0.16947661934367558,
+        0.05505071514685486
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.05892293969525482,
+      "group": "N/parent/pathology",
+      "mode": "pre",
+      "planned": 656,
+      "reference_implausible": 10,
+      "reference_loss": 0.40153974306326023,
+      "reference_returned": 656,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.5473875895153318,
+      "arm_returned": 623,
+      "ci": [
+        -0.5532553837142483,
+        -0.27390804535417956
+      ],
+      "comparator": "stage2",
+      "difference": -0.40981604201241584,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.9572036315277478,
+      "reference_returned": 570,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.5473875895153318,
+      "arm_returned": 623,
+      "ci": [
+        0.11542050091671781,
+        0.41067074263707287
+      ],
+      "comparator": "anchorsOnly",
+      "difference": 0.2553780213868038,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.29200956812852813,
+      "reference_returned": 656,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.5473875895153318,
+      "arm_returned": 623,
+      "ci": [
+        -0.36286953533593913,
+        0.32244206139855935
+      ],
+      "comparator": "taskE_armB",
+      "difference": 0.02124591068511495,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 0.5261416788302169,
+      "reference_returned": 612,
+      "stratum": "5000/nonfallback/>20%"
+    },
+    {
+      "arm": "t0.25",
+      "arm_implausible": 0,
+      "arm_loss": 0.5473875895153318,
+      "arm_returned": 623,
+      "ci": [
+        -1.3998226285083875,
+        -0.34792815119177695
+      ],
+      "comparator": "anchoredRI_improved",
+      "difference": -0.8709856781943265,
+      "group": "N/parent/pathology",
+      "mode": "checked",
+      "planned": 656,
+      "reference_implausible": 0,
+      "reference_loss": 1.4183732677096583,
+      "reference_returned": 492,
+      "stratum": "5000/nonfallback/>20%"
+    }
+  ],
+  "resampling": "paired (Analyte,Scenario) multinomial; PCG64 37000000, 2000; percentile .025/.975",
+  "run_attempt": 1,
+  "run_id": "45530368829",
+  "scoring_implementation": "RIbench 1.0.2 BoxCox, rounded truth, cohort-arm-analyte-specifically adjusted URL, CRP 95th only, per-endpoint cap 5, nonreturns and unscorable assigned 5",
+  "source_manifest_sha256": "86530c5d9dce7381c2e65a2a487a18c882a0aa24f2b58bdc3c7e605ba1b3903a",
+  "statistical_decisions": [
+    {
+      "CI": [
+        -0.03776015048995276,
+        -0.01572273765319909
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.025758560422048746,
+      "group": "pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "CI": [
+        -0.3738869971381324,
+        -0.18622674286595045
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.27439910850534077,
+      "group": "pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        42,
+        122
+      ],
+      "planned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "CI": [
+        -0.02180104267726602,
+        -0.009532349031239406
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.015054650844632596,
+      "group": "pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "CI": [
+        -0.3564610755037437,
+        -0.1765869415002347
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.25706773158547763,
+      "group": "pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        46,
+        122
+      ],
+      "planned": 1440,
+      "stratum": "<=20%"
+    },
+    {
+      "CI": [
+        -0.28119462188782296,
+        -0.12078383510852775
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.1941206839450941,
+      "group": "pathology",
+      "implausible": [
+        2,
+        4
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "CI": [
+        -0.8613880985954647,
+        -0.4580120950691522
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.6452134203276079,
+      "group": "pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        135,
+        315
+      ],
+      "planned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "CI": [
+        -0.14645915370910734,
+        -0.09987088131373649
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.12282325361095742,
+      "group": "pathology",
+      "implausible": [
+        1,
+        4
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "CI": [
+        -0.7093733086875003,
+        -0.49412868170795166
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.600913022400242,
+      "group": "pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        133,
+        315
+      ],
+      "planned": 1440,
+      "stratum": ">20%"
+    },
+    {
+      "CI": [
+        -0.062402926427762816,
+        -0.02605262422993379
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.04249036563593209,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 720,
+      "stratum": "1000/<=20%"
+    },
+    {
+      "CI": [
+        -0.6210992638006411,
+        -0.32963607371010184
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.4697937141862981,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        24,
+        93
+      ],
+      "planned": 720,
+      "stratum": "1000/<=20%"
+    },
+    {
+      "CI": [
+        -0.029725943332187324,
+        -0.01675161694840415
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.022838431421092674,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 720,
+      "stratum": "1000/<=20%"
+    },
+    {
+      "CI": [
+        -0.5167622580849858,
+        -0.27375636383210417
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.39018245247336486,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        35,
+        93
+      ],
+      "planned": 720,
+      "stratum": "1000/<=20%"
+    },
+    {
+      "CI": [
+        -0.38656892020035655,
+        -0.1699538242682224
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.2671317927455747,
+      "group": "N/pathology",
+      "implausible": [
+        2,
+        4
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 720,
+      "stratum": "1000/>20%"
+    },
+    {
+      "CI": [
+        -1.21254697837694,
+        -0.6699629611832256
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.9321781455671981,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        66,
+        197
+      ],
+      "planned": 720,
+      "stratum": "1000/>20%"
+    },
+    {
+      "CI": [
+        -0.17192102489524536,
+        -0.12473278423202189
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.1475700788990535,
+      "group": "N/pathology",
+      "implausible": [
+        1,
+        4
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 720,
+      "stratum": "1000/>20%"
+    },
+    {
+      "CI": [
+        -0.8747207734497632,
+        -0.6220452937551508
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.7450734846260445,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        82,
+        197
+      ],
+      "planned": 720,
+      "stratum": "1000/>20%"
+    },
+    {
+      "CI": [
+        -0.015413822784149224,
+        -0.003948149087871133
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.009026755208165397,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 720,
+      "stratum": "5000/<=20%"
+    },
+    {
+      "CI": [
+        -0.14510838981870933,
+        -0.03133057889948948
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.0790045028243833,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        18,
+        29
+      ],
+      "planned": 720,
+      "stratum": "5000/<=20%"
+    },
+    {
+      "CI": [
+        -0.01452452225142869,
+        -0.0014510180405520401
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.007270870268172515,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 720,
+      "stratum": "5000/<=20%"
+    },
+    {
+      "CI": [
+        -0.22305682388862166,
+        -0.05032318523831992
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.12395301069759032,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        11,
+        29
+      ],
+      "planned": 720,
+      "stratum": "5000/<=20%"
+    },
+    {
+      "CI": [
+        -0.17954058381437052,
+        -0.06701347479312723
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.1211095751446135,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 720,
+      "stratum": "5000/>20%"
+    },
+    {
+      "CI": [
+        -0.5192867519095903,
+        -0.21937054807562
+      ],
+      "arm": "w1",
+      "decision": true,
+      "delta": -0.35824869508801765,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        69,
+        118
+      ],
+      "planned": 720,
+      "stratum": "5000/>20%"
+    },
+    {
+      "CI": [
+        -0.12552844707889574,
+        -0.0723586720316238
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.09807642832286131,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "pre",
+      "nonreturns": [
+        0,
+        0
+      ],
+      "planned": 720,
+      "stratum": "5000/>20%"
+    },
+    {
+      "CI": [
+        -0.593362118861397,
+        -0.3231958943446215
+      ],
+      "arm": "t0.25",
+      "decision": true,
+      "delta": -0.4567525601744395,
+      "group": "N/pathology",
+      "implausible": [
+        0,
+        0
+      ],
+      "mode": "checked",
+      "nonreturns": [
+        51,
+        118
+      ],
+      "planned": 720,
+      "stratum": "5000/>20%"
+    }
+  ],
+  "verification_counts": {
+    "anchors_only_gaps": 2812,
+    "by_n": 16,
+    "fallback_contributions": 144,
+    "formal": 8,
+    "paired_rows": 14416
+  }
+}
