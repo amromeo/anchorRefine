@@ -1,0 +1,1 @@
+These local logs record the three-case readback that prompted cancellation at source c47ebd1090ffcfc3622f779c86f4ce4bbe798304. They are separate from the official GitHub job logs and cohort results. Each gzip member decompresses to the original local log.
