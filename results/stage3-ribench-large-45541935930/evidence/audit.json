@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "cohort": "large",
+  "phase": "ribench",
+  "mode": "sampled",
+  "full_required": false,
+  "datasets": 1440,
+  "fits": 10080,
+  "checks": 20160,
+  "audited_datasets": 144,
+  "exact_repeat_shards": 48,
+  "distinct_host_shards": 48,
+  "same_host_exact_datasets": 144,
+  "cross_host_passed_datasets": 144,
+  "archive_reproduction_passed": true,
+  "archived_baseline_matches": 1440,
+  "sample_sha256": "6a0c63429e56779d6f45cb0e24fbabfb16849edbd871930915970ad112217698",
+  "source_manifest_sha256": "86530c5d9dce7381c2e65a2a487a18c882a0aa24f2b58bdc3c7e605ba1b3903a",
+  "max_endpoint_fraction": 0,
+  "max_p_difference": 0,
+  "differences": {
+    "stage1": 4005
+  },
+  "failures": 0
+}

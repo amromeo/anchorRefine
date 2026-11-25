@@ -1,0 +1,497 @@
+[
+  {
+    "id": 14991670964,
+    "name": "stage3-ribench-large-34",
+    "size_in_bytes": 2246758,
+    "digest": "sha256:d359fb51c92f8ee1cc951d7a20d17de0e336423b986ec1600ba78ac6e5ee8682",
+    "expired": false,
+    "created_at": "2026-11-25T04:13:29Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991666532,
+    "name": "stage3-ribench-large-36",
+    "size_in_bytes": 2361584,
+    "digest": "sha256:2d4fa57585513d8ff0d535726c3653a8a3ec708b14570cc3fc8fbf364840cf8b",
+    "expired": false,
+    "created_at": "2026-11-25T04:16:25Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991652172,
+    "name": "stage3-ribench-large-46",
+    "size_in_bytes": 3072349,
+    "digest": "sha256:cfa96dd5f6bbe936e7daa8b6bad1d0698571f294eea860c175d41a666c11441b",
+    "expired": false,
+    "created_at": "2026-11-25T04:19:31Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991604081,
+    "name": "stage3-ribench-large-report",
+    "size_in_bytes": 4500266,
+    "digest": "sha256:97e0f2cf3e3e19feca488d0f7a10349bbaac02d8d14939beae8b6aa4b89db31b",
+    "expired": false,
+    "created_at": "2026-11-25T04:28:55Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991583615,
+    "name": "stage3-ribench-large-10",
+    "size_in_bytes": 3024037,
+    "digest": "sha256:5f241873870c5c65397e0e42989738fe854968062089b19cb9ecde0dcb164367",
+    "expired": false,
+    "created_at": "2026-11-25T04:26:08Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991450871,
+    "name": "stage3-ribench-large-31",
+    "size_in_bytes": 2713491,
+    "digest": "sha256:f152477ecd8ab4bd02f8d3717a4100f1b241ad512233d5a31fc7a53919adbfda",
+    "expired": false,
+    "created_at": "2026-11-25T04:08:57Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991420125,
+    "name": "stage3-ribench-large-27",
+    "size_in_bytes": 2915992,
+    "digest": "sha256:410f3151c1f34d84912c9a50254c0267719b58e1e09bb6ac3c49a9af94d55313",
+    "expired": false,
+    "created_at": "2026-11-25T04:04:45Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991391508,
+    "name": "stage3-ribench-large-32",
+    "size_in_bytes": 2878501,
+    "digest": "sha256:d51468b4d7ba11637462d1979f7d26f3fbd06fcc6b68678edea4cbb77005db2b",
+    "expired": false,
+    "created_at": "2026-11-25T04:12:02Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991381368,
+    "name": "stage3-ribench-large-37",
+    "size_in_bytes": 2654270,
+    "digest": "sha256:08de803bb516c0e0df8985923e044048effec0634bda816e20015a8ae620a1f4",
+    "expired": false,
+    "created_at": "2026-11-25T04:11:37Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991332419,
+    "name": "stage3-ribench-large-48",
+    "size_in_bytes": 2944185,
+    "digest": "sha256:5479e4edd05cb279c53f7777e8ad71c12434be7d9126627343a190389dab2efe",
+    "expired": false,
+    "created_at": "2026-11-25T04:16:58Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991331159,
+    "name": "stage3-ribench-large-12",
+    "size_in_bytes": 2819676,
+    "digest": "sha256:af64eacd5c82ea55895c80080dc50a0569268f3a0802d60c51b002e03a893f19",
+    "expired": false,
+    "created_at": "2026-11-25T04:09:59Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991302877,
+    "name": "stage3-ribench-large-15",
+    "size_in_bytes": 3201435,
+    "digest": "sha256:78d23bf2ebfdd5d86cc49bcc8ef5a7f4eac04af94e1b1a8e2408c395eb896979",
+    "expired": false,
+    "created_at": "2026-11-25T04:19:10Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991295311,
+    "name": "stage3-ribench-large-14",
+    "size_in_bytes": 2985894,
+    "digest": "sha256:9da275452587602f25668feffbfa7803a12e1d4b8d6205fa5e5716112e354b52",
+    "expired": false,
+    "created_at": "2026-11-25T04:04:20Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991292435,
+    "name": "stage3-ribench-large-47",
+    "size_in_bytes": 2826776,
+    "digest": "sha256:85ebc0b8e68323311fde6969cc11b1df74fba04e14ba416e978176ebce533483",
+    "expired": false,
+    "created_at": "2026-11-25T04:16:32Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991237451,
+    "name": "stage3-ribench-large-39",
+    "size_in_bytes": 2871174,
+    "digest": "sha256:f7b5fc891ffbcd630738050cbb23b6d46377cdde623dd6ab831c187bd9da5b8d",
+    "expired": false,
+    "created_at": "2026-11-25T04:16:22Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14991128111,
+    "name": "stage3-ribench-large-18",
+    "size_in_bytes": 2434402,
+    "digest": "sha256:5d94d12c1272615c51ea4de3fd76874a618e50722cdd85610005763aab98fb66",
+    "expired": false,
+    "created_at": "2026-11-25T04:18:21Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990961310,
+    "name": "stage3-ribench-large-24",
+    "size_in_bytes": 2844529,
+    "digest": "sha256:fedb0b4b4ad72f35928d2f6023be95746c9421c54e9186963f2cbced87b54300",
+    "expired": false,
+    "created_at": "2026-11-25T04:09:40Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990959603,
+    "name": "stage3-ribench-large-21",
+    "size_in_bytes": 2727857,
+    "digest": "sha256:cca2ef0de99f6e5b4775d12ce8d5d6040fe6be934d46b1b69cadab2651f39917",
+    "expired": false,
+    "created_at": "2026-11-25T04:24:54Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990929087,
+    "name": "stage3-ribench-large-1",
+    "size_in_bytes": 2562449,
+    "digest": "sha256:357529f0bec55e231e3034f56e21f4647f876615557c48d4aab1a24bc9a783dd",
+    "expired": false,
+    "created_at": "2026-11-25T04:26:24Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990890920,
+    "name": "stage3-ribench-large-7",
+    "size_in_bytes": 2705223,
+    "digest": "sha256:76d94dde85acc5301feaec887d189992d81ea3fec0d4356138229230699152a4",
+    "expired": false,
+    "created_at": "2026-11-25T04:02:33Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990863003,
+    "name": "stage3-ribench-large-43",
+    "size_in_bytes": 2793291,
+    "digest": "sha256:7f65395a0164f01dba97616321b219b94221d9d508fbddbdb2da73d85caf5aaf",
+    "expired": false,
+    "created_at": "2026-11-25T04:14:27Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990797384,
+    "name": "stage3-ribench-large-45",
+    "size_in_bytes": 3005301,
+    "digest": "sha256:db3f45f877e995852869bb389d0baf275ead7aecf12a674a34f5154e80dcb672",
+    "expired": false,
+    "created_at": "2026-11-25T04:09:43Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990718779,
+    "name": "stage3-ribench-large-11",
+    "size_in_bytes": 2687189,
+    "digest": "sha256:feac1ffd3e441f1bd356c1ee3746dfcf929f4bebe55e60c4466e7d453ba27a88",
+    "expired": false,
+    "created_at": "2026-11-25T04:15:14Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990634922,
+    "name": "stage3-ribench-large-4",
+    "size_in_bytes": 2396910,
+    "digest": "sha256:2e5aa4f5a031c40bc1199202c7fe72f5f64b61b3a21a54b281d2855df2b549f5",
+    "expired": false,
+    "created_at": "2026-11-25T04:27:55Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990583892,
+    "name": "stage3-ribench-large-13",
+    "size_in_bytes": 2717827,
+    "digest": "sha256:621fcd533567535203f00d3809caa4a75920e513efe015735ba3f7a0d8d3fcb9",
+    "expired": false,
+    "created_at": "2026-11-25T04:19:09Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990562977,
+    "name": "stage3-ribench-large-19",
+    "size_in_bytes": 2527380,
+    "digest": "sha256:7057cbfa4dc26b87e7971fe42f1e6fcd7baecd180ec4f17c12261153e5f6ab80",
+    "expired": false,
+    "created_at": "2026-11-25T04:10:56Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990551732,
+    "name": "stage3-ribench-large-26",
+    "size_in_bytes": 2732777,
+    "digest": "sha256:6610c27e48a6c90bff2f572ecd3f079d6122823556a1bb5ba190423ff20b51bf",
+    "expired": false,
+    "created_at": "2026-11-25T04:02:13Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990546418,
+    "name": "stage3-ribench-large-3",
+    "size_in_bytes": 2711500,
+    "digest": "sha256:cf5dc300575fbdd279463b231c60447e6f5b70fd903688ccbd5cc7fa9c0997ac",
+    "expired": false,
+    "created_at": "2026-11-25T03:59:51Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990507782,
+    "name": "stage3-ribench-large-29",
+    "size_in_bytes": 2776860,
+    "digest": "sha256:86bd5166ebd06b265b02fd99d562a98dec0c69e9c2ce578a4e3c24ceb807ee7e",
+    "expired": false,
+    "created_at": "2026-11-25T04:09:41Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990461490,
+    "name": "stage3-ribench-large-42",
+    "size_in_bytes": 2872439,
+    "digest": "sha256:e28821364f9e31bc49b0017cfda710fd42872e7df2639ad571bdc39369b1c9dc",
+    "expired": false,
+    "created_at": "2026-11-25T03:58:36Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990456435,
+    "name": "stage3-ribench-large-8",
+    "size_in_bytes": 2809632,
+    "digest": "sha256:a2b408a58a728aed5eaf0e53c735ee62595218e0e9a382e416be3846631faa73",
+    "expired": false,
+    "created_at": "2026-11-25T03:58:40Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990438434,
+    "name": "stage3-ribench-large-38",
+    "size_in_bytes": 2883434,
+    "digest": "sha256:941a5b33d4090361273dc958c0720b8e48e3c31d06d8330ef3466edbb7d96a3d",
+    "expired": false,
+    "created_at": "2026-11-25T04:11:20Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990397330,
+    "name": "stage3-ribench-large-20",
+    "size_in_bytes": 2651950,
+    "digest": "sha256:29476a30e23af04ce54a5c94ed2a844e1265b88727fecb655660e578c0f204a4",
+    "expired": false,
+    "created_at": "2026-11-25T03:59:25Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990387632,
+    "name": "stage3-ribench-large-35",
+    "size_in_bytes": 2300758,
+    "digest": "sha256:e62e9231bb8f3fe9655cd57df057c5ba6be514274cc063952ba6c5348e814d8d",
+    "expired": false,
+    "created_at": "2026-11-25T04:06:04Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990363138,
+    "name": "stage3-ribench-large-23",
+    "size_in_bytes": 2537081,
+    "digest": "sha256:5ee86730a28d08b740a8cb83c79e57c0fdfc56c44b185261fa0f1e9f405cb189",
+    "expired": false,
+    "created_at": "2026-11-25T04:09:37Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990283702,
+    "name": "stage3-ribench-large-40",
+    "size_in_bytes": 2692843,
+    "digest": "sha256:f62ab926ed490a6caa47f0a81c898967dac5894b227c8a00ecee1c4d22329665",
+    "expired": false,
+    "created_at": "2026-11-25T04:09:52Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990184673,
+    "name": "stage3-ribench-large-44",
+    "size_in_bytes": 2965129,
+    "digest": "sha256:b80f7f6d09fcea77417e14929e7501f7f085bd7f6c55a425901dddc6b0675245",
+    "expired": false,
+    "created_at": "2026-11-25T04:14:32Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990157606,
+    "name": "stage3-ribench-large-22",
+    "size_in_bytes": 2783876,
+    "digest": "sha256:c91e11d49200331bc63025dd7fdb47f4bd8d28fd43055c0a9440ea8d479d97c1",
+    "expired": false,
+    "created_at": "2026-11-25T03:59:02Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990133084,
+    "name": "stage3-ribench-large-9",
+    "size_in_bytes": 3002440,
+    "digest": "sha256:204618df8c2a36b27c5e76676dc4df2fd8d8d18fec4978bcb8612fc943eedc4f",
+    "expired": false,
+    "created_at": "2026-11-25T04:01:42Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990127790,
+    "name": "stage3-ribench-large-2",
+    "size_in_bytes": 2837628,
+    "digest": "sha256:27081e7188d099e944f90528a1edfb3c44529a2ad87550a38f204149220f1a22",
+    "expired": false,
+    "created_at": "2026-11-25T03:59:42Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14990084896,
+    "name": "stage3-ribench-large-16",
+    "size_in_bytes": 3180025,
+    "digest": "sha256:b6f03a58c1885b0192d7640950178f9dca101500fd96e046271ec882e7ef446c",
+    "expired": false,
+    "created_at": "2026-11-25T04:07:27Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989997112,
+    "name": "ribench-inputs-large-6",
+    "size_in_bytes": 17813986,
+    "digest": "sha256:3c46b751df1a32b28a181ba96200b63a658dcbcf283469ca254f8d6d58311d74",
+    "expired": false,
+    "created_at": "2026-11-25T03:47:57Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989979849,
+    "name": "stage3-ribench-large-25",
+    "size_in_bytes": 2901373,
+    "digest": "sha256:bf5423b2357e3877a086a26e2424723bfa4dc63caa7c8b3a59ac776b4602ac5b",
+    "expired": false,
+    "created_at": "2026-11-25T04:03:50Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989962884,
+    "name": "stage3-ribench-large-30",
+    "size_in_bytes": 2817303,
+    "digest": "sha256:1b498bb2a28db658cf3324ab896273285c158fddb9fb3f17ad04184dc07e2371",
+    "expired": false,
+    "created_at": "2026-11-25T03:57:43Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989709475,
+    "name": "stage3-ribench-large-17",
+    "size_in_bytes": 2393244,
+    "digest": "sha256:90c2b01dd371aa94e9cb48c3839eec071953466b6df41c6ff7580772aa2949ca",
+    "expired": false,
+    "created_at": "2026-11-25T04:00:13Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989684629,
+    "name": "stage3-ribench-large-41",
+    "size_in_bytes": 2577683,
+    "digest": "sha256:d10e37db47c51dc2686031416d915ce6975588da9e4557f9dc081039e63e3952",
+    "expired": false,
+    "created_at": "2026-11-25T03:59:59Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989647639,
+    "name": "ribench-inputs-large-4",
+    "size_in_bytes": 17955232,
+    "digest": "sha256:7ca00d5d62debd4e3044f4a5190668600cfefd669c22166f19b4907cb4770d5d",
+    "expired": false,
+    "created_at": "2026-11-25T03:47:52Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989559550,
+    "name": "stage3-ribench-large-28",
+    "size_in_bytes": 3021215,
+    "digest": "sha256:95cd1ae1943321e1f815fd86a5d7385e2fd45a8eccc8bc444746f82779295924",
+    "expired": false,
+    "created_at": "2026-11-25T03:58:49Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989539746,
+    "name": "stage3-ribench-large-5",
+    "size_in_bytes": 2573417,
+    "digest": "sha256:24bf856d3d90cb49512c376f7ae86a5412cfeb5c99e9cc1d8586222336a6f264",
+    "expired": false,
+    "created_at": "2026-11-25T04:00:28Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989534540,
+    "name": "stage3-ribench-large-6",
+    "size_in_bytes": 2692174,
+    "digest": "sha256:9f8b8fac69896646d62d624db65eaeadc55174bb90292c1cb6a4b19c08763065",
+    "expired": false,
+    "created_at": "2026-11-25T03:59:31Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989512932,
+    "name": "ribench-inputs-large-5",
+    "size_in_bytes": 15816040,
+    "digest": "sha256:3e4994fd4b87b7ba1cdebb5a18fdd0110924fba656d53f20c8be753d7601a087",
+    "expired": false,
+    "created_at": "2026-11-25T03:47:54Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989502688,
+    "name": "ribench-inputs-large-3",
+    "size_in_bytes": 15888449,
+    "digest": "sha256:ebe4f8b6717f57862f17916e003340c918ce602e637e20a534fe700771b0b608",
+    "expired": false,
+    "created_at": "2026-11-25T03:47:49Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989482723,
+    "name": "ribench-inputs-large-1",
+    "size_in_bytes": 15917538,
+    "digest": "sha256:005042dd32e2ac13b089f27d6ea0c7e4987c83ff11bd1f888017f5b9d5bad5c6",
+    "expired": false,
+    "created_at": "2026-11-25T03:47:43Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989349971,
+    "name": "stage3-ribench-large-33",
+    "size_in_bytes": 2262865,
+    "digest": "sha256:31691ec64fbcea72cbdc468b0ea49daa02eb3257675cc512f1e9171e9f048986",
+    "expired": false,
+    "created_at": "2026-11-25T03:58:55Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  },
+  {
+    "id": 14989213689,
+    "name": "ribench-inputs-large-2",
+    "size_in_bytes": 18033101,
+    "digest": "sha256:c0d1a5071fdc0b12ed497f3124920403f8a879df5e61b70fca9c3cfd9270442a",
+    "expired": false,
+    "created_at": "2026-11-25T03:47:46Z",
+    "expires_at": "2027-02-23T03:43:32Z"
+  }
+]

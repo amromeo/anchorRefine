@@ -1,0 +1,186 @@
+{
+  "stage": 3,
+  "phase": "development",
+  "status": "weights selected; confirmation unopened",
+  "primary_weight_w": 1.0,
+  "postfit_weight_t": 0.25,
+  "development": {
+    "repository": "amromeo/anchorRefine",
+    "run_id": 45413443007,
+    "run_attempt": 1,
+    "head_commit": "0cb9052dc12fd4cdd4fc52fab500ad3a0f6750d7",
+    "source_commit": "2feb4868b1b8fe64ce3c956a038bc3e60313c1b9",
+    "source_manifest_sha256": "5db4755face4cb67db6e4ac35cd33c859859fbb79cbd4f4d833263a0ee5a8251",
+    "datasets": 3744,
+    "directory": "results/stage3-development-45413443007"
+  },
+  "influence": {
+    "run_id": 45412130146,
+    "source_commit": "2feb4868b1b8fe64ce3c956a038bc3e60313c1b9",
+    "datasets": 96,
+    "receipt_sha256": "2823bd19ab04692d05137d18a31f8d077fcb0815b129ffeff84c1ddba7ba676a"
+  },
+  "criteria": {
+    "reference": "frozen Stage 2 peak-choice-only, K=24",
+    "loss": "Pre-check native mean absolute endpoint z error capped per endpoint at 5; a failed or unavailable result scores 5 on its own side.",
+    "difference": "arm minus Stage 2 within each paired synthetic dataset",
+    "control": "Controls at 10% and 20% pathology, 288 per N. Eligible iff all four N-specific control mean differences are <=0.02.",
+    "focus": "Left shoulder, right shoulder and central overlap at 25%, 45% and 60% pathology, 432 per N. Minimize the largest of the four N-specific focus mean differences among eligible weights.",
+    "tie": "Smaller weight on exact equality. Zero is included and is selected if no positive weight is eligible.",
+    "N": [
+      1000,
+      1500,
+      5000,
+      50000
+    ]
+  },
+  "selections": {
+    "w": {
+      "selected": 1.0,
+      "model": "w1",
+      "eligible_weights": [
+        0.0,
+        1.0
+      ],
+      "ineligible_weights": [
+        {
+          "weight": 10.0,
+          "over_margin_at_N": [
+            5000
+          ]
+        },
+        {
+          "weight": 100.0,
+          "over_margin_at_N": [
+            5000,
+            50000
+          ]
+        },
+        {
+          "weight": 1000.0,
+          "over_margin_at_N": [
+            5000,
+            50000
+          ]
+        },
+        {
+          "weight": 10000.0,
+          "over_margin_at_N": [
+            5000,
+            50000
+          ]
+        }
+      ],
+      "worst_focus_difference": -0.0018036484554236805,
+      "per_N": [
+        {
+          "N": 1000,
+          "control_mean_difference": -0.06674874889486343,
+          "focus_mean_difference": -0.0536789788955122,
+          "separated_mean_difference": -0.28345453160347134
+        },
+        {
+          "N": 1500,
+          "control_mean_difference": -0.04142184787353244,
+          "focus_mean_difference": -0.03627912879222341,
+          "separated_mean_difference": -0.21880217998130544
+        },
+        {
+          "N": 5000,
+          "control_mean_difference": -0.010554991171917707,
+          "focus_mean_difference": -0.010235002836720195,
+          "separated_mean_difference": -0.08935909775172389
+        },
+        {
+          "N": 50000,
+          "control_mean_difference": -0.00115793809168989,
+          "focus_mean_difference": -0.0018036484554236805,
+          "separated_mean_difference": -0.02120435770532946
+        }
+      ]
+    },
+    "t": {
+      "selected": 0.25,
+      "model": "t0.25",
+      "eligible_weights": [
+        0.0,
+        0.25
+      ],
+      "ineligible_weights": [
+        {
+          "weight": 0.5,
+          "over_margin_at_N": [
+            50000
+          ]
+        },
+        {
+          "weight": 0.75,
+          "over_margin_at_N": [
+            5000,
+            50000
+          ]
+        },
+        {
+          "weight": 1.0,
+          "over_margin_at_N": [
+            1500,
+            5000,
+            50000
+          ]
+        }
+      ],
+      "worst_focus_difference": -0.07292347961680022,
+      "per_N": [
+        {
+          "N": 1000,
+          "control_mean_difference": -0.0309541581099065,
+          "focus_mean_difference": -0.07292347961680022,
+          "separated_mean_difference": -0.2564849687163268
+        },
+        {
+          "N": 1500,
+          "control_mean_difference": -0.02268214160348778,
+          "focus_mean_difference": -0.07623690528707144,
+          "separated_mean_difference": -0.2069745246070802
+        },
+        {
+          "N": 5000,
+          "control_mean_difference": -0.00417556032898685,
+          "focus_mean_difference": -0.07702808239390692,
+          "separated_mean_difference": -0.10877884186798029
+        },
+        {
+          "N": 50000,
+          "control_mean_difference": 0.0051447131426336536,
+          "focus_mean_difference": -0.07978681162166482,
+          "separated_mean_difference": -0.0007632767124850494
+        }
+      ]
+    }
+  },
+  "verification": {
+    "action_receipt_passed": true,
+    "same_host_exact_shards": 96,
+    "distinct_host_shards": 96,
+    "independent_per_N_grid_values_checked": 132,
+    "max_abs_grid_difference_on_independent_recomputation": 2.914335439641036e-16,
+    "independent_max_z_difference": 6.217248937900877e-15
+  },
+  "archive_sha256": {
+    "REPORT.md": "11ed62053fae7bee306ba0e6cb708afc7869ef9c8c8e80422136832d86d3a525",
+    "SHA256SUMS": "b5f2ba321605825cd93e12b33e741a238e9fd69806fe71e9bb4c9a3aea556647",
+    "evidence/audit-shards.csv": "b7be6793a75bc1ebedf1b799bcc412f5f5d3dd3a6c353aa29cfcb1fc8b147d30",
+    "evidence/audit.json": "d45dceee081a2852f3ee00ce2d24f00193be0826302c6affda71295fffbe2c93",
+    "evidence/checks.csv.gz": "109eb3c6c01d9d1b4ead63a8726bd4276906bd05ebe4e2192d0e3a497613e4a8",
+    "evidence/cross-host-differences.csv": "ab321361634785f5096edeb319113117604c052b34c5db99aff0f3ae7d398c1b",
+    "evidence/fits.csv.gz": "f5cfa910b5f2dd0f614f4e05d6bdeb2099f52c6f88e3553d7821a5b0deaadcec",
+    "evidence/identities.csv.gz": "31589f4ce14284d1fc7f8bdc1ac9fd314b68d8ba87c2937b87761550de7587ef",
+    "evidence/sensitivity.csv.gz": "ccac3c4f97521d38fa271b4e837680b98b5e9e522d85da60a4641c661b674b69",
+    "influence-fallback.csv": "fec7838da14264a2bb1e669ba9f8fc45939c6d2f266440d3d2264418b92c8999",
+    "influence-nonfallback.csv": "d0bfa731032063f9f6f009aaeeb63144f01dae4eba3569aa1e042a326b87115d",
+    "influence.csv": "1a2aeb5d303c35cdeb4a9e230fe683e9f90015ddd1407b74e443add8309e869d",
+    "receipt.json": "3e35f81e979e2641445f7f27cdcee04825c5d301cb96c58314278592f0c8fb9a",
+    "selection.csv": "1bc85d771e82106e4ded375bd9366bee92024d3a1b64b0e811a68b24230edf37",
+    "source-manifest.sha256": "5db4755face4cb67db6e4ac35cd33c859859fbb79cbd4f4d833263a0ee5a8251"
+  }
+}
