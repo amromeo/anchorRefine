@@ -1,12 +1,12 @@
 # RIbench fits and decisions for Task G
 
-Work from the published results directory for either cohort. The original RIbench `Index` is the dataset identifier and `j` is its Task G alias. The small cohort contains 2,880 distinct indices at N = 1,000 or 5,000. The large cohort contains 1,440 at N = 50,000. Indices keep their original values within and across cohorts. Include the phase when combining these data with synthetic studies.
+Work from the published results directory for either cohort. The original RIbench `Index` is the dataset identifier and `j` is its Task G alias. The small cohort contains 2,880 distinct indices at N = 1,000 or 5,000. The large cohort contains 1,440 at N = 50,000. RIbench strata use nominal `N`. Some routine vectors have a different length, recorded as `routine_n`. Indices keep their original values within and across cohorts. Include the phase when combining these data with synthetic studies.
 
 | File | Key | Contents |
 | --- | --- | --- |
 | [Fits](evidence/fits.csv.gz) | `j, arm` | Fitted parameters, original status and branch, both pre-check extractions, requested limits, z scores, seeds and input hashes. Small has 20,160 fit rows and large has 10,080. |
 | [Anchor-check decisions](evidence/checks.csv.gz) | `j, arm, panel, seed_kind` | PIT seed, status, reason, likelihood-ratio statistic, p-value and released native and historical limits. Small has 40,320 decision rows and large has 20,160. |
-| [Dataset index](task-g-index.csv) | `Index` | Primary shard ZIP and RDS member, one-based case position, analyte, N, scenario, pathological fraction, Stage 2 fallback status and input hashes. |
+| [Dataset index](task-g-index.csv) | `Index` | Primary shard ZIP and RDS member, one-based case position, analyte, nominal N, actual routine vector length (routine_n), scenario, pathological fraction, Stage 2 fallback status and input hashes. |
 | [Export manifest](task-g-manifest.json) | Export and shard | GitHub run and source commit, arm names, counts, public file hashes and SHA-256 of each primary RDS member. Original ZIP hashes appear in [the archive manifest](SHA256SUMS). |
 | [Arm B estimates and original releases](task-g-arm-b.csv.gz) | `Index` | Paired Task E raw and reported limits and z scores, native source statuses and ordered input hashes. |
 | [Original Arm B fit and safeguard record](task-g-arm-b-original.csv.gz) | `Index` | Published Task E fields and decision on each RIbench dataset. The [source manifest](task-g-comparator-provenance.json) gives immutable upstream revisions and SHA-256 digests. |
@@ -37,7 +37,7 @@ member <- unzip(i$archive, files = i$member, exdir = dest)
 shard <- readRDS(member)
 case <- shard$cases[[i$rds_position]]
 sha <- function(x) digest::digest(x, algo = "sha256", serializeVersion = 2L)
-stopifnot(case$Index == i$Index, case$j == i$j,
+stopifnot(case$Index == i$Index, case$j == i$j, length(case$routine) == i$routine_n,
           identical(sha(case$routine), i$routine_hash),
           identical(sha(case$panels$guidance), i$anchor_hash))
 entry <- case$arms[[chosen_arm]]

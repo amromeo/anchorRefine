@@ -21,7 +21,7 @@ index <- lapply(seq_along(case_ids), function(slot) {
     stopifnot(case$j == case$Index, nrow(rows) == length(arms), setequal(rows$arm, arms),
               all(rows$case_hash == sha(case)),
               setequal(names(case$arms), arms), identical(case$routine_hash, sha(case$routine)),
-              all(rows$routine_hash == case$routine_hash), all(rows$N == length(case$routine)),
+              all(rows$routine_hash == case$routine_hash), all(rows$routine_n == length(case$routine)), all(rows$N == rows$N[1L]),
               identical(names(case$panels), "guidance"),
               all(lengths(case$panels) == 40L),
               all(rows$anchor_hash == sha(case$panels$guidance)),
@@ -54,7 +54,8 @@ index <- lapply(seq_along(case_ids), function(slot) {
             }
         }
     }
-    data.frame(Index = case$Index, j = case$j, rds_position = slot, N = length(case$routine),
+    data.frame(Index = case$Index, j = case$j, rds_position = slot, N = rows$N[1L],
+               routine_n = length(case$routine),
                routine_hash = case$routine_hash, anchor_hash = rows$anchor_hash[1],
                stringsAsFactors = FALSE)
 })

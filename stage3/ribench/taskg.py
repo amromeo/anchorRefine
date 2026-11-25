@@ -130,7 +130,7 @@ def export(cohort, raw, output):
             for row in compare_primary(source / "fits.csv", fit_rows, fits=True):
                 i, arm = int(row["Index"]), row["arm"]
                 require(row["Index"] == row["j"] and arm in all_arms and arm not in seen[i] and
-                        all(row[k] == positions[i][k] for k in ("routine_hash","anchor_hash","N")),
+                        all(row[k] == positions[i][k] for k in ("routine_hash","anchor_hash","N","routine_n")),
                         f"Invalid fit for {i}/{arm}")
                 if arm == "stage2":
                     parents[i] = row
@@ -147,7 +147,7 @@ def export(cohort, raw, output):
                 seen[i].add(key)
             require(all(len(keys) == 2 * len(all_arms) for keys in seen.values()), f"Missing checks in {role}")
             for i,p in positions.items():
-                index[i] = dict(Index=i, j=i, N=p["N"], stage2_fallback=parents[i]["fallback"],
+                index[i] = dict(Index=i, j=i, N=p["N"], routine_n=p["routine_n"], stage2_fallback=parents[i]["fallback"],
                                 Analyte=parents[i]["Analyte"], Scenario=parents[i]["Scenario"],
                                 fractionPathol=parents[i]["fractionPathol"], shard=shard, archive=archive,
                                 member=member, rds_position=p["rds_position"],
