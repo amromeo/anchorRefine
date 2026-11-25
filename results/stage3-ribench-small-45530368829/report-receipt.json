@@ -1,0 +1,31 @@
+{
+  "cohort": "small",
+  "datasets": 2880,
+  "fixed_w": 1,
+  "fixed_t": 0.25,
+  "technical_audit_passed": true,
+  "scientific_gate_results": {
+    "w1": {
+      "pre": true,
+      "checked": true
+    },
+    "t0.25": {
+      "pre": true,
+      "checked": true
+    }
+  },
+  "sha256": {
+    "REPORT.md": "f1f39f6bc2663a738bd69c24ac312916336e0730a3d7c3ab092eafd0dfa807f8",
+    "gates.csv": "0d26ca8a0187b8e6c3dd7d19a7c253e7e27983506b1b3f9046fc613028bef20a",
+    "gates-by-n.csv.gz": "46ca30851c8072b9fc74df0eeae1ec191c62614d170b18462a35bbb8c3426ddf",
+    "paired-loss.csv.gz": "854ebf9a1d639ba8698dc4a261afee0462db10b70672a9a3945c78819de8c73c",
+    "parent-contributions.csv.gz": "e6448393cae17b589277c31976fe89730b47e0fa602ae551a6dbfb58fb540050",
+    "gap.csv.gz": "4e4c808f8cb95568f544d4bd507289e3c6deb51d7a3d6142b0164f22f17e1f04",
+    "accuracy.csv.gz": "3acc8bafacbbe072d01e1162ab6e4b9c5b124a0bb97857c99bf749976966cecd",
+    "curve.csv.gz": "9da65e38df9b2820ca1f16f44cc94687dfb6a5c509e3cbec22f47f52b10eec45",
+    "rates.csv.gz": "9ddda6c5cef54dbcd085325cae8f400ba54e682b1f79ecd994e136c14b82717f",
+    "overlap.csv.gz": "f494e8afd406d3cedcf190d0a5c23aadf9cfa3cd0adc06e55496db67e7e679af",
+    "seed-changes.csv.gz": "aae91b932322db7c23ed9bbe13b7c9a2617459568793608b93dd9c3c8b17a65f"
+  },
+  "audit_sha256": "45ef0949779f9ec5b7fea6b623cbfe3a7b6cbded06716b7e4f4ee95a174c6334"
+}

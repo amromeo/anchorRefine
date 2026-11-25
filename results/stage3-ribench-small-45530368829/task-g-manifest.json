@@ -1,0 +1,429 @@
+{
+  "phase": "ribench",
+  "cohort": "small",
+  "run_id": "45530368829",
+  "run_commit": "ffbf4450537a619b4abdda4dff5c3a3a145d6a02",
+  "datasets": 2880,
+  "scientific_arms": [
+    "baseline",
+    "stage2",
+    "w1",
+    "t0.25",
+    "anchorsOnly"
+  ],
+  "zero_weight_audit_arms": [
+    "w0",
+    "t0"
+  ],
+  "external_comparator": "taskE_armB",
+  "fit_rows": 20160,
+  "check_rows": 40320,
+  "fit_key": [
+    "j",
+    "arm"
+  ],
+  "check_key": [
+    "j",
+    "arm",
+    "panel",
+    "seed_kind"
+  ],
+  "dataset_key": "Index",
+  "sha256": {
+    "evidence/fits.csv.gz": "9eaf45eec5d4bc4bb457e3340a270db6e366001dfa6594aef92a96d78343998b",
+    "evidence/checks.csv.gz": "b0bd4be21c9bb22f6128bf5691d464ecad8c01cf6a7b74e743a51604fdddc9f4",
+    "task-g-index.csv": "8da0b96db5dd22ed28e366c8bd420a3c848df7167781a40cdc195e80a7f2a79c",
+    "TASK-G.md": "54080244e9b42ed3878e11c244979de2ca328d15154641b3f52bee4b08d46a90",
+    "evidence/audit.json": "45ef0949779f9ec5b7fea6b623cbfe3a7b6cbded06716b7e4f4ee95a174c6334",
+    "task-g-arm-b.csv.gz": "32b1a3d87f92f2295a0fdddbcedc178109837f129bc877489841ecf05afaa493",
+    "task-g-arm-b-original.csv.gz": "d43acb7a67b7e8dfe1e2d1776f204b38469fa4a5a060d651391889479c981400",
+    "task-g-arm-b-component.csv.gz": "873755aa8977145047e3bb626bfead80cd462e728db5ff43dce81d308513b200",
+    "task-g-comparator-provenance.json": "e0a8aa45228d4028215e7ec98e9d25c3eaa061e5e557818964b72dd2baea049d"
+  },
+  "primary_rds": [
+    {
+      "shard": 1,
+      "archive": "artifacts/stage3-ribench-small-1.zip",
+      "member": "primary-1/results.rds",
+      "rds_sha256": "5a4985991f3392dda3daa87acd0f1e2df5add9bfcfe5cf921f554a089aca3ee3",
+      "bytes": 445294,
+      "datasets": 60
+    },
+    {
+      "shard": 2,
+      "archive": "artifacts/stage3-ribench-small-2.zip",
+      "member": "primary-2/results.rds",
+      "rds_sha256": "31f6a9adeb1ef9d956dfe9e6c2f81d5ff603949646561c0c1178ecab3b60e4ae",
+      "bytes": 445657,
+      "datasets": 60
+    },
+    {
+      "shard": 3,
+      "archive": "artifacts/stage3-ribench-small-3.zip",
+      "member": "primary-3/results.rds",
+      "rds_sha256": "b98ac893693e56c5e91ae42bc14abfc37593d7f5b6b21480ed3d5ff467ecf383",
+      "bytes": 464653,
+      "datasets": 60
+    },
+    {
+      "shard": 4,
+      "archive": "artifacts/stage3-ribench-small-4.zip",
+      "member": "primary-4/results.rds",
+      "rds_sha256": "3405f55a09ea936342b8fdf577e1cb55a266cf18d0163a38c3ab5a61f5eb42fa",
+      "bytes": 464909,
+      "datasets": 60
+    },
+    {
+      "shard": 5,
+      "archive": "artifacts/stage3-ribench-small-5.zip",
+      "member": "primary-5/results.rds",
+      "rds_sha256": "dda5544c7dd886ddb3b4c87fd2a19d1286e61a173bb79161fb0b6fb900ebf727",
+      "bytes": 472989,
+      "datasets": 60
+    },
+    {
+      "shard": 6,
+      "archive": "artifacts/stage3-ribench-small-6.zip",
+      "member": "primary-6/results.rds",
+      "rds_sha256": "14eab72ab76daf753d9cca3cdda0cf3f5ae0bee3f5de9943b277922f4d4a37f0",
+      "bytes": 477562,
+      "datasets": 60
+    },
+    {
+      "shard": 7,
+      "archive": "artifacts/stage3-ribench-small-7.zip",
+      "member": "primary-7/results.rds",
+      "rds_sha256": "209cd182269a45d0ff6f96facf6c34fda340e4a3239131955b2c10bc55923f0f",
+      "bytes": 485538,
+      "datasets": 60
+    },
+    {
+      "shard": 8,
+      "archive": "artifacts/stage3-ribench-small-8.zip",
+      "member": "primary-8/results.rds",
+      "rds_sha256": "83b826c09022ea1627d13b4e5abace8a9b624241e1d36336dcc1ef286dc98096",
+      "bytes": 494875,
+      "datasets": 60
+    },
+    {
+      "shard": 9,
+      "archive": "artifacts/stage3-ribench-small-9.zip",
+      "member": "primary-9/results.rds",
+      "rds_sha256": "16768d68a72820cc99ce73960afbf836a2087289ab75c59d5ef8b6d35e5db8eb",
+      "bytes": 494549,
+      "datasets": 60
+    },
+    {
+      "shard": 10,
+      "archive": "artifacts/stage3-ribench-small-10.zip",
+      "member": "primary-10/results.rds",
+      "rds_sha256": "ebf664ef4c340ba1dc8f45b6a7b813cd8398285feb917d5ea51535c1876891e4",
+      "bytes": 511519,
+      "datasets": 60
+    },
+    {
+      "shard": 11,
+      "archive": "artifacts/stage3-ribench-small-11.zip",
+      "member": "primary-11/results.rds",
+      "rds_sha256": "774be89cb1a7d5e84c7b40d11d8602c9dc66f3b7ca96b52a387e35f2043410a8",
+      "bytes": 503850,
+      "datasets": 60
+    },
+    {
+      "shard": 12,
+      "archive": "artifacts/stage3-ribench-small-12.zip",
+      "member": "primary-12/results.rds",
+      "rds_sha256": "28b26d221ebd7e96284e7148181f6829d98889ca85b8d7925914c977c111decc",
+      "bytes": 522043,
+      "datasets": 60
+    },
+    {
+      "shard": 13,
+      "archive": "artifacts/stage3-ribench-small-13.zip",
+      "member": "primary-13/results.rds",
+      "rds_sha256": "6d094a2b34bd8b7ab20d6451794ebea14ac6e5414c967622e7274d2f3f5fc56c",
+      "bytes": 505354,
+      "datasets": 60
+    },
+    {
+      "shard": 14,
+      "archive": "artifacts/stage3-ribench-small-14.zip",
+      "member": "primary-14/results.rds",
+      "rds_sha256": "600b045906f5dc9fcbbc53176dcc1b7973a32977072040340d1afc38cf3bf472",
+      "bytes": 528425,
+      "datasets": 60
+    },
+    {
+      "shard": 15,
+      "archive": "artifacts/stage3-ribench-small-15.zip",
+      "member": "primary-15/results.rds",
+      "rds_sha256": "65358f5ce2848f8444bfdd976d77870a284f177ca61c5b26dfd80e1e5bfd7500",
+      "bytes": 507990,
+      "datasets": 60
+    },
+    {
+      "shard": 16,
+      "archive": "artifacts/stage3-ribench-small-16.zip",
+      "member": "primary-16/results.rds",
+      "rds_sha256": "f2bde1bca8954c261d95e9297c69b2b597fa78ba7eb9f1d00d9544e8ca4489c2",
+      "bytes": 536572,
+      "datasets": 60
+    },
+    {
+      "shard": 17,
+      "archive": "artifacts/stage3-ribench-small-17.zip",
+      "member": "primary-17/results.rds",
+      "rds_sha256": "0b97494003b60653f669061da02e88d7edd1de1ab166d51b2200631bbdd2a27f",
+      "bytes": 448005,
+      "datasets": 60
+    },
+    {
+      "shard": 18,
+      "archive": "artifacts/stage3-ribench-small-18.zip",
+      "member": "primary-18/results.rds",
+      "rds_sha256": "3806ed3a418d6afd1b8d8dbf2ffcf5af9cecab1216b9eae2b0ae7a4d2fa497d8",
+      "bytes": 451001,
+      "datasets": 60
+    },
+    {
+      "shard": 19,
+      "archive": "artifacts/stage3-ribench-small-19.zip",
+      "member": "primary-19/results.rds",
+      "rds_sha256": "30d9ef8b16c016549c5e7ac9ab0392b0cc6ffd75052af5e72a71db5457edca1a",
+      "bytes": 462013,
+      "datasets": 60
+    },
+    {
+      "shard": 20,
+      "archive": "artifacts/stage3-ribench-small-20.zip",
+      "member": "primary-20/results.rds",
+      "rds_sha256": "039af462fda931423cbca6be17f092ae8960bd6512a0dd6ce530ecb732c49dd0",
+      "bytes": 465206,
+      "datasets": 60
+    },
+    {
+      "shard": 21,
+      "archive": "artifacts/stage3-ribench-small-21.zip",
+      "member": "primary-21/results.rds",
+      "rds_sha256": "23f58c148ef868367d7da75d55969dc3611c075290031737c73a899b84d9161a",
+      "bytes": 470255,
+      "datasets": 60
+    },
+    {
+      "shard": 22,
+      "archive": "artifacts/stage3-ribench-small-22.zip",
+      "member": "primary-22/results.rds",
+      "rds_sha256": "5dc0a0f219f06a2ab50c2a71d857ce2163be9b7aaa6c5e0f3c0edef05cc2fa0e",
+      "bytes": 476944,
+      "datasets": 60
+    },
+    {
+      "shard": 23,
+      "archive": "artifacts/stage3-ribench-small-23.zip",
+      "member": "primary-23/results.rds",
+      "rds_sha256": "07d0f6febd8a4eaee3a23227bde62e2d4c32e1a00d4c195912da6b97cff694a6",
+      "bytes": 479732,
+      "datasets": 60
+    },
+    {
+      "shard": 24,
+      "archive": "artifacts/stage3-ribench-small-24.zip",
+      "member": "primary-24/results.rds",
+      "rds_sha256": "21ca7e2fb26aa7077aa210703b03086dcff486196fdc1ed4ee8816f35fe47cac",
+      "bytes": 493981,
+      "datasets": 60
+    },
+    {
+      "shard": 25,
+      "archive": "artifacts/stage3-ribench-small-25.zip",
+      "member": "primary-25/results.rds",
+      "rds_sha256": "6c6d7fedf8d64278100c721e9ee90718cb747ba62a99feb31a068bbe3ddf08b2",
+      "bytes": 494243,
+      "datasets": 60
+    },
+    {
+      "shard": 26,
+      "archive": "artifacts/stage3-ribench-small-26.zip",
+      "member": "primary-26/results.rds",
+      "rds_sha256": "81c60a4bbc8cf57fe98946933791d52f9c53e6b4be8155f892600575e3b05ed0",
+      "bytes": 506709,
+      "datasets": 60
+    },
+    {
+      "shard": 27,
+      "archive": "artifacts/stage3-ribench-small-27.zip",
+      "member": "primary-27/results.rds",
+      "rds_sha256": "3bcea06065b27469e9a29bccef9dc94c71d7c3ec058f61d448d0acd996e1b5ce",
+      "bytes": 505091,
+      "datasets": 60
+    },
+    {
+      "shard": 28,
+      "archive": "artifacts/stage3-ribench-small-28.zip",
+      "member": "primary-28/results.rds",
+      "rds_sha256": "85152a2bbfee4ab77b78df589a5bf17d59af7490d6016a43a9208b03ce5d2f29",
+      "bytes": 516721,
+      "datasets": 60
+    },
+    {
+      "shard": 29,
+      "archive": "artifacts/stage3-ribench-small-29.zip",
+      "member": "primary-29/results.rds",
+      "rds_sha256": "d591562e55bc9f061c60621775183f30e2b28f2638b8eeefaeae8c55588d429c",
+      "bytes": 507853,
+      "datasets": 60
+    },
+    {
+      "shard": 30,
+      "archive": "artifacts/stage3-ribench-small-30.zip",
+      "member": "primary-30/results.rds",
+      "rds_sha256": "1f50b0f62c742bd9f3c9c569c8897526a8ed84780a967eadec8037e67a5e6cac",
+      "bytes": 528193,
+      "datasets": 60
+    },
+    {
+      "shard": 31,
+      "archive": "artifacts/stage3-ribench-small-31.zip",
+      "member": "primary-31/results.rds",
+      "rds_sha256": "b72aae41d116598c2aa178c941f7cbfb64630c58a2401cc5a6de1234efff117a",
+      "bytes": 507164,
+      "datasets": 60
+    },
+    {
+      "shard": 32,
+      "archive": "artifacts/stage3-ribench-small-32.zip",
+      "member": "primary-32/results.rds",
+      "rds_sha256": "ced531d14179e8bb698ac2bc97e5fa7b2e99246772ba5510ac661dedc8b52030",
+      "bytes": 533964,
+      "datasets": 60
+    },
+    {
+      "shard": 33,
+      "archive": "artifacts/stage3-ribench-small-33.zip",
+      "member": "primary-33/results.rds",
+      "rds_sha256": "df52b2ea91e6805fecd2e8a431e8e054545a77c4ac6c4bde6caa8dec9b27c399",
+      "bytes": 441739,
+      "datasets": 60
+    },
+    {
+      "shard": 34,
+      "archive": "artifacts/stage3-ribench-small-34.zip",
+      "member": "primary-34/results.rds",
+      "rds_sha256": "a805008f8a7143511694c8899c517522d252397973e2e25f198386b1ac9b5f3d",
+      "bytes": 449515,
+      "datasets": 60
+    },
+    {
+      "shard": 35,
+      "archive": "artifacts/stage3-ribench-small-35.zip",
+      "member": "primary-35/results.rds",
+      "rds_sha256": "24fbdc55d7c46a220347803865267784c21f3d70c8851ce692212c2919ed3662",
+      "bytes": 458453,
+      "datasets": 60
+    },
+    {
+      "shard": 36,
+      "archive": "artifacts/stage3-ribench-small-36.zip",
+      "member": "primary-36/results.rds",
+      "rds_sha256": "262570aaaa7df08a4aa5b2be370a11d930d49ffcff6e910609840224df6dbaf3",
+      "bytes": 465043,
+      "datasets": 60
+    },
+    {
+      "shard": 37,
+      "archive": "artifacts/stage3-ribench-small-37.zip",
+      "member": "primary-37/results.rds",
+      "rds_sha256": "5918b73f03e757719b7e020ac8f9698680bdff158dd35839e816eed170acc2b9",
+      "bytes": 463891,
+      "datasets": 60
+    },
+    {
+      "shard": 38,
+      "archive": "artifacts/stage3-ribench-small-38.zip",
+      "member": "primary-38/results.rds",
+      "rds_sha256": "d092fd124bf0f10f31eff921a0e01ce6f12b6bac7223f74582e16633111b6885",
+      "bytes": 473930,
+      "datasets": 60
+    },
+    {
+      "shard": 39,
+      "archive": "artifacts/stage3-ribench-small-39.zip",
+      "member": "primary-39/results.rds",
+      "rds_sha256": "aee68c9801f69a88d36b1754283d29916645de781bd91548a59f3e824c8697cd",
+      "bytes": 479081,
+      "datasets": 60
+    },
+    {
+      "shard": 40,
+      "archive": "artifacts/stage3-ribench-small-40.zip",
+      "member": "primary-40/results.rds",
+      "rds_sha256": "6f6b3dcc82d4475e48263fbeacdba0d08031a67912b84ca7a4b6c00d66352100",
+      "bytes": 491127,
+      "datasets": 60
+    },
+    {
+      "shard": 41,
+      "archive": "artifacts/stage3-ribench-small-41.zip",
+      "member": "primary-41/results.rds",
+      "rds_sha256": "2b1c966765b04cd07ae66fe38e4bfc15e0bdedd788e2d781c6d72ddd95b59a23",
+      "bytes": 488816,
+      "datasets": 60
+    },
+    {
+      "shard": 42,
+      "archive": "artifacts/stage3-ribench-small-42.zip",
+      "member": "primary-42/results.rds",
+      "rds_sha256": "6a43cf546095cc3c2ad97527386586b0f453ccd4792145f971885ff0fa40f5d3",
+      "bytes": 509048,
+      "datasets": 60
+    },
+    {
+      "shard": 43,
+      "archive": "artifacts/stage3-ribench-small-43.zip",
+      "member": "primary-43/results.rds",
+      "rds_sha256": "89c895a9407fb0f25bb26cdda02bc9db015bf83b5d5f3a297b1245c302f56ef7",
+      "bytes": 499716,
+      "datasets": 60
+    },
+    {
+      "shard": 44,
+      "archive": "artifacts/stage3-ribench-small-44.zip",
+      "member": "primary-44/results.rds",
+      "rds_sha256": "f7e03f2172c7484a65c946bc21427c38e8ebc71c29557f146bb57539c824013a",
+      "bytes": 519401,
+      "datasets": 60
+    },
+    {
+      "shard": 45,
+      "archive": "artifacts/stage3-ribench-small-45.zip",
+      "member": "primary-45/results.rds",
+      "rds_sha256": "9045780a5c3a8203e829c4be32d5d87a9f6fa9cc3805e5c984f89832855cb37f",
+      "bytes": 506706,
+      "datasets": 60
+    },
+    {
+      "shard": 46,
+      "archive": "artifacts/stage3-ribench-small-46.zip",
+      "member": "primary-46/results.rds",
+      "rds_sha256": "3266d08705d2326f6770d46e66002b6ff980ba97c0b33c041c58fe44aa7908de",
+      "bytes": 527023,
+      "datasets": 60
+    },
+    {
+      "shard": 47,
+      "archive": "artifacts/stage3-ribench-small-47.zip",
+      "member": "primary-47/results.rds",
+      "rds_sha256": "990ba4d8f3a71413026d99c411fb0fad630a5490ca84f6ef63a4a48bc0b016b7",
+      "bytes": 508259,
+      "datasets": 60
+    },
+    {
+      "shard": 48,
+      "archive": "artifacts/stage3-ribench-small-48.zip",
+      "member": "primary-48/results.rds",
+      "rds_sha256": "ac1759e6dd507d53759d286db138573cecce21281a06044d5136c0c131dbd9cd",
+      "bytes": 533295,
+      "datasets": 60
+    }
+  ]
+}

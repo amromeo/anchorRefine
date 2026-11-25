@@ -1,0 +1,12 @@
+{
+  "audit_sha256": "45ef0949779f9ec5b7fea6b623cbfe3a7b6cbded06716b7e4f4ee95a174c6334",
+  "cohort": "small",
+  "commit": "ffbf4450537a619b4abdda4dff5c3a3a145d6a02",
+  "mode": "sampled",
+  "outcome": "passed",
+  "prior_sampled_run": null,
+  "prior_small_run": null,
+  "run_attempt": 1,
+  "run_id": 45530368829,
+  "source_manifest_sha256": "86530c5d9dce7381c2e65a2a487a18c882a0aa24f2b58bdc3c7e605ba1b3903a"
+}
