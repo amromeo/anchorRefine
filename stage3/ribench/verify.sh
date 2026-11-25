@@ -11,7 +11,6 @@ printf '%s  %s\n' cb5e6896095b7ef51f5d8490b70c63af63b14045b623b0332b4f07bc021865
 for manifest in stage3/confirmation-sources.sha256 stage2/ribench/SHA256SUMS stage2/SHA256SUMS stage2/selected-sources.sha256; do
     awk '$2 != "PROTOCOL.md"' "$manifest" | sha256sum --quiet --check -
 done
-python3 stage3/verify-confirmation-weights.py
 sha256sum --quiet --check sources/SHA256SUMS
 sha256sum --quiet --check stage2/ablation-sources.sha256
 (cd stage0/frozen && sha256sum --quiet --check bundle.sha256)

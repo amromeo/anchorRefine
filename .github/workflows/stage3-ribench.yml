@@ -51,6 +51,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           bash stage3/ribench/verify.sh
+          python3 stage3/verify-confirmation-weights.py
           python3 stage3/ribench/sample.py
           python3 stage3/ribench/eligibility.py gate
       - name: Regenerate and verify the large routine vectors
@@ -234,6 +235,7 @@ jobs:
         run: |
           set -euo pipefail
           bash stage3/ribench/verify.sh
+          python3 stage3/verify-confirmation-weights.py
           mkdir -p output/evidence
           cp stage3/ribench/SHA256SUMS output/source-manifest.sha256
           cp results/stage3-development/selected-weights.json output/selected-weights.json
